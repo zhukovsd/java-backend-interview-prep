@@ -15,7 +15,7 @@ git clone git@github.com:zhukovsd/java-backend-interview-prep.git
 Зайти в директорию проекта
 
 ```bash
-cd currency_exchange_api_ocaml
+cd java-backend-interview-prep
 ```
 Запустить локальный сервер с проектом
 
