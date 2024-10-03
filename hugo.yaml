@@ -1,0 +1,26 @@
+baseURL: https://zhukovsd.github.io/java-backend-interview-prep/
+title: in dev
+languageCode: ru
+theme : hugo-book
+enableGitInfo: true
+
+params:
+  BookTheme: 'auto'
+  BookSection: '*'
+  BookPortableLinks: true
+  BookRepo: 'https://github.com/zhukovsd/java-backend-interview-prep'
+  BookCommitPath: 'commit'
+  BookEditPath: 'edit/main'
+
+menu:
+  after:
+    - name: "Telegram канал"
+      url: "https://t.me/zhukovsd_it_mentor"
+      weight: 10
+    - name: "Telegram чат"
+      url: "https://t.me/zhukovsd_it_chat"
+      weight: 20
+    - name: "YouTube"
+      url: "https://www.youtube.com/@zhukovsd_it_mentor"
+      weight: 30
+

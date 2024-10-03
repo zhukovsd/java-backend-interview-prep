@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <title>in dev</title>
+    <link>http://localhost:1313/java-backend-interview-prep/</link>
+    <description>Recent content on in dev</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <language>ru</language>
+    <lastBuildDate>Thu, 03 Oct 2024 23:03:20 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/java-backend-interview-prep/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello World</title>
+      <link>http://localhost:1313/java-backend-interview-prep/hello-world/</link>
+      <pubDate>Thu, 03 Oct 2024 23:03:20 +0700</pubDate>
+      <guid>http://localhost:1313/java-backend-interview-prep/hello-world/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
