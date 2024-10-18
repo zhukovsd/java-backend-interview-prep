@@ -132,7 +132,7 @@
   - Все поля устанавливаются через конструктор
 
 #### 8. Расскажите про иерархию исключений
-![alt text](image/Exception.png)
+{{< figure src="Exception.png" title="Exceptions" >}}
 
   **Interface Throwable** - общий предок для всех исключений
 
@@ -150,7 +150,7 @@
 ## КОЛЛЕКЦИИ
 
 #### 1. Расскажите как выглядит иерархия коллекций
-![alt text](image/Collections.png)
+{{< figure src="Collections.png" title="Collections">}}
 
 **Collection** и **Map** - два интерфейса, которые находятся на вершине иерархии JCF. Интерфейс Collection расширяют интерфейсы:
 - List
