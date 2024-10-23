@@ -53,7 +53,7 @@
 
 #### 9. Жизненный цикл сущности.
 В Hibernate сущность может находиться в одном из четырех состояний:
-{{< figure src="Hibernate_Entity_Lifecycle.png" >}}
+{{< figure src="Hibernate_Entity_Life_cycle.png" >}}
 
 - **Transient (Переходное состояние) (new)**
   
