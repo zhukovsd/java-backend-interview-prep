@@ -353,3 +353,7 @@
 ### 6. [docker cmd vs entrypoint. В чем отличия?](Deployment/#6-docker-cmd-vs-entrypoint-в-чем-отличия)
 ### 7. [Отличия контейнеризации от виртулизации.](Deployment/#7-отличия-контейнеризации-от-виртулизации)
 ### 8. [Kubernetes (k8s)](Deployment/#8-kubernetes-k8s)
+
+## [Other](Other/#other)
+
+### 1. [MinIO. Зачем работал с этой системой?](Other/#1-minio-зачем-работал-с-этой-системой)
