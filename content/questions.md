@@ -324,3 +324,41 @@
 ### 8. [Circuit Breaker паттерн](Microservices/#8-circuit-breaker-паттерн)
 ### 9. [API Gateway (Spring Cloud Gateway) паттерн](Microservices/#9-api-gateway-spring-cloud-gateway-паттерн)
 ### 10. [HTTP vs Kafka  (какой способ общения между микросервисами лучше и почему)?](Microservices/#10-http-vs-kafka--какой-способ-общения-между-микросервисами-лучше-и-почему)
+
+## [Message broker](Message-broker/#message-broker)
+
+### 1. [Опыт работы с брокерами сообщений](Message-broker/#1-опыт-работы-с-брокерами-сообщений )
+### 2. [Плюсы и минусы брокеров сообщений](Message-broker/#2-плюсы-и-минусы-брокеров-сообщений)
+### 3. [Опыт работы с Kafka]
+### 4. [Опыт работы с RabbitMQ]
+### 5. [Разница между Kafka и RabbitMQ](Message-broker/#5-разница-между-kafka-и-rabbitmq)
+### 6. [Что такое топик в Kafka?](Message-broker/#6-что-такое-топик-в-kafka)
+### 7. [Что такое Producer и что такое Consumer?](Message-broker/#7-что-такое-producer-и-что-такое-consumer)
+### 8. [Что такое partition в Kafka?](Message-broker/#8-что-такое-partition-в-kafka)
+### 9. [Гарантии доставки в Kafka](Message-broker/#9-гарантии-доставки-в-kafka)
+### 10. [Какие паттерны работы с очередями?](Message-broker/#10-какие-паттерны-работы-с-очередями)
+
+## [Testing](Testing/#testing)
+
+### 1. [На чем пишутся тесты?](Testing/#1-на-чем-пишутся-тесты)
+### 2. [Какие требования к покрытию тестами?](Testing/#2-какие-требования-к-покрытию-тестами)
+
+## [Deployment](Deployment/#deployment)
+
+### 1. [CI/CD](Deployment/#1-cicd)
+### 2. [Из чего состоит докер образ?](Deployment/#2-из-чего-состоит-докер-образ)
+### 3. [Что такое слой? Как мы можем создать новый слой?](Deployment/#3-что-такое-слой-как-мы-можем-создать-новый-слой)
+### 4. [Docker compose](Deployment/#4-docker-compose)
+### 5. [ARG, ENV. В чем отличия?](Deployment/#5-arg-env-в-чем-отличия)
+### 6. [docker cmd vs entrypoint. В чем отличия?](Deployment/#6-docker-cmd-vs-entrypoint-в-чем-отличия)
+### 7. [Отличия контейнеризации от виртулизации.](Deployment/#7-отличия-контейнеризации-от-виртулизации)
+### 8. [Kubernetes (k8s)](Deployment/#8-kubernetes-k8s)
+
+## [Other](Other/#other)
+
+### 1. [MinIO. Зачем работал с этой системой?](Other/#1-minio-зачем-работал-с-этой-системой)
+
+## [Java Coding Interview](Java-Coding-Interview/#Java-Coding-Interview)
+
+### 1. Есть таблица. 3 столбца. Сделай выборку сотрудников и их средний оклад, который превышет 200к. В уме.
+### 2. Каков порядок вызова конструкторов и  блоков инициализации с учетом иерархии классов на примере кода
