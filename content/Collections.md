@@ -1,4 +1,4 @@
-## КОЛЛЕКЦИИ
+## Collections
 
 #### 1. Расскажите как выглядит иерархия коллекций
 {{< figure src="Collections.png" title="Collections">}}
