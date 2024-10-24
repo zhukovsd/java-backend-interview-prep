@@ -1,11 +1,9 @@
 ## Collections
 
-### Обязательно к прочтению
-
- - ArrayList - https://habr.com/ru/articles/128269/ 
- - LinkedList - https://habr.com/ru/articles/127864/
- - HashMap - https://habr.com/ru/articles/128017/
-
+> **Обязательно к прочтению**
+> - ArrayList - https://habr.com/ru/articles/128269/ 
+> - LinkedList - https://habr.com/ru/articles/127864/
+> - HashMap - https://habr.com/ru/articles/128017/
 
 #### 1. Расскажите как выглядит иерархия коллекций
 {{< figure src="Collections.png" title="Collections">}}
