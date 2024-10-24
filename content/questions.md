@@ -324,3 +324,16 @@
 ### 8. [Circuit Breaker паттерн](Microservices/#8-circuit-breaker-паттерн)
 ### 9. [API Gateway (Spring Cloud Gateway) паттерн](Microservices/#9-api-gateway-spring-cloud-gateway-паттерн)
 ### 10. [HTTP vs Kafka  (какой способ общения между микросервисами лучше и почему)?](Microservices/#10-http-vs-kafka--какой-способ-общения-между-микросервисами-лучше-и-почему)
+
+## [Message broker](Message-broker/#message-broker)
+
+### 1. [Опыт работы с брокерами сообщений](Message-broker/#1-опыт-работы-с-брокерами-сообщений )
+### 2. [Плюсы и минусы брокеров сообщений](Message-broker/#2-плюсы-и-минусы-брокеров-сообщений)
+### 3. [Опыт работы с Kafka]
+### 4. [Опыт работы с RabbitMQ]
+### 5. [Разница между Kafka и RabbitMQ](Message-broker/#5-разница-между-kafka-и-rabbitmq)
+### 6. [Что такое топик в Kafka?](Message-broker/#6-что-такое-топик-в-kafka)
+### 7. [Что такое Producer и что такое Consumer?](Message-broker/#7-что-такое-producer-и-что-такое-consumer)
+### 8. [Что такое partition в Kafka?](Message-broker/#8-что-такое-partition-в-kafka)
+### 9. [Гарантии доставки в Kafka](Message-broker/#9-гарантии-доставки-в-kafka)
+### 10. [Какие паттерны работы с очередями?](Message-broker/#10-какие-паттерны-работы-с-очередями)
