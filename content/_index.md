@@ -3,6 +3,6 @@ title: Index Page
 date: 2024-10-03T23:15:53+07:00
 ---
 
-# Index Page
+# IT Ментор | Java методичка
 
-First page that user see
+Все привет
