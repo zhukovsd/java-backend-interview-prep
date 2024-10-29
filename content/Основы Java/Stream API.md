@@ -1,3 +1,9 @@
++++
+title = 'Stream API'
+weight = 6
+bookFlatSection = true
++++
+
 ## Stream API
 
 #### 1. Что такое Stream Api и для чего нужны стримы?

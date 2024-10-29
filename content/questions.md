@@ -1,12 +1,12 @@
 +++
-title = 'Questions'
+title = 'Список вопросов'
 weight = 1
 bookFlatSection = true
 +++
 
-# Questions
+# Список вопросов
 
-## [OOP](OOP/#oop)
+## [ООП](OOP/#oop)
 
 #### 1. [Что такое ООП?](OOP/#1-что-такое-ооп)
 #### 2. [Какие преимущества у ООП?](OOP/#2-какие-преимущества-у-ооп)
@@ -76,7 +76,7 @@ bookFlatSection = true
 #### 50. [Класс Object и его методы?](java-core/#50-класс-object-и-его-методы)
 #### 51. [Что такое сериализация и для чего она нужна?](java-core/#51-что-такое-сериализация-и-для-чего-она-нужна)
 
-## [Collections](Collections/#collections)
+## [Коллекции](Collections/#collections)
 
 #### 1. [Расскажите как выглядит иерархия коллекций](Collections/#1-расскажите-как-выглядит-иерархия-коллекций)
 #### 2. [Что такое ArrayList?](Collections/#2-что-такое-arraylist)
@@ -127,7 +127,7 @@ bookFlatSection = true
 #### 47. [Какая скорость операций Deque?](Collections/#47-какая-скорость-операций-deque)
 #### 48. [Какая коллекция реализует дисциплину обслуживания LIFO?](Collections/#48-какая-коллекция-реализует-дисциплину-обслуживания-lifo)
 
-## [Exceptions](Exceptions/#Exceptions)
+## [Исключения](Exceptions/#Exceptions)
 
 #### 1. [Расскажите про иерархию исключений](Exceptions/#1-расскажите-про-иерархию-исключений)
 #### 2. [Что такое Error и Exception?](Exceptions/#2-что-такое-error-и-exception)
@@ -141,7 +141,7 @@ bookFlatSection = true
 #### 10.[ В каком порядке следует обрабатывать исключения в catch блоках?](Exceptions/#10-в-каком-порядке-следует-обрабатывать-исключения-в-catch-блоках)
 #### 11.[ Что такое механизм try-with-resources?](Exceptions/#11-что-такое-механизм-try-with-resources)
 
-## [Generics](Generics/#generics)
+## [Дженерики](Generics/#generics)
 
 #### 1. [Что такое дженерики? Для чего нужны?](Generics/#1-что-такое-дженерики-для-чего-нужны)
 #### 2. [Что такое сырые типы?](Generics/#2-что-такое-сырые-типы)
@@ -149,7 +149,7 @@ bookFlatSection = true
 #### 4. [Расскажите про принципе PECS](Generics/#4-расскажите-про-принципе-pecs)
 #### 5. [Расскажите про класс Optional](Generics/#5-расскажите-про-класс-optional)
 
-## [Functional Interface](Functional-Interface/#FUNCTIONAL-INTERFACE)
+## [Функциональные интерфейсы](Functional-Interface/#FUNCTIONAL-INTERFACE)
 
 #### 1. [Что такое функциональный интерфейс?](Functional-Interface/#1-что-такое-функциональный-интерфейс)
 #### 2. [Для чего нужна аннотация @FunctionalInterface](Functional-Interface/#2-для-чего-нужна-аннотация-functionalinterface)
@@ -178,7 +178,7 @@ bookFlatSection = true
 #### 17. [Расскажите про класс Collectors и его методы](Stream-API/#17-расскажите-про-класс-collectors-и-его-методы)
 #### 18. [Что такое IntStream и DoubleStream](Stream-API/#18-что-такое-intstream-и-doublestream)
 
-## [Multithreading](Multithreading/#multithreading)
+## [Многопоточность](Multithreading/#multithreading)
 
 #### 1. [Что такое многопоточность?](Multithreading/#1-что-такое-многопоточность)
 #### 2. [Чем процесс отличается от потока?](Multithreading/#2-чем-процесс-отличается-от-потока)
@@ -197,7 +197,7 @@ bookFlatSection = true
 #### 15. [Atomic vs Valotile. Что это и когда что использовать?](Multithreading/#15-atomic-vs-valotile-что-это-и-когда-что-использовать)
 #### 16. [Какие бывают состояния у потока?](Multithreading/#16-какие-бывают-состояния-у-потока)
 
-## [Database management system](Database-management-system/#Database-management-system)
+## [Базы данных](Database-management-system/#Database-management-system)
 
 #### 1. [Какие виды СУБД использовались?](Database-management-system/#1-какие-виды-субд-использовались)
 #### 2. [Где хранили данные на проекте?](Database-management-system/#2-где-хранили-данные-на-проекте)
@@ -226,7 +226,7 @@ bookFlatSection = true
 #### 18. [Что такое селективность?](SQL/#18-что-такое-селективность)
 #### 19. [Ключевое слово LATERAL]
 
-## [Migrations](Migrations/#Migrations)
+## [Миграции](Migrations/#Migrations)
 
 #### 1. [Liquibase. Что это и для чего?](Migrations/#1-liquibase-что-это-и-для-чего)
 
@@ -291,7 +291,7 @@ bookFlatSection = true
 #### 30. [Singleton-антипаттерн. Если мы на класс поставим @Service, это будет Singleton?](SPRING/#30-singleton-антипаттерн-если-мы-на-класс-поставим-service-это-будет-singleton)
 #### 31. [Starter в Spring. Плюсы и минусы.](SPRING/#31-starter-в-spring-плюсы-и-минусы)
 
-## [Design Patterns](Design-Patterns/#Design-Patterns)
+## [Паттерны проектирования](Design-Patterns/#Design-Patterns)
 
 #### 1. [GOF паттерны](Design-Patterns/#1-gof-паттерны)
 #### 2. [Что такое паттерн?](Design-Patterns/#2-что-такое-паттерн)
@@ -318,7 +318,7 @@ bookFlatSection = true
 #### 10. [Почему для конфиденциальных данных рекомендуется использовать POST, а не GET запросы](WEB/#10-почему-для-конфиденциальных-данных-рекомендуется-использовать-post-а-не-get-запросы)
 #### 11. [Разница HTTP и HTTPs](WEB/#11-разница-http-и-https)
 
-## [Microservices](Microservices/#microservices)
+## [Микросервисы](Microservices/#microservices)
 
 #### 1. [Что такое монолит и что такое микросервис?](Microservices/#1-что-такое-монолит-и-что-такое-микросервис)
 #### 2. [Плюсы и минусы монолитов?](Microservices/#2-плюсы-и-минусы-монолитов)
@@ -331,7 +331,7 @@ bookFlatSection = true
 #### 9. [API Gateway (Spring Cloud Gateway) паттерн](Microservices/#9-api-gateway-spring-cloud-gateway-паттерн)
 #### 10. [HTTP vs Kafka  (какой способ общения между микросервисами лучше и почему)?](Microservices/#10-http-vs-kafka--какой-способ-общения-между-микросервисами-лучше-и-почему)
 
-## [Message broker](Message-broker/#message-broker)
+## [Брокеры сообщений](Message-broker/#message-broker)
 
 #### 1. [Опыт работы с брокерами сообщений](Message-broker/#1-опыт-работы-с-брокерами-сообщений )
 #### 2. [Плюсы и минусы брокеров сообщений](Message-broker/#2-плюсы-и-минусы-брокеров-сообщений)
@@ -347,12 +347,12 @@ bookFlatSection = true
 #### 12. [Ситуация. 3 машины в кафке и одна упала. Что с нашей инфой? Инфа постарадает?](Message-broker/#12-ситуация-3-машины-в-кафке-и-одна-упала-что-с-нашей-инфой-инфа-постарадает)
 #### 13. [Kafka. Consumer Group](Message-broker/#13-kafka-consumer-group)
 
-## [Testing](Testing/#testing)
+## [Тестирование](Testing/#testing)
 
 #### 1. [На чем пишутся тесты?](Testing/#1-на-чем-пишутся-тесты)
 #### 2. [Какие требования к покрытию тестами?](Testing/#2-какие-требования-к-покрытию-тестами)
 
-## [Deployment](Deployment/#deployment)
+## [Деплой](Deployment/#deployment)
 
 #### 1. [CI/CD](Deployment/#1-cicd)
 #### 2. [Из чего состоит докер образ?](Deployment/#2-из-чего-состоит-докер-образ)
@@ -363,11 +363,11 @@ bookFlatSection = true
 #### 7. [Отличия контейнеризации от виртулизации.](Deployment/#7-отличия-контейнеризации-от-виртулизации)
 #### 8. [Kubernetes (k8s)](Deployment/#8-kubernetes-k8s)
 
-## [Other](Other/#other)
+## [Другое](Other/#other)
 
 #### 1. [MinIO. Зачем работал с этой системой?](Other/#1-minio-зачем-работал-с-этой-системой)
 
-## [Java Coding Interview](Java-Coding-Interview/#Java-Coding-Interview)
+## [Лайвкодинг](Java-Coding-Interview/#Java-Coding-Interview)
 
 #### 1. Есть таблица. 3 столбца. Сделай выборку сотрудников и их средний оклад, который превышет 200к. В уме.
 #### 2. Каков порядок вызова конструкторов и  блоков инициализации с учетом иерархии классов на примере кода

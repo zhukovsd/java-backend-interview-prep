@@ -1,4 +1,10 @@
-## Collections
++++
+title = 'Коллекции'
+weight = 2
+bookFlatSection = true
++++
+
+## Коллекции
 
 > **Обязательно к прочтению**
 > - ArrayList - https://habr.com/ru/articles/128269/ 

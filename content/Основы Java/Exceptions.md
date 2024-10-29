@@ -1,4 +1,10 @@
-## Exceptions
++++
+title = 'Исключения'
+weight = 3
+bookFlatSection = true
++++
+
+## Исключения
 
 #### 1. Расскажите про иерархию исключений
 {{< figure src="Exception.png" title="Exceptions" >}}
