@@ -1,3 +1,9 @@
++++
+title = 'SOLID'
+weight = 1
+bookFlatSection = true
++++
+
 ## SOLID
 
 #### 1. Что такое SOLID(каждая буква)?

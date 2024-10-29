@@ -1,3 +1,9 @@
++++
+title = 'ORM'
+weight = 3
+bookFlatSection = true
++++
+
 ## ORM
 
 #### 1. Что такое Hibernate, JPA, JDBC, ORM?

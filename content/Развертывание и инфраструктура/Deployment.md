@@ -1,4 +1,10 @@
-## Deployment
++++
+title = 'Деплой'
+weight = 1
+bookFlatSection = true
++++
+
+## Деплой
 
 #### 1. CI/CD 
 *CI/CD* (Continuous Integration / Continuous Delivery) — это набор практик и инструментов для автоматизации интеграции кода и доставки приложений:

@@ -1,3 +1,9 @@
++++
+title = 'SQL'
+weight = 2
+bookFlatSection = true
++++
+
 ## SQL
 
 #### 1. Что такое транзакции?

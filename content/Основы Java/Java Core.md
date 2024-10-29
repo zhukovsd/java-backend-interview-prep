@@ -1,3 +1,9 @@
++++
+title = 'Java Core'
+weight = 1
+bookFlatSection = true
++++
+
 ## Java Core
 
 #### 1. Расскажи мне про контракт Equals&Hashcode

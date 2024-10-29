@@ -1,4 +1,10 @@
-## Database management system
++++
+title = 'Базы данных'
+weight = 1
+bookFlatSection = true
++++
+
+## Базы данных
 
 #### 1. Какие виды СУБД использовались?
 - Реляционные СУБД (SQL)
