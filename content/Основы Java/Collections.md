@@ -6,7 +6,7 @@
 > - HashMap - https://habr.com/ru/articles/128017/
 
 #### 1. Расскажите как выглядит иерархия коллекций
-{{< figure src="Collections.png" title="Collections">}}
+{{< figure src="Collections.png" >}}
 
 **Collection** и **Map** - два интерфейса, которые находятся на вершине иерархии JCF. Интерфейс Collection расширяют интерфейсы:
 - List
