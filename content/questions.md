@@ -136,6 +136,7 @@ bookFlatSection = true
 #### 3. [Что такое вайлдкард](Основы-Java/Generics/#3-что-такое-вайлдкард)
 #### 4. [Расскажите про принципе PECS](Основы-Java/Generics/#4-расскажите-про-принципе-pecs)
 #### 5. [Расскажите про класс Optional](Основы-Java/Generics/#5-расскажите-про-класс-optional)
+#### 6. [Как JVM работает с Generics](Основы-Java/Generics/#6-как-jvm-работает-с-generics)
 
 ## [Функциональные интерфейсы](Основы-Java/Functional-Interface/#FUNCTIONAL-INTERFACE)
 
