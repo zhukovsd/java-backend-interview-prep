@@ -1,6 +1,6 @@
 +++
 title = 'Миграции'
-weight = 4
+weight = 5
 bookFlatSection = true
 +++
 
