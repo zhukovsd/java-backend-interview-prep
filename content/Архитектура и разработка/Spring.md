@@ -492,7 +492,7 @@ Starters в Spring — это специальные артефакты, кот�
 
 ---
 
-#### 23. Spring Criteria api
+#### 23. Spring Criteria API
 
 ---
 #### 24. @Scheduled
@@ -510,7 +510,7 @@ Starters в Spring — это специальные артефакты, кот�
 ***Расскажи про разницу  между ApplicationContext и BeanFactory.***
 
 ---
-#### 28. Зачем нужны аннотации RequestParam и PathVariable?
+#### 28. Зачем нужны аннотации @RequestParam и @PathVariable?
 
 ---
 #### 29. @ConfigurationProperties? ConfigurationProperties vs Value
@@ -538,3 +538,6 @@ Starters в Spring — это специальные артефакты, кот�
 
 ---
 #### 36. Dependency management в Spring boot
+
+---
+#### 37. Spring Security, как хранить пароль пользователя?

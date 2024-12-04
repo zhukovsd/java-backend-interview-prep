@@ -285,3 +285,4 @@ Deque (Double-Ended Queue) — это интерфейс в Java, который
 !!!
 #### 37. Arrays.asList() and List.of()
 !!!
+#### 38. Структуры данных. Какая сложность в дереве?
