@@ -16,7 +16,7 @@ bookFlatSection = true
 *JDBC* - низкоуровневый API для взаимодействия с базами данных. 
 
 ---
-#### 2. Плюсы и минусы ORM.
+#### 2. Плюсы и минусы ORM
 **Плюсы:**
 - Позволяет бизнес методам обращаться не к БД, а к Java классам
 - Ускоряет разработку приложения
@@ -63,7 +63,7 @@ bookFlatSection = true
 
 
 ---
-#### 8. FetchType.
+#### 8. FetchType
 *LAZY* - данные поля будут загружены не сразу, а только при обращении к ним
 
 *EAGER* - связанные сущности загружаются сразу вместе с основной сущностью
@@ -72,7 +72,7 @@ bookFlatSection = true
 - `@ManyToOne` `@OneToOne` - по-умолчанию применяется FetchType.EAGER
 
 ---
-#### 9. Жизненный цикл сущности.
+#### 9. Жизненный цикл сущности
 В Hibernate сущность может находиться в одном из четырех состояний:
 {{< figure src="Hibernate_Entity_Life_cycle.png" >}}
 
@@ -129,7 +129,7 @@ session.delete();
   - Кэширует результаты запросов на уровне SQL-запросов (кэширует результаты выборки)
 
 ---
-#### 11. HQL и JPQL.
+#### 11. HQL и JPQL
 Являются объектно-ориентированными языками запросов, схожими по природе с SQL
 
 *HQL* полностью объектно-ориентирован и расширяет JPQL
@@ -137,7 +137,7 @@ session.delete();
 *JPQL* - это стандарт JPA, который поддерживается всеми реализациями JPA, а HQL - реализация Hibernate
 
 ---
-#### 12. EntityManager + EntityManagerFactory / SessionFactory + session.
+#### 12. EntityManager + EntityManagerFactory / SessionFactory + session
 Разница в том, где они используются. 
 
 EntityManager и EntityManagerFactory - это *JPA*.
@@ -147,7 +147,7 @@ Session и SessionFactory - *Hibernate*.
 Session - основной интерфейс для взаимодействия с базой данных в Hibernate. Создается из SessionFactory 
 
 ---
-#### 13. Проблема N + 1.
+#### 13. Проблема N + 1
 Это проблема, которая возникает, когда приложение делает слишком много запросов к базе данных, когда можно обойтись одним.
 
 **Пример:**
@@ -255,7 +255,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 ```
 
 ---
-#### 15. Statement, Prepared statement, Callable statement.
+#### 15. Statement, Prepared statement, Callable statement
 - *Statement* - объект, который используется для формирования простых SQL запросов. Уязвим к SQL инъекциям
 
 - *PreparedStatement*
@@ -266,7 +266,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 - *CallableStatement* - для вызова хранимых процедур
 
 ---
-
 #### 16. Связи между таблицами в ORM?
   1. OneToOne
   2. OneToMany, ManyToOne
@@ -365,7 +364,7 @@ public class Department {
 |**ManyToMany**|Многие ко многим|Студенты и курсы|Множеству объектов одной сущности соответствует множество другой|Промежуточная таблица|
 
 ---
-***OneToMany: разница между List и Set.***
+***OneToMany: разница между List и Set***
 
 |Характеристика|`List`|`Set`|
 |---|---|---|
@@ -375,7 +374,7 @@ public class Department {
 |**Используемая реализация**|`ArrayList` или `LinkedList`|Обычно `HashSet` или `TreeSet`|
 
 ---
-#### 17. LazyInitializationException.
+#### 17. LazyInitializationException
 Это происходит, когда объект был загружен с ленивой загрузкой, но его данные пытаются быть использованы после закрытия сессии
 
 ```java
@@ -412,7 +411,7 @@ SELECT * FROM users WHERE username = 'user' OR '1'='1' AND password = 'password'
   - Использовать Hibernate
 
 ---
-#### 19. Проблемы JOIN FETCH.
+#### 19. Проблемы JOIN FETCH
 - Проблема
   - Дублирование данных. При загрузке основной сущности с её связанными сущностями результаты могут содержать дубликаты
 
@@ -424,7 +423,7 @@ SELECT * FROM users WHERE username = 'user' OR '1'='1' AND password = 'password'
   - Использование Set для хранения связных элементов
 
 ---
-#### 20. Логи в Hibernate.
+#### 20. Логи в Hibernate
 Hibernate предоставляет детализированные логи через категорию `org.hibernate.SQL`. Это помогает отслеживать сгенерированные SQL-запросы, параметры и выполнение транзакций. Включение логов может помочь отладить проблемы с производительностью или запросами, но может замедлить выполнение при большом количестве запросов.
 
 ```java
