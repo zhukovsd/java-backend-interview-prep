@@ -292,11 +292,10 @@ bookFlatSection = true
 #### 30. [@Value. Что это?](Архитектура-и-разработка/SPRING/#30-value-что-это)
 #### 31. [Как работает DispatcherServlet?](Архитектура-и-разработка/SPRING/#31-как-работает-dispatcherservlet)
 #### 32. [Варианты обработки Exceptions в Spring](Архитектура-и-разработка/SPRING/#32-варианты-обработки-exceptions-в-spring)
-#### 33. [Контекст Spring-а. Можно ли поднять несколько контекстов?](Архитектура-и-разработка/SPRING/#33-контекст-spring-а-можно-ли-поднять-несколько-контекстов)
-#### 34. [@Configuration. Является Configuration компонентом? Какую доп логику Configuration реализует?](Архитектура-и-разработка/SPRING/#34-configuration-является-configuration-компонентом-какую-доп-логику-configuration-реализует)
-#### 35. [@PostConstruct. Что это? Сколько @PostConstruct можно задекларировать в бине?](Архитектура-и-разработка/SPRING/#35-postconstruct-что-это-сколько-postconstruct-можно-задекларировать-в-бине)
-#### 36. [Dependency management в Spring boot](Архитектура-и-разработка/SPRING/#36-dependency-management-в-spring-boot)
-#### 37. [Spring Security, как хранить пароль пользователя?](Архитектура-и-разработка/SPRING/#37-spring-security-как-хранить-пароль-пользователя)
+#### 33. [@Configuration. Является Configuration компонентом? Какую доп логику Configuration реализует?](Архитектура-и-разработка/SPRING/#33-configuration-является-configuration-компонентом-какую-доп-логику-configuration-реализует)
+#### 34. [@PostConstruct](Архитектура-и-разработка/SPRING/#34-postconstruct)
+#### 35. [Dependency management в Spring boot](Архитектура-и-разработка/SPRING/#35-dependency-management-в-spring-boot)
+#### 36. [Spring Security, как хранить пароль пользователя?](Архитектура-и-разработка/SPRING/#36-spring-security-как-хранить-пароль-пользователя)
 
 ## [Паттерны проектирования](Принципы-и-методы-проектирования/Design-Patterns/#Design-Patterns)
 
