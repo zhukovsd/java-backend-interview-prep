@@ -5,7 +5,7 @@ bookFlatSection = true
 bookToC = false
 +++
 
-# Список вопросов
+# Технические вопросы
 
 ## [ООП](Основы-Java/oop/#ооп) [12%]
 
