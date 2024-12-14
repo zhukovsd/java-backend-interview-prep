@@ -1,7 +1,8 @@
 +++
 title = 'Лайвкодинг'
-weight = 80
+weight = 4
 bookFlatSection = true
+bookToC = false
 +++
 
 ## Лайвкодинг

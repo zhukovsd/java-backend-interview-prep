@@ -1,5 +1,5 @@
 +++
-title = 'Список вопросов'
+title = 'Технические вопросы'
 weight = 1
 bookFlatSection = true
 bookToC = false
