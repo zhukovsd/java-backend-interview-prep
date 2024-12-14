@@ -24,3 +24,8 @@ menu:
       url: "https://www.youtube.com/@zhukovsd_it_mentor"
       weight: 30
 
+markup:
+  tableOfContents:
+    endLevel: 4
+    ordered: false
+    startLevel: 2
