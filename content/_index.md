@@ -24,7 +24,7 @@ date: 2024-10-03T23:15:53+07:00
 
 - [Технические вопросы](https://zhukovsd.github.io/java-backend-interview-prep/questions/) с % популярности каждого.
 - Ответы на технические вопросы - каждый вопрос по ссылке выше это ссылка на ответ.
-- [Коллекция](https://zhukovsd.github.io/java-backend-interview-prep/general-questions/) вопросов про опыт работы, встречаются на 90% собеседований.
+- [Коллекция](https://zhukovsd.github.io/java-backend-interview-prep/work-experience/) вопросов про опыт работы, встречаются на 90% собеседований.
 - [Вопросы на подумать](https://zhukovsd.github.io/java-backend-interview-prep/tasks-to-think/), встречаются на 62% собеседований.
 - [Задачи на лайвкодинг](https://zhukovsd.github.io/java-backend-interview-prep/livecoding/) по Java, SQL, Stream API, рефакторингу с реальных собеседований. Встречаются на 51% собеседований.
 
