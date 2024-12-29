@@ -366,7 +366,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 - *CallableStatement* - для вызова хранимых процедур
 
 ---
-#### 16. Связи между таблицами в ORM?
+#### 16. Связи между таблицами в ORM
   1. OneToOne
   2. OneToMany, ManyToOne
   3. ManyToMany
