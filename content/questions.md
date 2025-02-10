@@ -127,6 +127,7 @@ bookToC = false
 #### 11. [Что такое механизм try-with-resources?](Основы-Java/Exceptions/#11-что-такое-механизм-try-with-resources) [4%]
 #### 12. [Ошибка OutOfMemoryError. Поймать утечку памяти и пофиксить](Основы-Java/Exceptions/#12-ошибка-outofmemoryerror-поймать-утечку-памяти-и-пофиксить) [9%]
 #### 13. [@SneakyThrows в Lombok](Основы-Java/Exceptions/#13-sneakythrows-в-lombok) [2%]
+#### 14. [StackOverflowError vs OutOfMemoryError](Основы-Java/Exceptions/#14-stackoverflowerror-vs-outofmemoryerror) [2%]
 
 ## [Дженерики](Основы-Java/Generics/#generics) [21%]
 
