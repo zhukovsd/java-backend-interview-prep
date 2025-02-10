@@ -74,6 +74,191 @@ User lazyUser = session.load(User.class, 2); // Proxy-объект
 - При использовании `session.load()` объект заменяется Proxy до момента фактического обращения к данным.
 
 ---
+***Как создается Proxy***
+
+ **1️⃣ Proxy в Hibernate**
+
+ **🔹 Как Hibernate создает Proxy?**
+
+Когда сущность аннотирована `@OneToMany`, `@ManyToOne`, `@OneToOne` или `@ManyToMany` с `fetch = FetchType.LAZY`, Hibernate **подменяет объект на прокси-класс** (подкласс реального объекта).
+
+📌 **Пример:**
+
+```java
+@Entity
+class User {
+    @Id @GeneratedValue
+    private Long id;
+    private String name;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Order> orders;
+}
+
+@Entity
+class Order {
+    @Id @GeneratedValue
+    private Long id;
+    private String product;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+}
+```
+
+💡 **Hibernate создает прокси для `orders`, загружая их только при первом доступе.**
+
+📌 **Как проверить, прокси это или нет?**
+
+```java
+Session session = sessionFactory.openSession();
+User user = session.get(User.class, 1L);
+
+System.out.println(user.getOrders().getClass()); 
+// class com.sun.proxy.$Proxy...
+```
+
+
+ **🔹 Проблемы с Proxy в Hibernate**
+
+❌ **LazyInitializationException**
+
+```java
+Session session = sessionFactory.openSession();
+User user = session.get(User.class, 1L);
+session.close();
+
+user.getOrders().size(); // Ошибка! Доступ к Proxy после закрытия сессии
+```
+
+📌 **Решение:**
+
+- Использовать **`JOIN FETCH`**
+- Открыть сессию вручную (**OpenSessionInView**)
+
+📌 **Использование `JOIN FETCH`:**
+
+```java
+List<User> users = session.createQuery(
+    "SELECT u FROM User u JOIN FETCH u.orders", User.class
+).getResultList();
+```
+
+
+ **2️⃣ Proxy в Spring**
+
+В Spring **прокси используются для AOP (Aspect-Oriented Programming)**, транзакций (`@Transactional`), security (`@PreAuthorize`) и других механизмов.
+
+
+ **🔹 Как Spring создает Proxy?**
+
+ **🔹 JDK Dynamic Proxy (через `Proxy.newProxyInstance()`)**
+
+- Работает **только с интерфейсами**.
+- Используется по умолчанию.
+
+📌 **Пример:**
+
+```java
+@Service
+public class MyServiceImpl implements MyService {
+    public void doSomething() {
+        System.out.println("Работа метода");
+    }
+}
+```
+
+Spring создает **динамический прокси**:
+
+```java
+MyService proxy = (MyService) Proxy.newProxyInstance(
+    MyServiceImpl.class.getClassLoader(),
+    new Class[]{MyService.class},
+    new InvocationHandler() { /* обработка вызовов */ }
+);
+```
+
+ **🔹 CGLIB Proxy (через `Enhancer.create()`)**
+
+- Работает с **обычными классами (без интерфейсов)**.
+- Используется, если **нет интерфейса**.
+
+📌 **Пример:**
+
+```java
+@Service
+public class MyService {
+    public void doSomething() {
+        System.out.println("Работа метода");
+    }
+}
+```
+
+Spring создает **CGLIB-прокси**:
+
+```java
+MyService proxy = (MyService) Enhancer.create(
+    MyService.class, 
+    new MethodInterceptor() { /* обработка вызовов */ }
+);
+```
+
+ **🔹 Proxy в `@Transactional`**
+
+Spring автоматически создает прокси для бинов с `@Transactional`, чтобы **перехватывать вызовы методов и управлять транзакциями**.
+
+📌 **Пример:**
+
+```java
+@Service
+public class PaymentService {
+    @Transactional
+    public void processPayment() {
+        System.out.println("Оплата обработана");
+    }
+}
+```
+
+📌 **Как работает прокси?**
+
+1. Если вызывается метод `processPayment()`, Spring создает **прокси-объект**.
+2. Прокси **перехватывает вызов** и **открывает транзакцию**.
+3. Выполняется `processPayment()`.
+4. Прокси **фиксирует или откатывает** транзакцию.
+
+❌ **Внутренний вызов метода НЕ создает прокси!**
+
+```java
+@Transactional
+public void outerMethod() {
+    innerMethod(); // ❌ НЕ перехватывается прокси
+}
+@Transactional
+public void innerMethod() {
+    // Здесь транзакция не создастся
+}
+```
+
+📌 **Решение:** Вызвать через `self`:
+
+```java
+@Autowired
+private PaymentService self;
+
+public void outerMethod() {
+    self.innerMethod(); // ✅ Работает через прокси
+}
+```
+
+ **📌 Итог**
+
+✅ **Hibernate Proxy** – лениво загружает связанные сущности (`Lazy Loading`).  
+✅ **Spring Proxy** – управляет транзакциями, AOP и безопасностью.  
+✅ **JDK Proxy** – работает с интерфейсами.  
+✅ **CGLIB Proxy** – работает с классами без интерфейсов.
+
+---
 ***Виды прокси***
 
  1. **Прокси для сущностей (Entity Proxy)**
@@ -474,6 +659,63 @@ public class Department {
 |**Используемая реализация**|`ArrayList` или `LinkedList`|Обычно `HashSet` или `TreeSet`|
 
 ---
+***Плюсы и минусы Cascade***
+
+ **🔹 Что такое `Cascade`?**
+
+`Cascade` в JPA определяет, что делать с зависимыми объектами при изменении основного объекта.
+
+📌 **Пример:**
+
+```java
+@Entity
+class Parent {
+    @Id @GeneratedValue
+    private Long id;
+
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
+    private List<Child> children;
+}
+
+@Entity
+class Child {
+    @Id @GeneratedValue
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "parent_id")
+    private Parent parent;
+}
+```
+
+Если удалить `Parent`, то **все `Child` объекты тоже удалятся!**
+
+ **🔹 Основные типы `CascadeType`**
+
+|**Тип**|**Описание**|
+|---|---|
+|`ALL`|Применяет все виды каскада (`PERSIST`, `REMOVE`, `MERGE`, `REFRESH`, `DETACH`)|
+|`PERSIST`|Автоматически сохраняет зависимые сущности|
+|`REMOVE`|Удаляет зависимые сущности|
+|`MERGE`|Обновляет зависимые сущности|
+|`REFRESH`|Перезаписывает зависимые сущности из БД|
+|`DETACH`|Удаляет зависимые сущности из контекста (но не из БД)|
+
+ **Плюсы и минусы `Cascade`**
+
+✅ **Плюсы:**
+
+- Упрощает работу с зависимыми объектами
+- Автоматизирует `save()` и `delete()`
+- Уменьшает количество `EntityManager` вызовов
+
+❌ **Минусы:**
+
+- Может **неожиданно удалить важные данные** (`REMOVE` без проверки)
+- `ALL` может привести к **непредвиденным каскадным операциям**
+- Может **нагружать базу данных**, если слишком много зависимостей
+
+---
 #### 17. LazyInitializationException
 Это происходит, когда объект был загружен с ленивой загрузкой, но его данные пытаются быть использованы после закрытия сессии
 
@@ -612,4 +854,158 @@ Hibernate генерирует SQL-запросы для выполнения о
 - До окончания сессии.
 - До явного удаления (`evict` или `clear`).
 - До того, как объект становится отсоединённым.
+
+---
+#### 24. Hibernate и Lombok
+
+ **Проблема аннотации `@Data` в Hibernate**
+
+Lombok аннотация `@Data` автоматически генерирует:  
+✅ `getter` и `setter`  
+✅ `toString()`  
+✅ `equals()` и `hashCode()`
+
+Но при работе с Hibernate она может привести к проблемам из-за ленивой загрузки (`FetchType.LAZY`).
+
+ **🔹 Проблема с `toString()`**
+
+📌 Если в `@Data` есть `@OneToMany(fetch = FetchType.LAZY)`, то Hibernate **создает прокси-объект**, а Lombok автоматически вызывает `toString()`, что приводит к **LazyInitializationException**.
+
+```java
+@Entity
+@Data
+public class User {
+    @Id @GeneratedValue
+    private Long id;
+    private String name;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Order> orders;
+}
+```
+
+📌 **Ошибка:**
+
+```java
+User user = session.get(User.class, 1L);
+System.out.println(user); // ❌ LazyInitializationException
+```
+
+📌 **Решение:**  
+Использовать `@ToString.Exclude` или `@EqualsAndHashCode.Exclude`
+
+```java
+@Entity
+@Data
+public class User {
+    @Id @GeneratedValue
+    private Long id;
+    private String name;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<Order> orders;
+}
+```
+
+
+ **🔹 Проблема с `equals()` и `hashCode()`**
+
+📌 **Lombok использует все поля**, включая `@OneToMany`, что может привести к бесконечной рекурсии.
+
+📌 **Решение:** Использовать `@EqualsAndHashCode(onlyExplicitlyIncluded = true)`.
+
+```java
+@Entity
+@Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+public class User {
+    @Id @GeneratedValue
+    @EqualsAndHashCode.Include
+    private Long id;
+
+    private String name;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @ToString.Exclude
+    private List<Order> orders;
+}
+```
+
+✅ Теперь `equals()` и `hashCode()` будут использовать **только `id`**, а `toString()` не вызовет `LazyInitializationException`.
+
+---
+#### 25. Как JPA делает запросы?
+
+JPA выполняет запросы через **EntityManager**, который управляет сущностями и взаимодействует с Hibernate.
+
+ **1️⃣ Методы `EntityManager`**
+
+|**Метод**|**Описание**|
+|---|---|
+|`find(Class, id)`|Загружает сущность по `id` (выполняет `SELECT * FROM ... WHERE id = ?`)|
+|`persist(entity)`|Сохраняет новую сущность (`INSERT INTO ...`)|
+|`merge(entity)`|Обновляет существующую сущность (`UPDATE ... SET ... WHERE id = ?`)|
+|`remove(entity)`|Удаляет сущность (`DELETE FROM ... WHERE id = ?`)|
+|`createQuery("HQL/JPQL")`|Выполняет JPQL-запросы|
+|`createNativeQuery("SQL")`|Выполняет SQL-запросы|
+
+📌 **Пример:**
+
+```java
+User user = entityManager.find(User.class, 1L); // SELECT * FROM users WHERE id = 1
+entityManager.remove(user); // DELETE FROM users WHERE id = 1
+```
+
+
+ **2️⃣ Запросы в Hibernate: JPQL и HQL**
+
+**JPQL (Java Persistence Query Language)** – используется в JPA.  
+**HQL (Hibernate Query Language)** – расширенная версия JPQL.
+
+📌 **JPQL пример:**
+
+```java
+TypedQuery<User> query = entityManager.createQuery(
+    "SELECT u FROM User u WHERE u.name = :name", User.class
+);
+query.setParameter("name", "Alex");
+List<User> users = query.getResultList();
+```
+
+🔹 **Конвертируется в SQL:**
+
+```sql
+SELECT * FROM users WHERE name = 'Alex';
+```
+
+📌 **HQL поддерживает специфичные функции Hibernate:**
+
+```java
+List<User> users = session.createQuery(
+    "FROM User u WHERE u.name LIKE :name", User.class
+)
+.setParameter("name", "%Alex%")
+.getResultList();
+```
+
+ **3️⃣ Как Hibernate выполняет SQL-запросы?**
+
+📌 **Hibernate использует 3 этапа:**   
+**Запрос создается в HQL/JPQL.**  
+**Hibernate конвертирует его в SQL.**  
+**Выполняется SQL-запрос к БД.**
+
+📌 **Пример:**
+
+```java
+User user = session.get(User.class, 1L);
+```
+
+🔹 **Hibernate переводит это в SQL:**
+
+```sql
+SELECT * FROM users WHERE id = 1;
+```
 
