@@ -185,6 +185,10 @@ bookToC = false
 #### 20. [Асинхронность vs многопоточность](Основы-Java/Multithreading/#20-асинхронность-vs-многопоточность) [2%]
 #### 21. [Зачем нужны пулы потоков?](Основы-Java/Multithreading/#21-зачем-нужны-пулы-потоков) [2%]
 #### 22. [Что значит потокобезопасность?](Основы-Java/Multithreading/#22-что-значит-потокобезопасность) [2%]
+#### 23. [Области памяти в многопоточности?](Основы-Java/Multithreading/#23-области-памяти-в-многопоточности) [4%]
+#### 24. [Executors.newCachedThreadPool()](Основы-Java/Multithreading/#24-executorsnewcachedthreadpool) [2%] 
+#### 25. [Что такое happens-before?](Основы-Java/Multithreading/#25-что-такое-happens-before) [5%]
+#### 26. [ForkJoinPool vs FixedThreadPool](Основы-Java/Multithreading/#26-forkjoinpool-vs-fixedthreadpool) [2%]
 
 ## [Базы данных](Работа-с-базами-данных/Database-management-system/#database-management-system) [17%]
 
