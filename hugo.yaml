@@ -29,3 +29,7 @@ markup:
     endLevel: 4
     ordered: false
     startLevel: 4
+
+services:
+  googleAnalytics:
+    id: "G-HSY357LTPQ"
