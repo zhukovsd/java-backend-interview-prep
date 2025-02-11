@@ -379,6 +379,8 @@ bookToC = false
 #### 16. [Как работает Round Robin?](Архитектура-и-разработка/Message-broker/#16-как-работает-round-robin) [2%]
 #### 17. [Acknowledgment в Kafka](Архитектура-и-разработка/Message-broker/#17-acknowledgment-в-kafka) [2%]
 #### 18. [Смещение (offset) в Kafka](Архитектура-и-разработка/Message-broker/#18-смещение-offset-в-kafka) [4%]
+#### 19. [Повторное чтение данных из Kafka](Архитектура-и-разработка/Message-broker/#19-повторное-чтение-данных-из-kafka) [2%]
+#### 20. [DLQ topic?](Архитектура-и-разработка/Message-broker/#20-dlq-topic) [2%]
 
 ## [Тестирование](Тестирование/Testing/#testing) [11%]
 
