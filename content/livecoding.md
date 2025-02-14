@@ -77,7 +77,7 @@ bookToC = false
 #### 5. [Даны две таблицы Persosn и Payments. Один-ко-многим. Справа описание. Напишите запрос, который выводит name и value](Задачи/livecoding/task-livecoding-sql-persons-payments.md)
 
 ---
-#### 6. [Найти минимальную и максимальную зарплаты по отделам](Задачи/livecoding/task-livecoding-sql-min-max-salary.md)
+#### 6. [Необходимо написать sql запрос, который вернет минимальную и максимальную зарплату по всем отделам среди не уволенных сотрудников](Задачи/livecoding/task-livecoding-sql-min-max-salary.md)
 
 ---
 #### 7. [Вывести id классов, у которых нет ни одного студента (без подзапросов)?](Задачи/livecoding/task-livecoding-sql-empty-classes.md)
