@@ -393,7 +393,7 @@ public class CallableExample {
 |Использование|Используется с `Thread` или `Executor`|Используется с `ExecutorService`|
 
 ---
-#### 16. Расскажи про пакет cuncurrent
+#### 16. Расскажи про пакет concurrent
 
 Пакет `java.util.concurrent` предоставляет набор инструментов для работы с многопоточностью. Основные компоненты:
 
