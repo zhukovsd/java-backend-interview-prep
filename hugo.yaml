@@ -10,7 +10,7 @@ params:
   BookPortableLinks: true
   BookRepo: 'https://github.com/zhukovsd/java-backend-interview-prep'
   BookCommitPath: 'commit'
-  BookEditPath: 'edit/main'
+  BookEditPath: 'edit/master'
 
 menu:
   after:
