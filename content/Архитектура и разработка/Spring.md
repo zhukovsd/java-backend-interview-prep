@@ -2144,3 +2144,53 @@ System.out.println(proxy.getClass());
 ✅ Выведет `com.sun.proxy.$Proxy...` для **JDK Dynamic Proxy** или `MyService$$EnhancerByCGLIB$$...` для **CGLIB**.
 
 
+---
+#### 40. @Lookup
+**`@Lookup`** — это аннотация в Spring, позволяющая в **singleton-бине** (одиночке) получать **новый** экземпляр prototype-бина при каждом вызове метода. Без `@Lookup` при внедрении prototype-бина в singleton он создаётся только один раз.
+
+**Как это работает**
+
+1. Ты **помечаешь метод** в singleton-классе аннотацией `@Lookup`.
+2. Spring **динамически переопределяет** этот метод (через CGLIB).
+3. При каждом вызове метода Spring **запрашивает новый prototype-бин** из контекста.
+
+ Пример кода
+
+```java
+@Component
+@Scope("prototype")
+public class PrototypeBean {
+    public void doSomething() {
+        System.out.println("PrototypeBean: " + this);
+    }
+}
+```
+
+```java
+@Component
+public abstract class SingletonBean {
+
+    public void process() {
+        // Каждый раз получаем новый экземпляр PrototypeBean
+        PrototypeBean prototypeBean = getPrototypeBean();
+        prototypeBean.doSomething();
+    }
+
+    @Lookup
+    protected abstract PrototypeBean getPrototypeBean();
+}
+```
+
+**Что здесь происходит?**
+
+- `SingletonBean` — бин с **scope = singleton** (по умолчанию).
+- `PrototypeBean` — бин с **scope = prototype**.
+- Метод `getPrototypeBean()` аннотирован `@Lookup`, и Spring подменяет его реализацию: при вызове `getPrototypeBean()` возвращается **новый** `PrototypeBean`.
+
+ **Зачем нужно**
+
+- Когда в **singleton**-бине надо часто создавать **prototype**-объекты.
+- Чтобы **не использовать** вручную `ApplicationContext.getBean()`.
+- Для **избежания** утечек памяти (прототипы не живут вечно внутри синглтона).
+
+
