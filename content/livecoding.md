@@ -60,18 +60,37 @@ bookToC = false
 #### 17. [Спринг сервис. Идеи по улучшению кода. Как сделать так, чтобы при добавлении нового робота Spring сразу создавал нового робота и нам не пришлось работать ручками](Задачи/livecoding/task-livecoding-spring-auto-robot.md)
 
 #### 18. [Форматирование текста в консоли](Задачи/livecoding/task-livecoding-java-printformattedtext.md)
+
+---
 #### 19. [Рефакторинг кода PersonService](Задачи/livecoding/task-livecoding-java-refactor-personservice.md)
+
+---
 #### 20. [Разработка сервиса поиска обуви](Задачи/livecoding/task-livecoding-java-shoes-service.md)
+
+---
 #### 21. [Генерация ряда Фибоначчи](Задачи/livecoding/task-livecoding-java-fibonacci-sequence.md)
+
+---
 #### 22. [Поиск Person по имени](Задачи/livecoding/task-livecoding-java-find-person-by-name.md)
+
+---
 #### 23. [Код-ревью и исправление ошибок](Задачи/livecoding/task-livecoding-java-code-review-fixes.md)
+
+---
 #### 24. [Поиск первого уникального символа](Задачи/livecoding/task-livecoding-java-first-unique-char.md)
+
+---
 #### 25. [Исправление проблем в коде](Задачи/livecoding/task-livecoding-java-fix-message-building.md)
+
+---
 #### 26. [CRUD для сущностей "Книги" и "Авторы"](Задачи/livecoding/task-livecoding-java-crud-books.md)
+
+---
 #### 27. [Изменение названия атрибута в API](Задачи/livecoding/task-livecoding-java-rename-attribute.md)
 
 
 ## SQL
+
 
 #### 1. [Найди id юнитов, которые были проданы на сумму более 1000 рублей после 10:00 сегодняшнего дня. > "2024-06-03 10:00"](Задачи/livecoding/task-livecoding-sql-units-sold-after-time.md)
 
@@ -108,6 +127,6 @@ bookToC = false
 
 ## Stream API
 
----
+
 #### 1. [Создать уникальную коллекцию (типа String) активных (атрибут Item.active со значением true) имен (атрибут Item.name), используя в качестве входных данных список items](Задачи/livecoding/task-livecoding-stream-unique-active-item-names.md)
 
