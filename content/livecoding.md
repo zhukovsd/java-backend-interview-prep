@@ -59,8 +59,38 @@ bookToC = false
 ---
 #### 17. [Спринг сервис. Идеи по улучшению кода. Как сделать так, чтобы при добавлении нового робота Spring сразу создавал нового робота и нам не пришлось работать ручками](Задачи/livecoding/task-livecoding-spring-auto-robot.md)
 
+#### 18. [Форматирование текста в консоли](Задачи/livecoding/task-livecoding-java-printformattedtext.md)
+
+---
+#### 19. [Рефакторинг кода PersonService](Задачи/livecoding/task-livecoding-java-refactor-personservice.md)
+
+---
+#### 20. [Разработка сервиса поиска обуви](Задачи/livecoding/task-livecoding-java-shoes-service.md)
+
+---
+#### 21. [Генерация ряда Фибоначчи](Задачи/livecoding/task-livecoding-java-fibonacci-sequence.md)
+
+---
+#### 22. [Поиск Person по имени](Задачи/livecoding/task-livecoding-java-find-person-by-name.md)
+
+---
+#### 23. [Код-ревью и исправление ошибок](Задачи/livecoding/task-livecoding-java-code-review-fixes.md)
+
+---
+#### 24. [Поиск первого уникального символа](Задачи/livecoding/task-livecoding-java-first-unique-char.md)
+
+---
+#### 25. [Исправление проблем в коде](Задачи/livecoding/task-livecoding-java-fix-message-building.md)
+
+---
+#### 26. [CRUD для сущностей "Книги" и "Авторы"](Задачи/livecoding/task-livecoding-java-crud-books.md)
+
+---
+#### 27. [Изменение названия атрибута в API](Задачи/livecoding/task-livecoding-java-rename-attribute.md)
+
 
 ## SQL
+
 
 #### 1. [Найди id юнитов, которые были проданы на сумму более 1000 рублей после 10:00 сегодняшнего дня. > "2024-06-03 10:00"](Задачи/livecoding/task-livecoding-sql-units-sold-after-time.md)
 
@@ -94,9 +124,33 @@ bookToC = false
 ---
 #### 11. [Написать запрос.Всего 10 пользователей. В выводе 5 пользователей в статусе Новый, 3 пользователя в статусе Работает. Куда делось еще 2 пользователя?](Задачи/livecoding/task-livecoding-sql-missing-users.md)
 
+---
+#### 12. [Покажите название компании, название отдела и количество сотрудников в отделе](Задачи/livecoding/task-livecoding-sql-company-department-employee-count.md)
+
+---
+#### 13. [Пользователь и его машины: связь в базе данных](Задачи/livecoding/task-livecoding-sql-user-car-relationship.md)
+
+---
+#### 14. [Поиск пользователей, у которых больше одной машины](Задачи/livecoding/task-livecoding-sql-users-multiple-cars.md)
+
+---
+#### 15. [Минимальная и максимальная зарплата по отделам без уволенных](Задачи/livecoding/task-livecoding-sql-min-max-salary-by-unit.md)
+
+---
+#### 16. [Товары с максимальной ценой в каждой категории товаров](Задачи/livecoding/task-livecoding-sql-max-price-by-category.md)
+
+---
+#### 17. [Поиск клиентов в базе данных по INN и KPP](Задачи/livecoding/task-livecoding-sql-find-clients-by-inn-kpp.md)
+
+---
+#### 18. [Делегаты клиентов: найти по INN/KPP, вывести имя и телефон](Задачи/livecoding/task-livecoding-sql-find-delegates-by-inn-kpp.md)
+
+---
+#### 19. [Топ-10 телефонов, получивших больше всего SMS](Задачи/livecoding/task-livecoding-sql-top-sms-recipients.md)
+
 
 ## Stream API
 
----
+
 #### 1. [Создать уникальную коллекцию (типа String) активных (атрибут Item.active со значением true) имен (атрибут Item.name), используя в качестве входных данных список items](Задачи/livecoding/task-livecoding-stream-unique-active-item-names.md)
 
