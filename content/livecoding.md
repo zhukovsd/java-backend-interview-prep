@@ -124,6 +124,30 @@ bookToC = false
 ---
 #### 11. [Написать запрос.Всего 10 пользователей. В выводе 5 пользователей в статусе Новый, 3 пользователя в статусе Работает. Куда делось еще 2 пользователя?](Задачи/livecoding/task-livecoding-sql-missing-users.md)
 
+---
+#### 12. [Покажите название компании, название отдела и количество сотрудников в отделе](Задачи/livecoding/task-livecoding-sql-company-department-employee-count.md)
+
+---
+#### 13. [Пользователь и его машины: связь в базе данных](Задачи/livecoding/task-livecoding-sql-user-car-relationship.md)
+
+---
+#### 14. [Поиск пользователей, у которых больше одной машины](Задачи/livecoding/task-livecoding-sql-users-multiple-cars.md)
+
+---
+#### 15. [Минимальная и максимальная зарплата по отделам без уволенных](Задачи/livecoding/task-livecoding-sql-min-max-salary-by-unit.md)
+
+---
+#### 16. [Товары с максимальной ценой в каждой категории товаров](Задачи/livecoding/task-livecoding-sql-max-price-by-category.md)
+
+---
+#### 17. [Поиск клиентов в базе данных по INN и KPP](Задачи/livecoding/task-livecoding-sql-find-clients-by-inn-kpp.md)
+
+---
+#### 18. [Делегаты клиентов: найти по INN/KPP, вывести имя и телефон](Задачи/livecoding/task-livecoding-sql-find-delegates-by-inn-kpp.md)
+
+---
+#### 19. [Топ-10 телефонов, получивших больше всего SMS](Задачи/livecoding/task-livecoding-sql-top-sms-recipients.md)
+
 
 ## Stream API
 
