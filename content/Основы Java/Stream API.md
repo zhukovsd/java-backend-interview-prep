@@ -409,7 +409,25 @@ List<String> names = Arrays.asList("Jaime", "", "Tyron");
 
 ---
 ***Для группировки элементов в Map какой Collector будешь использовать?***
+- `toMap()` — собирает элементы потока в карту (Map), используя ключи и значения, которые задаются функциями, например
 
+```java
+List<String> strings = Arrays.asList("cat", "dog", "fish", "ant", "elephant");
+Map<String, Integer> mappedByLength = strings.stream()
+				.collect(Collectors.toMap(s -> s, String::length));
+				
+// mappedByLength = {ant=3, cat=3, fish=4, dog=3, elephant=8}
+```
+
+- `groupingBy()`  — группирует элементы потока по заданному классификатору, например
+
+```java
+List<String> strings = Arrays.asList("cat", "dog", "fish", "ant", "elephant");
+Map<Integer, List<String>> groupedByLength = strings.stream()
+                        .collect(Collectors.groupingBy(String::length));
+       
+// groupedByLength = {3=[cat, dog, ant], 4=[fish], 8=[elephant]}
+```
 
 ---
 #### 7. Что такое IntStream и DoubleStream?
