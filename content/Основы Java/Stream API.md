@@ -47,223 +47,9 @@ bookFlatSection = true
 
 ---
 #### 4. Типы методов в Stream API
-Промежуточные и терминальные.
-
-***Что такое промежуточные методы? Какие промежуточные методы в стримах вы знаете?***
-
-*Промежуточный метод* - метод, который возвращает Stream. Существуют:
-
-- `filter(Predicate<T> predicate)` Используется для фильтрации элементов потока по условию
-
-```java
-List<String> names = List.of("hey", "goodbye", "ok");
-
-List<String> newNames = names.stream()
-                .filter(s -> s.length() > 2)
-                .toList();
-```
-
-- `map(Function<T, R> mapper)` Преобразует каждый элемент потока в другой элемент
-
-```java
-List<Integer> numbers = List.of(1,2,3,4);
-        numbers.stream()
-                .map(i -> i * i)
-                .forEach(System.out::println);
-```
-
-- `flatMap(Function<T, Stream<R>> mapper)` Разворачивает вложенные структуры, объединяя несколько потоков в один
-
-```java
-List<Human> humans = asList(
-                new Human("Sam", asList("Buddy", "Lucy")),
-                new Human("Bob", asList("Frankie", "Rosie")),
-                new Human("Marta", asList("Simba", "Tilly")));
-
-        List<String> petNames = humans.stream()
-                .flatMap(human -> human.getPetNames().stream())
-                .toList();
-                // Вернется список имен домашних животных (Buddy, Lucy и т.д)
-```
-
-- `limit(long maxSize)` Ограничивает количество элементов в потоке
-
-```java
-List<String> names = List.of("hey", "goodbye", "ok");
-
-        List<String> newNames = names.stream()
-                .limit(2)
-                .toList();
-                // Будет выведено два первых слова
-```
-
-- `skip(long n)` Пропускает первые n элементов в потоке
-
-```java
-List<String> names = List.of("hey", "goodbye", "ok");
-
-        List<String> newNames = names.stream()
-                .skip(2)
-                .toList();
-                // Будет выведена последняя строка 'ok'
-```
-
-- `concat(Stream<T> a, Stream<T> b)` Объединяет два потока в один
-
-```java
-List<String> listOne = List.of("Apple", "Banana", "Cherry");
-        List<String> listTwo = List.of("Orange", "Peach", "Plum");
-
-        Stream<String> combinedStream = Stream.concat(listOne.stream(), listTwo.stream());
-        combinedStream.forEach(System.out::println);
-```
-
-- `peek(Consumer<T> action)` Выполняет действие над каждым элементом потока (например, для отладки)
-
-```java
-List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7);
-
-        List<Integer> result = numbers.stream()
-                .peek(num -> System.out.println("Исходное число:" + num))
-                .map(num -> num * 2)
-                .peek(num -> System.out.println("Число после удвоения" + num))
-                .toList();
-                // Вывод:
-                // Исходное число: 1
-                // Число после удвоения: 2 и т.д
-```
-
-- `distinct()` Убирает дубликаты, оставляя только уникальные элементы
-
-```java
-List<Integer> numbers = asList(1,2,3,4,5,5);
-
-        List<Integer> distinctNumbers = numbers.stream()
-                .distinct()
-                .toList();
-```
-
-- `sorted() / sorted(Comparator<T> comparator)` Использует естественный порядок фильтрации, либо принимает Comparator<T> для сортировки элементов
-
-```java
-List<String> words = List.of("hello", "bye", "ok", "goodbye", "andrew");
-
-        List<String> sortedWords = words.stream()
-                .sorted(Comparator.comparing(String::length))
-                .toList();
-```
-
-***Что такое терминальные методы? Какие терминальные методы в стримах вы знаете?***
-
-*Терминальные методы* завершают работу с потоком, после их вызова дальнейшие операции невозможны. Основные терминальные методы:
-
-- `forEach(Consumer<T> action)` Выполняет действие над каждым элементом потока
-
-```java
-List<String> words = List.of("hi", "hi", "goodbye", "ok", "dog", "cat", "dog");
-
-        words.stream()
-                .filter(w -> w.length() > 2)
-                .forEach(System.out::println);
-```
-
-- `collect(Collector<T, A, R> collector)` Преобразует элементы потока в другую структуру данных (список, множество и т.д.)
-
-```java
-List<String> words = List.of("hi", "hi", "goodbye", "ok", "dog", "cat", "dog");
-
-        Set<String> wordsSet = words.stream()
-                .filter(w -> w.length() > 2)
-                .collect(Collectors.toSet());
-```
-
-- `reduce(BinaryOperator<T> accumulator)` Сворачивает все элементы потока в одно значение, используя бинарную операцию
-
-```java
-List<Integer> numbers = List.of(1, 2, 3, 4, 5);
-
-        int sum = numbers.stream()
-                .reduce(0, Integer::sum);
-```
-
-- `count()` Возвращает количество элементов в потоке
-
-```java
-List<Integer> numbers = List.of(1, 2, 3, 4, 10, 1298, 27);
-
-        long counted = numbers.stream()
-                .filter(n -> n % 2 == 0)
-                .count(); // Посчитали четные числа
-```
-
-- `min(Comparator<T> comparator)` Возвращает минимальный элемент потока по заданному компаратору
-
-```java
-List<Integer> numbers = List.of(1, 2, 3, 4, 10, 1298, 27);
-
-        int max = numbers.stream()
-                .min(Integer::compareTo).orElseThrow();
-```
-
-- `max(Comparator<T> comparator)` Возвращает максимальный элемент потока по заданному компаратору
-
-```java
-List<Integer> numbers = List.of(1, 2, 3, 4, 10, 1298, 27);
-
-        int max = numbers.stream()
-                .max(Integer::compareTo).orElseThrow();
-```
-
-- `findFirst()` Возвращает первый элемент потока (опционально)
-
-```java
-List<Integer> numbers = List.of(1,2,3,4,5,6,10,120,130);
-
-        numbers.stream()
-                .filter(n -> n > 10)
-                .findFirst()
-                .orElseThrow();
-```
-
-- `findAny()` Возвращает любой элемент потока (опционально, полезно в параллельных потоках)
-
-```java
-List<String> names = List.of("hello java", "goodBye");
-
-        Optional<String> name = names.stream()
-                .filter(s -> s.contains("java"))
-                .findAny();
-```
-
-- `anyMatch(Predicate<T> predicate)` Возвращает true, если хотя бы один элемент соответствует условию
-
-```java
-List<Integer> nums = List.of(1,2,3,4,5,6);
-
-        boolean is = nums.stream()
-                .anyMatch(n -> n % 2 == 0);
-                //Вернет true
-```
-
-- `allMatch(Predicate<T> predicate)` Возвращает true, если все элементы соответствуют условию
-
-```java
-List<Integer> nums = List.of(-1,2,3,4,5,6);
-
-        boolean is = nums.stream()
-                .allMatch(n -> n > 0);
-                //Вернет false
-```
-
-- `noneMatch(Predicate<T> predicate)` Возвращает true, если ни один элемент не соответствует условию
-
-```java
-List<Integer> nums = List.of(1,3,3,5,5,7);
-
-        boolean is = nums.stream()
-                .noneMatch(n -> n % 2 == 0);
-                //Вернет true (т.к ни одно не удовлетворяет условию)
-```
+В Stream API есть 2 типа методов:  
+- *Промежуточные методы* - возвращают Stream, не запускают выполнение.  
+- *Терминальные методы* - запускают выполнение, после их вызова дальнейшие операции со стримом невозможны.
 
 ---
 ***Можно ли переиспользовать Stream после терминального метода?***
@@ -275,11 +61,12 @@ List<Integer> nums = List.of(1,3,3,5,5,7);
 ---
 ***Использование Stream без терминального метода?***
 
-
-Если стрим не завершается терминальным методом, никакие операции с ним не будут выполнены. Причина в **ленивой оценке** (lazy evaluation) Stream API — промежуточные методы не выполняются до вызова терминального метода.
+Если стрим не завершается терминальным методом, никакие операции с ним не будут выполнены. Причина в концепции **ленивого исполнения** (lazy evaluation) — промежуточные методы не выполняются до вызова терминального метода.
 
 ---
 #### 5. Методы в Stream API
+
+***Промежуточные методы***  
 
 ***Метод peek()***
 
@@ -385,7 +172,7 @@ System.out.println(sortedNames); // [Anna, John, Tom]
 ```
 
 ---
-***Метод distinct(). Сложность по времени***
+***Метод distinct()***
 
 Метод `distinct()` возвращает стрим, который содержит только уникальные элементы (без дубликатов).
 
@@ -397,23 +184,36 @@ List<Integer> uniqueNumbers = numbers.stream()
 System.out.println(uniqueNumbers); // [1, 2, 3, 4, 5]
 ```
 
-**Сложность по времени**
+---
 
-  - **Добавление в `LinkedHashSet`:**
-    
-    - Каждая операция добавления имеет **амортизированную сложность** **O(1)** при удачном хэшировании.
-    - В худшем случае (много коллизий) — **O(n)** на элемент.
-  
-- **Общая сложность метода:**
-    
-    - При удачном хэшировании: **O(n)**, где **n** — количество элементов в исходном потоке.
-    - При плохом хэшировании (много коллизий): до **O(n^2)**.
-    
-    В реальных сценариях при корректно реализованных `hashCode()` и `equals()` метод работает с линейной сложностью **O(n)**.
+***Метод concat()***
+Метод `concat(Stream<T> a, Stream<T> b)` объединяет два потока в один
+
+```java
+List<String> listOne = List.of("Apple", "Banana", "Cherry");
+        List<String> listTwo = List.of("Orange", "Peach", "Plum");
+
+        Stream<String> combinedStream = Stream.concat(listOne.stream(), listTwo.stream());
+        combinedStream.forEach(System.out::println);
+```
 
 ---
-***Метод collect()***
 
+***Терминальные методы***  
+
+***Метод forEach()***  
+Метод `forEach(Consumer<T> action)` выполняет действие над каждым элементом потока
+
+```java
+List<String> words = List.of("hi", "hi", "goodbye", "ok", "dog", "cat", "dog");
+
+        words.stream()
+                .filter(w -> w.length() > 2)
+                .forEach(System.out::println);
+```
+
+---
+***Метод collect()***  
 Метод `collect()` используется для преобразования стрима в коллекцию или другой тип данных. Чаще всего используется для сбора элементов в список, множество или строку.
 
 ```java
@@ -424,32 +224,9 @@ System.out.println(collectedList); // [1, 2, 3, 4, 5]
 ```
 
 ---
-***Метод groupingBy()***
 
-Разделяет элементы исходной коллекции или потока на группы (категории) на основе указанной функции.
-
-Возвращает результат в виде Map, где:
-- Ключ — значение, возвращённое функцией группировки.
-- Значение — список элементов, соответствующих этому ключу.
-
-```java
-List<String> strings = Arrays.asList("cat", "dog", "fish", "ant", "elephant");
-
-        Map<Integer, List<String>> groupedByLength = strings.stream()
-                .collect(Collectors.groupingBy(String::length));
-
-        System.out.println(groupedByLength);
-
-  //3=[cat, dog, ant], 
-  //4=[fish], 
-  //8=[elephant]
-
-```
-
----
-***Метод reduce()***
-
-Метод reduce() сводит (агрегирует) элементы стрима к одному значению с помощью функции аккумулятора. Например, для вычисления суммы или произведения всех элементов.
+***Метод reduce()***  
+Метод `reduce()` сводит (агрегирует) элементы стрима к одному значению с помощью функции аккумулятора. Например, для вычисления суммы или произведения всех элементов.
 
 ```java
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
@@ -459,8 +236,111 @@ System.out.println(sum); // 15
 ```
 
 ---
-***Метод parallelStream()***
 
+***Метод count()***  
+Метод `count()` возвращает количество элементов в потоке
+
+```java
+List<Integer> numbers = List.of(1, 2, 3, 4, 10, 1298, 27);
+
+        long counted = numbers.stream()
+                .filter(n -> n % 2 == 0)
+                .count(); // Посчитали четные числа
+```
+
+---
+
+***Метод min()***  
+Метод `min(Comparator<T> comparator)` возвращает минимальный элемент потока по заданному компаратору
+
+```java
+List<Integer> numbers = List.of(1, 2, 3, 4, 10, 1298, 27);
+
+        int max = numbers.stream()
+                .min(Integer::compareTo).orElseThrow();
+```
+
+---
+
+***Метод max()***  
+Метод `max(Comparator<T> comparator)` возвращает максимальный элемент потока по заданному компаратору
+
+```java
+List<Integer> numbers = List.of(1, 2, 3, 4, 10, 1298, 27);
+
+        int max = numbers.stream()
+                .max(Integer::compareTo).orElseThrow();
+```
+
+---
+
+***Метод findFirst()***  
+Метод `findFirst()` возвращает первый элемент потока (опционально)
+
+```java
+List<Integer> numbers = List.of(1,2,3,4,5,6,10,120,130);
+
+        numbers.stream()
+                .filter(n -> n > 10)
+                .findFirst()
+                .orElseThrow();
+```
+
+---
+
+***Метод findAny()***  
+Метод `findAny()` возвращает любой элемент потока (опционально, полезно в параллельных потоках)
+
+```java
+List<String> names = List.of("hello java", "goodBye");
+
+        Optional<String> name = names.stream()
+                .filter(s -> s.contains("java"))
+                .findAny();
+```
+
+---
+
+***Метод anyMatch()***  
+Метод `anyMatch(Predicate<T> predicate)` возвращает true, если хотя бы один элемент соответствует условию
+
+```java
+List<Integer> nums = List.of(1,2,3,4,5,6);
+
+        boolean is = nums.stream()
+                .anyMatch(n -> n % 2 == 0);
+                //Вернет true
+```
+
+---
+
+***Метод allMatch()***  
+Метод `allMatch(Predicate<T> predicate)` возвращает true, если все элементы соответствуют условию
+
+```java
+List<Integer> nums = List.of(-1,2,3,4,5,6);
+
+        boolean is = nums.stream()
+                .allMatch(n -> n > 0);
+                //Вернет false
+```
+
+---
+
+***Метод noneMatch()***  
+Метод `noneMatch(Predicate<T> predicate)` возвращает true, если ни один элемент не соответствует условию
+
+```java
+List<Integer> nums = List.of(1,3,3,5,5,7);
+
+        boolean is = nums.stream()
+                .noneMatch(n -> n % 2 == 0);
+                //Вернет true (т.к ни одно не удовлетворяет условию)
+```
+
+---
+
+***Метод parallelStream()***  
 Метод **`parallelStream()`** создаёт стрим, выполняющий операции в несколько потоков (параллельно). Он используется для коллекций и предоставляет возможность автоматически разделить обработку данных на части.
 
 ```java
@@ -481,6 +361,29 @@ public class ParallelStreamExample {
 ```
 
 ---
+***Метод Collectors.groupingBy()***  
+Разделяет элементы исходной коллекции или потока на группы (категории) на основе указанной функции.  
+Возвращает результат в виде Map, где:
+- Ключ — значение, возвращённое функцией группировки.
+- Значение — список элементов, соответствующих этому ключу.
+
+```java
+List<String> strings = Arrays.asList("cat", "dog", "fish", "ant", "elephant");
+
+        Map<Integer, List<String>> groupedByLength = strings.stream()
+                .collect(Collectors.groupingBy(String::length));
+
+        System.out.println(groupedByLength);
+
+  //3=[cat, dog, ant], 
+  //4=[fish], 
+  //8=[elephant]
+
+```
+
+---
+
+
 #### 6. Расскажите про класс Collectors и его методы
 *Класс Collectors* предоставляет ряд статических методов для создания коллекций, таких как списки, множества, карты и другие, из элементов потока (Stream). Эти методы широко используются для агрегации данных в потоках. Основные методы:
 
