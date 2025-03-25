@@ -156,7 +156,7 @@ bookToC = false
 #### 5. [Методы в Stream API](Основы-Java/Stream-API/#5-методы-в-stream-api) [0%]
 #### 6. [Расскажите про класс Collectors и его методы](Основы-Java/Stream-API/#6-расскажите-про-класс-collectors-и-его-методы) [0%]
 #### 7. [Что такое IntStream и DoubleStream?](Основы-Java/Stream-API/#7-что-такое-intstream-и-doublestream) [0%]
-#### 8. [Разница между parallel и parallerStream?](Основы-Java/Stream-API/#8-разница-между-parallel-и-parallerstream) [1%]
+#### 8. [Разница между parallel и parallelStream?](Основы-Java/Stream-API/#8-разница-между-parallel-и-parallelstream) [1%]
 #### 9. [Для чего нужны операции Consumer, Function, Supplier](Основы-Java/Stream-API/#9-для-чего-нужны-операции-consumer-function-supplier) [1%]
 #### 10. [Что такое параллельные стримы?](Основы-Java/Stream-API/#10-что-такое-параллельные-стримы) [5%]
 #### 11. [Какая разница между findAny() и findFirst()](Основы-Java/Stream-API/#11-какая-разница-между-findany-и-findfirst) [4%]                          
