@@ -519,7 +519,7 @@ IntStream и DoubleStream - это специальные стримы в Java �
 - `mapToObj()`
 
 ---
-#### 10. Разница между parallel и parallerStream?
+#### 10. Разница между parallel и parallelStream?
 
 |Метод|Описание|
 |---|---|
