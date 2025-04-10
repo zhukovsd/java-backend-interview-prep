@@ -214,3 +214,74 @@ assertThrows(IllegalArgumentException.class, () -> service.findUser(-1));
 
 ✔ Проверяем, что при передаче `-1` выбрасывается `IllegalArgumentException`.
 
+---
+#### 9. Основные аннотации в тестировании
+
+
+ ✅ Основные аннотации JUnit 5:
+
+|Аннотация|Назначение|
+|---|---|
+|`@Test`|Обозначает метод как тестовый.|
+|`@BeforeEach`|Метод выполняется **перед каждым** тестом.|
+|`@AfterEach`|Метод выполняется **после каждого** теста.|
+|`@BeforeAll`|Выполняется **один раз перед всеми тестами** (должен быть `static`).|
+|`@AfterAll`|Выполняется **один раз после всех тестов** (должен быть `static`).|
+|`@DisplayName`|Назначает **удобное имя тесту**, отображается в отчётах.|
+|`@Disabled`|Отключает тест (временно пропускает).|
+|`@Nested`|Позволяет группировать тесты во вложенные классы.|
+|`@Tag`|Помечает тест определённым тегом (удобно для фильтрации).|
+|`@ParameterizedTest`|Используется для **параметризованных тестов** (с разными входами).|
+
+ 🔹 Простой пример:
+
+```java
+import org.junit.jupiter.api.*;
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+public class UserServiceTest {
+
+    @BeforeAll
+    static void initAll() {
+        System.out.println("⚙️ Before all tests");
+    }
+
+    @BeforeEach
+    void init() {
+        System.out.println("🧪 Before each test");
+    }
+
+    @Test
+    @DisplayName("Проверка регистрации пользователя")
+    void testUserRegistration() {
+        Assertions.assertEquals(2, 1 + 1);
+    }
+
+    @Test
+    @Disabled("Временно отключен")
+    void disabledTest() {
+        Assertions.fail("Этот тест не будет выполнен");
+    }
+
+    @AfterEach
+    void tearDown() {
+        System.out.println("✅ After each test");
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        System.out.println("🏁 After all tests");
+    }
+}
+```
+
+ 🔹 Параметризованный тест:
+
+```java
+@ParameterizedTest
+@ValueSource(strings = {"admin", "user", "guest"})
+void testRoles(String role) {
+    Assertions.assertTrue(role.length() > 0);
+}
+```
+
