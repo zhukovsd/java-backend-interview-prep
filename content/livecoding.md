@@ -88,6 +88,33 @@ bookToC = false
 ---
 #### 27. [Изменение названия атрибута в API](Задачи/livecoding/task-livecoding-java-rename-attribute.md)
 
+---
+#### 28. [Исправление ошибок Spring Boot приложения](Задачи/livecoding/task-livecoding-java-fix-spring-app-code-errors.md)
+
+---
+#### 29. [Сортировка массива чисел](Задачи/livecoding/task-livecoding-java-sort-array.md)
+
+---
+#### 30. [Реализация двоичного дерева](Задачи/livecoding/task-livecoding-java-binary-tree.md)
+
+---
+#### 31. [Рефакторинг функции Фибоначчи](Задачи/livecoding/task-livecoding-java-fib-refactor.md)
+
+---
+#### 32. [Инверсия числа](Задачи/livecoding/task-livecoding-java-reverse-number.md)
+
+---
+#### 33. [Ревью и улучшение Spring-сервиса работы с контрактами](Задачи/livecoding/task-livecoding-java-contract-service.md)
+
+---
+#### 34. [Реализация паттерна Singleton в Java](Задачи/livecoding/task-livecoding-java-singleton.md)
+
+---
+#### 35. [Проверка повторяющихся символов в строке](Задачи/livecoding/task-livecoding-java-string-repetition.md)
+
+---
+#### 36. [Решение задачи HackerRank "Repeat String"](Задачи/livecoding/task-livecoding-java-repeated-string.md)
+
 
 ## SQL
 
@@ -147,6 +174,15 @@ bookToC = false
 
 ---
 #### 19. [Топ-10 телефонов, получивших больше всего SMS](Задачи/livecoding/task-livecoding-sql-top-sms-recipients.md)
+
+---
+#### 20. [Пользователи без заказов](Задачи/livecoding/task-livecoding-sql-users-without-orders.md)
+
+---
+#### 21. [Получение последних N новостей и всех их комментариев](Задачи/livecoding/task-livecoding-sql-n-last-news-with-comments.md)
+
+---
+#### 22. [Выгрузка всех новостей с комментариями при большом объеме данных](Задачи/livecoding/task-livecoding-sql-export-news-with-comments.md)
 
 
 ## Stream API
