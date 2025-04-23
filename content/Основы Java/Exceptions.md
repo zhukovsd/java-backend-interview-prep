@@ -9,7 +9,7 @@ bookFlatSection = true
 #### 1. Расскажите про иерархию исключений
 {{< figure src="Exception.png" title="Exceptions" >}}
 
-  **Interface Throwable** - общий предок для всех исключений
+  **Class Throwable** - общий предок для всех исключений
 
 ---
 #### 2. Что такое Error и Exception?
