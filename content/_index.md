@@ -11,6 +11,7 @@ date: 2024-10-03T23:15:53+07:00
 - [Java роадмап](https://zhukovsd.github.io/java-backend-learning-course/)
 - [Telegram канал](https://t.me/zhukovsd_it_mentor)
 - [YouTube канал](https://youtube.com/@zhukovsd_it_mentor)
+- [Чат](https://t.me/+8YGzqvJOndg1Yjky) для проведения мок собеседований
 
 ## Какую проблему решает
 
