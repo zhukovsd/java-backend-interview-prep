@@ -185,7 +185,7 @@ bookToC = false
 #### 17. [Collections.synchronizedMap vs ConcurrentHashMap](Основы-Java/Multithreading/#17-collectionssynchronizedmap-vs-concurrenthashmap) [4%]
 #### 18. [Какими способами можем запустить несколько потоков в Java приложении? Как запустить поток в Java?](Основы-Java/Multithreading/#18-какими-способами-можем-запустить-несколько-потоков-в-java-приложении-как-запустить-поток-в-java) [7%]
 #### 19. [Что за интерфейсы Runnable и Callable? В чем между ними отличия?](Основы-Java/Multithreading/#19-что-за-интерфейсы-runnable-и-callable-в-чем-между-ними-отличия) [6%]
-#### 20. [Расскажи про пакет concurrent](Основы-Java/Multithreading/#20-расскажи-про-пакет-cuncurrent) [2%]
+#### 20. [Расскажи про пакет concurrent](Основы-Java/Multithreading/#20-расскажи-про-пакет-concurrent) [2%]
 #### 21. [Способы решения задач для многопоточного доступа](Основы-Java/Multithreading/#21-способы-решения-задач-для-многопоточного-доступа) [1%]
 #### 22. [Чем конкурентность отличается от параллелизма?](Основы-Java/Multithreading/#22-чем-конкурентность-отличается-от-параллелизма) [1%]
 #### 23. [Что такое CAS операции? (Compare And Swap)](Основы-Java/Multithreading/#23-что-такое-cas-операции-compare-and-swap) [4%]
