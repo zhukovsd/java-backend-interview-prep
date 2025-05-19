@@ -115,6 +115,23 @@ bookToC = false
 ---
 #### 36. [Решение задачи HackerRank "Repeat String"](Задачи/livecoding/task-livecoding-java-repeated-string.md)
 
+---
+#### 37. [Фильтрация списка пользователей in-place](Задачи/livecoding/task-livecoding-java-filter-users-in-place.md)
+
+---
+#### 38. [Поиск первого неповторяющегося элемента в массиве](Задачи/livecoding/task-livecoding-java-first-non-repeating-element.md)
+
+---
+#### 39. [Реверс строки](Задачи/livecoding/task-livecoding-java-reverse-string.md)
+
+---
+#### 40. [Реализация `hashCode` для класса Point](Задачи/livecoding/task-livecoding-java-point-hashcode.md)
+
+---
+#### 41. [Реализация стека с поддержкой получения минимума за O(1)](Задачи/livecoding/task-livecoding-java-min-stack.md)
+
+---
+#### 42. [Гибкий NotificationService с Spring](Задачи/livecoding/task-livecoding-java-notification-service.md)
 
 ## SQL
 
@@ -184,9 +201,54 @@ bookToC = false
 ---
 #### 22. [Выгрузка всех новостей с комментариями при большом объеме данных](Задачи/livecoding/task-livecoding-sql-export-news-with-comments.md)
 
+---
+#### 23.[Топ-3 посетителя по числу визитов](Задачи/livecoding/task-livecoding-sql-top-3-visitors-by-visit-count.md)
+
+---
+#### 24.[Названия и цены услуг, проданных с 1 января 2021 по следующую неделю](Задачи/livecoding/task-livecoding-sql-services-january-2021-week.md)
+
+---
+#### 25.[Группы без услуг](Задачи/livecoding/task-livecoding-sql-groups-without-services.md)
+
+---
+#### 26.[Таблицы для авторов и книг (многие-ко-многим)](Задачи/livecoding/task-livecoding-sql-authors-books.md)
+
+---
+#### 27.[Рыбы с суммарным уловом на дату d менее n](Задачи/livecoding/task-livecoding-sql-fish-with-catch-less-than.md)
+
+---
+#### 28.[Пользователи без поездок](Задачи/livecoding/task-livecoding-sql-users-without-trips.md)
+
+---
+#### 29.[Имена, встречающиеся более 5 раз](Задачи/livecoding/task-livecoding-sql-names-occurring-more-than-5.md)
+
+---
+#### 30.[Самые повторяющиеся значения `value`](Задачи/livecoding/task-livecoding-sql-most-frequent-value.md)
+
+---
+#### 31.[Выбор пяти верхних записей](Задачи/livecoding/task-livecoding-sql-select-top-5.md)
+
+---
+#### 32.[Машины розового цвета и количество по цветам](Задачи/livecoding/task-livecoding-sql-pink-cars-and-color-count.md)
+
+---
+#### 33.[Отделы с числом сотрудников и сотрудники с окладом выше руководителя](Задачи/livecoding/task-livecoding-sql-departments-and-high-salary-employees.md)
+
+---
+#### 34.[Строки, соответствующие любому шаблону](Задачи/livecoding/task-livecoding-sql-match-strings-with-masks.md)
+
+---
+#### 35.[Пользователи с более чем одной покупкой в день](Задачи/livecoding/task-livecoding-sql-multiple-purchases-per-day.md)
+
+---
+#### 36.[Взаимные подписки (mutual follows)](Задачи/livecoding/task-livecoding-sql-mutual-followers.md)
+
+---
+#### 37.[Папки с AVI-файлами и пустые папки](Задачи/livecoding/task-livecoding-sql-folders-with-avi-or-empty.md)
 
 ## Stream API
 
 
 #### 1. [Создать уникальную коллекцию (типа String) активных (атрибут Item.active со значением true) имен (атрибут Item.name), используя в качестве входных данных список items](Задачи/livecoding/task-livecoding-stream-unique-active-item-names.md)
 
+#### 2. [Упростить вложенные лямбда-выражения](Задачи/livecoding/task-livecoding-stream-avoid-complex-lambdas.md)
