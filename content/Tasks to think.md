@@ -6,6 +6,8 @@ bookToC = false
 bookHidden = true
 +++
 
+<!-- DEPRECATED!!!!! -->
+
 # Вопросы на подумать
 
 ---
