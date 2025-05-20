@@ -1,8 +1,9 @@
 +++
 title = 'Git и системы сборки'
 weight = 10
-bookFlatSection = true
+bookFlatSection = false
 bookToC = false
+bookHidden = true
 +++
 
 # Git и системы сборки

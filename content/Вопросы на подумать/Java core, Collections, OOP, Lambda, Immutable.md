@@ -3,6 +3,7 @@ title = 'Основы Java, коллекции, OOP, лямбды, иммута�
 weight = 2
 bookFlatSection = true
 bookToC = false
+bookHidden = true
 +++
 
 # Основы Java, коллекции, OOP, лямбды, иммутабельность

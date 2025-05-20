@@ -1,8 +1,9 @@
 +++
 title = 'Отладка и производительность'
 weight = 8
-bookFlatSection = true
+bookFlatSection = false
 bookToC = false
+bookHidden = true
 +++
 
 # Отладка и производительность

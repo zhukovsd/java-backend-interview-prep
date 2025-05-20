@@ -1,8 +1,9 @@
 +++
 title = 'Чистый код, SOLID, паттерны и рефакторинг'
 weight = 9
-bookFlatSection = true
+bookFlatSection = false
 bookToC = false
+bookHidden = true
 +++
 
 # Чистый код, SOLID, паттерны и рефакторинг

@@ -3,6 +3,7 @@ title = 'Микросервисы, REST, дизайн систем, деплой
 weight = 7
 bookFlatSection = true
 bookToC = false
+bookHidden = true
 +++
 
 # Микросервисы, REST, дизайн систем, деплой
