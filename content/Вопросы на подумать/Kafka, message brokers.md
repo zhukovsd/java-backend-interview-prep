@@ -48,8 +48,8 @@ bookHidden = true
 ### 37. Есть Консьюмер группа. 2 консьюмера читают из топика из 4 партиций. Что произойдет если один из консьюмеров в группе сдохнет?
 ### 38. Можно сделать, чтобы несколько консюмеров читали несколько партиций?
 ### 39. У тебя 3 партиции и 1 консюмер. В первую ты закидываешь миллион, во вторую тысячу сообщений, а в третью десять. Как будет происходить чтение этим консюмером?
-### 40. K8s, контейнеризованное приложение. Есть Kafka топик, в нем 40 партиций. Есть сервис, поднят один под. Ты захотел сделать 5 подов. У всех 5 подов одна консьюмер группа. Все они подписаны на этот топик Kafka. Какой под из какой партиции будет читать?
-### 41. Kafka. We have one topic. Producer produces temperature updates into topic. On the other side we want to have one app that reads temp updates and shows them. And second app that also reads the same temp updates and send the email. We want both apps to recieve all the updates. What should we do?
-### 42. Kafka. What should you do if you want to create Load Balancer: we want to have 3-4 apps that can process tasks from one topic? Different apps should process different messages. How many partitions? How many consumer groups?
-### 43. Kafka. Если нужно сделать паузу в Consumer Kafka, что использовать? Как остановить Consumer на 5 сек? Какие способы остановки потока знаешь? Какой будет хороший?
-### 44. Kafka. В Consumer Group большой лаг. Как будешь исследовать проблему? В топике 1 млн невычитанных сообщений, и их количество только увеличивается
+### 40. K8s, контейнеризированное приложение. Есть Kafka топик, в нем 40 партиций. Есть сервис, поднят один под. Ты захотел сделать 5 подов. У всех 5 подов одна консьюмер группа. Все они подписаны на этот топик Kafka. Какой под из какой партиции будет читать?
+### 41. We have one topic. Producer produces temperature updates into topic. On the other side we want to have one app that reads temp updates and shows them. And second app that also reads the same temp updates and send the email. We want both apps to recieve all the updates. What should we do?
+### 42. What should you do if you want to create Load Balancer: we want to have 3-4 apps that can process tasks from one topic? Different apps should process different messages. How many partitions? How many consumer groups?
+### 43. Если нужно сделать паузу в Consumer Kafka, что использовать? Как остановить Consumer на 5 сек? Какие способы остановки потока знаешь? Какой будет хороший?
+### 44. В Consumer Group большой лаг. Как будешь исследовать проблему? В топике 1 млн невычитанных сообщений, и их количество только увеличивается
