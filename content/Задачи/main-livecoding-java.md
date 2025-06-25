@@ -126,3 +126,31 @@
 ---
 #### 42. [Гибкий NotificationService с Spring](Задачи/livecoding/task-livecoding-java-notification-service.md)
 
+---
+#### 43. [Проверка простого числа](Задачи/livecoding/task-livecoding-java-check-prime.md)
+
+---
+#### 44. [Поиск наименее частого слова в строке](Задачи/livecoding/task-livecoding-java-find-rare-word.md)
+
+---
+#### 45. [Подсчет повторений слов в строке](Задачи/livecoding/task-livecoding-java-word-count-map.md)
+
+---
+#### 46. [Собственный прокси для обеспечения отдельной транзакции](Задачи/livecoding/task-livecoding-java-transaction-proxy.md)
+
+---
+#### 47. [Распределение загрузки на грузовики](Задачи/livecoding/task-livecoding-java-calc-trucks.md)
+
+---
+#### 48. [Поиск оптимального места в кинотеатре](Задачи/livecoding/task-livecoding-java-best-seat-distance.md)
+
+---
+#### 49. [Проверка вертикальной симметрии набора точек](Задачи/livecoding/task-livecoding-java-vertical-symmetry.md)
+
+---
+#### 50. [Получение только ID через Spring Data JPA](Задачи/livecoding/task-livecoding-java-heavydata-repo.md)
+
+---
+#### 51. [Потокобезопасный перевод денег между счетами](Задачи/livecoding/task-livecoding-java-money-transfer.md)
+
+

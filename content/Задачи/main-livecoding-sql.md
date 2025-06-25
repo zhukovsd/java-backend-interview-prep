@@ -68,46 +68,68 @@
 #### 22. [Выгрузка всех новостей с комментариями при большом объеме данных](Задачи/livecoding/task-livecoding-sql-export-news-with-comments.md)
 
 ---
-#### 23.[Топ-3 посетителя по числу визитов](Задачи/livecoding/task-livecoding-sql-top-3-visitors-by-visit-count.md)
+#### 23. [Топ-3 посетителя по числу визитов](Задачи/livecoding/task-livecoding-sql-top-3-visitors-by-visit-count.md)
 
 ---
-#### 24.[Названия и цены услуг, проданных с 1 января 2021 по следующую неделю](Задачи/livecoding/task-livecoding-sql-services-january-2021-week.md)
+#### 24. [Названия и цены услуг, проданных с 1 января 2021 по следующую неделю](Задачи/livecoding/task-livecoding-sql-services-january-2021-week.md)
 
 ---
-#### 25.[Группы без услуг](Задачи/livecoding/task-livecoding-sql-groups-without-services.md)
+#### 25. [Группы без услуг](Задачи/livecoding/task-livecoding-sql-groups-without-services.md)
 
 ---
-#### 26.[Таблицы для авторов и книг (многие-ко-многим)](Задачи/livecoding/task-livecoding-sql-authors-books.md)
+#### 26. [Таблицы для авторов и книг (многие-ко-многим)](Задачи/livecoding/task-livecoding-sql-authors-books.md)
 
 ---
-#### 27.[Рыбы с суммарным уловом на дату d менее n](Задачи/livecoding/task-livecoding-sql-fish-with-catch-less-than.md)
+#### 27. [Рыбы с суммарным уловом на дату d менее n](Задачи/livecoding/task-livecoding-sql-fish-with-catch-less-than.md)
 
 ---
-#### 28.[Пользователи без поездок](Задачи/livecoding/task-livecoding-sql-users-without-trips.md)
+#### 28. [Пользователи без поездок](Задачи/livecoding/task-livecoding-sql-users-without-trips.md)
 
 ---
-#### 29.[Имена, встречающиеся более 5 раз](Задачи/livecoding/task-livecoding-sql-names-occurring-more-than-5.md)
+#### 29. [Имена, встречающиеся более 5 раз](Задачи/livecoding/task-livecoding-sql-names-occurring-more-than-5.md)
 
 ---
-#### 30.[Самые повторяющиеся значения `value`](Задачи/livecoding/task-livecoding-sql-most-frequent-value.md)
+#### 30. [Самые повторяющиеся значения `value`](Задачи/livecoding/task-livecoding-sql-most-frequent-value.md)
 
 ---
-#### 31.[Выбор пяти верхних записей](Задачи/livecoding/task-livecoding-sql-select-top-5.md)
+#### 31. [Выбор пяти верхних записей](Задачи/livecoding/task-livecoding-sql-select-top-5.md)
 
 ---
-#### 32.[Машины розового цвета и количество по цветам](Задачи/livecoding/task-livecoding-sql-pink-cars-and-color-count.md)
+#### 32. [Машины розового цвета и количество по цветам](Задачи/livecoding/task-livecoding-sql-pink-cars-and-color-count.md)
 
 ---
-#### 33.[Отделы с числом сотрудников и сотрудники с окладом выше руководителя](Задачи/livecoding/task-livecoding-sql-departments-and-high-salary-employees.md)
+#### 33. [Отделы с числом сотрудников и сотрудники с окладом выше руководителя](Задачи/livecoding/task-livecoding-sql-departments-and-high-salary-employees.md)
 
 ---
-#### 34.[Строки, соответствующие любому шаблону](Задачи/livecoding/task-livecoding-sql-match-strings-with-masks.md)
+#### 34. [Строки, соответствующие любому шаблону](Задачи/livecoding/task-livecoding-sql-match-strings-with-masks.md)
 
 ---
-#### 35.[Пользователи с более чем одной покупкой в день](Задачи/livecoding/task-livecoding-sql-multiple-purchases-per-day.md)
+#### 35. [Пользователи с более чем одной покупкой в день](Задачи/livecoding/task-livecoding-sql-multiple-purchases-per-day.md)
 
 ---
-#### 36.[Взаимные подписки (mutual follows)](Задачи/livecoding/task-livecoding-sql-mutual-followers.md)
+#### 36. [Взаимные подписки (mutual follows)](Задачи/livecoding/task-livecoding-sql-mutual-followers.md)
 
 ---
-#### 37.[Папки с AVI-файлами и пустые папки](Задачи/livecoding/task-livecoding-sql-folders-with-avi-or-empty.md)
+#### 37. [Папки с AVI-файлами и пустые папки](Задачи/livecoding/task-livecoding-sql-folders-with-avi-or-empty.md)
+
+---
+#### 38. [Отделы с количеством сотрудников](Задачи/livecoding/task-livecoding-sql-department-employee-count.md)
+
+---
+#### 39. [Устранение дублирования записей из-за регистра в email](Задачи/livecoding/task-livecoding-sql-deduplicate-client-email.md)
+
+---
+#### 40. [Строки, соответствующие любому шаблону](Задачи/livecoding/task-livecoding-sql-match-strings-with-masks-2.md)
+
+---
+#### 41. [Пользователи с более чем одной покупкой в день](Задачи/livecoding/task-livecoding-sql-multiple-purchases-per-day-2.md)
+
+---
+#### 42. [Эквивалент LEFT OUTER JOIN без использования OUTER JOIN](Задачи/livecoding/task-livecoding-sql-leftjoin-equivalent.md)
+
+---
+#### 43. [Второй по величине оклад](Задачи/livecoding/task-livecoding-sql-second-highest-salary.md)
+
+---
+#### 44. [Поиск дублированных email](Задачи/livecoding/task-livecoding-sql-duplicated-emails.md)
+
