@@ -153,4 +153,42 @@
 ---
 #### 51. [Потокобезопасный перевод денег между счетами](Задачи/livecoding/task-livecoding-java-money-transfer.md)
 
+---
+#### 52. [Рефакторинг SomeServiceImpl для асинхронности и корректности](Задачи/livecoding/task-livecoding-java-fix-someservice.md)
+
+---
+#### 53. [Перевод средств между аккаунтами](Задачи/livecoding/task-livecoding-java-transfer-amount.md)
+
+---
+#### 54. [Сжатие подряд идущих символов по ключу](Задачи/livecoding/task-livecoding-java-compress-consecutive.md)
+
+---
+#### 55. [Чередование вывода `foo` и `bar`](Задачи/livecoding/task-livecoding-java-foobar-alternate.md)
+
+---
+#### 56. [Self‑inject для корректного создания транзакций](Задачи/livecoding/task-livecoding-java-self-injection.md)
+
+---
+#### 57. [Рефакторинг DocumentService с паттерном Стратегия](Задачи/livecoding/task-livecoding-java-refactor-document-service.md)
+
+---
+#### 58. [Поиск человека по имени](Задачи/livecoding/task-livecoding-java-find-person-by-name_1.md)
+
+---
+#### 59. [Консольная игра «Крестики-нолики»](Задачи/livecoding/task-livecoding-java-tictactoe.md)
+
+---
+#### 60. [Итератор объединённого упорядоченного обхода двух источников](Задачи/livecoding/task-livecoding-java-collating-iterator.md)
+
+---
+#### 61. [Средний возраст мужчин в списке](Задачи/livecoding/task-livecoding-java-average-age-males.md)
+
+---
+#### 62. [Фильтрация заказов через стратегию с лямбдами](Задачи/livecoding/task-livecoding-java-order-filter-strategy.md)
+
+---
+#### 63. [Удаление нечётных элементов списка](Задачи/livecoding/task-livecoding-java-filter-even-index.md)
+
+---
+#### 64. [Рефакторинг BookingService для корректного бронирования](Задачи/livecoding/task-livecoding-java-booking-service-refactor.md)
 
