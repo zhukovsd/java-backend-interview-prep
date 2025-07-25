@@ -284,6 +284,7 @@ bookToC = false
 #### 23. [Hibernate. Что хранится в Persistence Context? Сколько времени объект хранится в Persistence Context?](Работа-с-базами-данных/ORM/#23-hibernate-что-хранится-в-persistence-context-сколько-времени-объект-хранится-в-persistence-context) [2%]
 #### 24. [Hibernate и Lombok](Работа-с-базами-данных/ORM/#24-hibernate-и-lombok) [2%]
 #### 25. [Как JPA делает запросы?](Работа-с-базами-данных/ORM/#25-как-jpa-делает-запросы) [1%]
+#### 26. [Стратегии наследования в Hibernate](Работа-с-базами-данных/ORM/#26-стратегии-наследования-в-hibernate) [3%]
 
 ## [Spring](Архитектура-и-разработка/SPRING/#spring) [80%]
 
