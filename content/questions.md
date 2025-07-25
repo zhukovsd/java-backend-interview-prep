@@ -336,6 +336,7 @@ bookToC = false
 #### 46. [Виды proxy в Spring](Архитектура-и-разработка/SPRING/#46-виды-proxy-в-spring) [4%]
 #### 47. [@Lookup](Архитектура-и-разработка/SPRING/#47-lookup) [2%]
 #### 48. [Как работает BeanPostProcessor. Почему есть before и after initialization](Архитектура-и-разработка/SPRING/#48-как-работает-beanpostprocessor-почему-есть-before-и-after-initialization) [3%]
+#### 49. [@Lazy](Архитектура-и-разработка/SPRING/#49-lazy) [3%]
 
 ## [Паттерны проектирования](Принципы-и-методы-проектирования/Design-Patterns/#Design-Patterns) [18%]
 
