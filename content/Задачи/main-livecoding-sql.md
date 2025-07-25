@@ -133,3 +133,18 @@
 ---
 #### 44. [Поиск дублированных email](Задачи/livecoding/task-livecoding-sql-duplicated-emails.md)
 
+---
+#### 45. [Число сотрудников с одинаковой зарплатой в каждом департаменте](Задачи/livecoding/task-livecoding-sql-salary-count-per-department.md)
+
+---
+#### 46. [Статистика по отделам](Задачи/livecoding/task-livecoding-sql-department-stats.md)
+
+---
+#### 47. [Оптимизация медленного SQL‑запроса](Задачи/livecoding/task-livecoding-sql-refactor-slow-query.md)
+
+---
+#### 48. [Сотрудник с максимальной зарплатой в каждом департаменте](Задачи/livecoding/task-livecoding-sql-top-employee-per-department.md)
+
+---
+#### 49. [Проектирование таблиц «Продукты» и «Наличие товаров по магазинам»](Задачи/livecoding/task-livecoding-sql-design-product-inventory.md)
+
