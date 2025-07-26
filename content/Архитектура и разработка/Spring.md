@@ -2418,3 +2418,71 @@ public class LoggingBeanPostProcessor implements BeanPostProcessor {
     
 - Все зарегистрированные `BeanPostProcessor` выполняются в порядке их **PriorityOrdered**/**Ordered** или по умолчанию в порядке регистрации.
     
+---
+#### 49. @Lazy
+
+`@Lazy` — аннотация Spring, которая позволяет **откладывать создание бина** до момента его первого использования вместо загрузки при старте контекста.
+
+
+
+**Основные сценарии применения**
+
+1. На уровне объявления бина
+
+    ```java
+    @Component
+    @Lazy
+    public class HeavyService {
+        public HeavyService() {
+            // тяжёлая инициализация
+        }
+    }
+    ```
+
+   Бин `HeavyService` будет создаваться только при первом вызове из другого бина, а не при старте приложения.
+
+2. На уровне метода `@Bean`
+
+    ```java
+    @Configuration
+    public class AppConfig {
+    
+      @Bean
+      @Lazy
+      public DataSource dataSource() {
+        // создаём DataSource только при первом обращении
+        return new HikariDataSource();
+      }
+    }
+    ```
+
+3. На уровне точки внедрения
+
+    ```java
+    @Service
+    public class UserService {
+    
+      @Autowired
+      @Lazy
+      private HeavyService heavyService;
+    
+      public void process() {
+        // heavyService создастся только здесь
+        heavyService.execute();
+      }
+    }
+    ```
+
+   Такой подход применим, если бин нужен далеко не всегда.
+
+
+
+**Как это работает под капотом**
+
+- При ленивой инициализации Spring создаёт не сам объект, а **прокси** (proxy).
+- Прокси удерживает ссылку на фабрику бинов и при первом вызове любого метода **инициализирует реальный объект** и делегирует вызов ему.
+
+```plaintext
+UserService → heavyService (proxy)  
+proxy.invoke() ──> ApplicationContext.getBean(HeavyService) ──> настоящий HeavyService
+```

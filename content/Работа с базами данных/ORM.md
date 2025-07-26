@@ -1009,3 +1009,137 @@ User user = session.get(User.class, 1L);
 SELECT * FROM users WHERE id = 1;
 ```
 
+---
+#### 26. Стратегии наследования в Hibernate
+
+1. **`SINGLE_TABLE` (Одна таблица на иерархию)**
+
+Все классы–наследники хранятся в одной таблице, с колонкой‑дисcriminator’ом для определения конкретного типа.
+
+```java
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "dtype", discriminatorType = DiscriminatorType.STRING)
+public abstract class Vehicle {
+    @Id @GeneratedValue
+    private Long id;
+    private String manufacturer;
+    // getters/setters...
+}
+
+@Entity
+@DiscriminatorValue("CAR")
+public class Car extends Vehicle {
+    private int seatingCapacity;
+    // getters/setters...
+}
+
+@Entity
+@DiscriminatorValue("TRUCK")
+public class Truck extends Vehicle {
+    private double payloadCapacity;
+    // getters/setters...
+}
+```
+
+- **Плюсы**: единая таблица → простой `JOIN`‑free запрос; высокая производительность чтения.
+
+- **Минусы**: много nullable‑колонок (для полей всех подклассов); таблица растёт “шириной”.
+
+
+2. **`TABLE_PER_CLASS` (Отдельная таблица для каждого класса)**
+
+Каждый класс получает свою собственную таблицу со всеми полями, включая унаследованные.
+
+```java
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class Vehicle {
+    @Id @GeneratedValue
+    private Long id;
+    private String manufacturer;
+}
+
+@Entity
+public class Car extends Vehicle {
+    private int seatingCapacity;
+}
+
+@Entity
+public class Truck extends Vehicle {
+    private double payloadCapacity;
+}
+```
+
+- **Плюсы**: нет лишних nullable‑полей, модель “чистой” объектно‑реляционной композиции.
+
+- **Минусы**: `UNION`‑запросы при выборке всех `Vehicle`; сложнее поддержка авто‑инкрементов (не во всех СУБД).
+
+
+3. **`JOINED` (По‑таблицам с `JOIN`)**
+
+Корневой класс хранится в одной таблице, каждый подкласс – в своей, причём таблица подкласса содержит поле‑FK на корневую.
+
+```java
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Vehicle {
+    @Id @GeneratedValue
+    private Long id;
+    private String manufacturer;
+}
+
+@Entity
+@Table(name = "car")
+public class Car extends Vehicle {
+    private int seatingCapacity;
+}
+
+@Entity
+@Table(name = "truck")
+public class Truck extends Vehicle {
+    private double payloadCapacity;
+}
+```
+
+- **Плюсы**: нет nullable‑полей, структура реляционно “чистая”, легко расширять и модифицировать.
+
+- **Минусы**: `JOIN`‑ы при загрузке подклассов; чуть более низкая производительность выборки.
+
+
+4. **`@MappedSuperclass` (Не таблица‑суперкласс)**
+
+Аннотированный суперкласс не является сущностью и не получает своей таблицы; его поля унаследуют таблицы подклассов.
+
+```java
+@MappedSuperclass
+public abstract class BaseEntity {
+    @Id @GeneratedValue
+    private Long id;
+    private LocalDateTime createdAt;
+}
+
+@Entity
+public class User extends BaseEntity {
+    private String username;
+    private String email;
+}
+
+@Entity
+public class Product extends BaseEntity {
+    private String name;
+    private BigDecimal price;
+}
+```
+
+- Используется, когда общие поля и методы нужно “раздать” нескольким сущностям, но сама иерархия не хранится.
+
+
+Когда выбирать какую стратегию
+
+|Стратегия|Подходит для…|Основные преимущества|
+|---|---|---|
+|`SINGLE_TABLE`|Быстрых операций чтения, небольшой иерархии|Нет `JOIN`, простота запросов|
+|`TABLE_PER_CLASS`|Много разных подклассов с уникальными полями|Чистая О‑Р модель, нет `null`|
+|`JOINED`|Чёткая нормализация данных, частые обновления схемы|Нет лишних колонок, гибкость|
+|`@MappedSuperclass`|Общие поля для разных сущностей без таблицы‑супер|Код‑реюз без влияния на СУБД|

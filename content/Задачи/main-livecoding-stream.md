@@ -9,3 +9,6 @@
 
 ---
 #### 3. [Поиск сотрудника по табельному номеру](Задачи/livecoding/task-livecoding-stream-get-employee-by-tabnomer.md)
+
+---
+#### 4. [Фильтр по фамилии](Задачи/livecoding/task-livecoding-stream-filter-sort-surnames.md)
