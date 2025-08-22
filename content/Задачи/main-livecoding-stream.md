@@ -12,3 +12,10 @@
 
 ---
 #### 4. [Фильтр по фамилии](Задачи/livecoding/task-livecoding-stream-filter-sort-surnames.md)
+
+---
+#### 5. [Палиндром с помощью Stream API](Задачи/livecoding/task-livecoding-java-palindrome-stream.md)
+
+---
+#### 6. [Stream API — удвоенные нечётные числа](Задачи/livecoding/task-livecoding-stream-odd-doubled.md)
+
