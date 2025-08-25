@@ -192,3 +192,15 @@
 ---
 #### 64. [Рефакторинг BookingService для корректного бронирования](Задачи/livecoding/task-livecoding-java-booking-service-refactor.md)
 
+---
+#### 65. [Исправление класса Cat4](Задачи/livecoding/task-livecoding-java-cat4-fix.md)
+
+---
+#### 66. [Вывод дерева в виде иерархии](Задачи/livecoding/task-livecoding-java-print-tree.md)
+
+---
+#### 67. [Проверка строки на палиндром](Задачи/livecoding/task-livecoding-java-palindrome.md)
+
+---
+#### 68. [Консольная игра «Крестики-нолики»](Задачи/livecoding/task-livecoding-java-tictactoe-console.md)
+
