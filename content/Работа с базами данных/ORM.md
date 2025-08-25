@@ -739,7 +739,7 @@ public void printAuthorBooks(Long authorId) {
 Это тип уязвимости, которая позволяет злоумышленникам вмешиваться в запросы к базе данных, чтобы выполнить вредоносные команды
 
 ```sql
-SELECT * FROM users WHERE username = 'user' OR '1'='1' AND password = 'password';
+SELECT * FROM users WHERE username = 'user' AND password = 'password' OR '1'='1';
 ```
 
 - Последствия SQL инъекций:
