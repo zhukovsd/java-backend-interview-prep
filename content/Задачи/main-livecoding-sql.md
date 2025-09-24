@@ -148,3 +148,11 @@
 ---
 #### 49. [Проектирование таблиц «Продукты» и «Наличие товаров по магазинам»](Задачи/livecoding/task-livecoding-sql-design-product-inventory.md)
 
+---
+#### 50. [Сумма выручки по продавцам](Задачи/livecoding/task-livecoding-sql-salespersons-revenue.md)
+
+---
+#### 51. [Последняя запись по каждому col2](Задачи/livecoding/task-livecoding-sql-latest-by-foreign-key.md)
+
+
+

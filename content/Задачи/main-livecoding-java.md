@@ -204,3 +204,43 @@
 ---
 #### 68. [Консольная игра «Крестики-нолики»](Задачи/livecoding/task-livecoding-java-tictactoe-console.md)
 
+---
+#### 69. [Реализация класса с истекающими ключами](Задачи/livecoding/task-livecoding-java-expiring-map.md)
+
+---
+#### 70. [Code Review: OrderService](Задачи/livecoding/task-livecoding-java-order-service-review.md)
+
+---
+#### 71. [Code Review: OrderService](Задачи/livecoding/task-livecoding-java-order-service-review2.md)
+
+---
+#### 72. [Проверка палиндрома в цикле без методов строк](Задачи/livecoding/task-livecoding-java-palindrome-loop.md)
+
+---
+#### 73. [Исправление ошибок: OrderService](Задачи/livecoding/task-livecoding-java-order-service-fix-status.md)
+
+---
+#### 74. [Объединить массивы без дубликатов](Задачи/livecoding/task-livecoding-java-merge-arrays-unique.md)
+
+---
+#### 75. [Покрытие тестами метода calc](Задачи/livecoding/task-livecoding-java-calc-tests.md)
+
+---
+#### 76. [Реализация проверки продажи товара по времени и типу с условиями if-else](Задачи/livecoding/task-livecoding-java-if-else-can-sell.md)
+
+---
+#### 77. [Алгоритм фильтрации большой последовательности чисел](Задачи/livecoding/task-livecoding-java-filter-big-sequence.md)
+
+---
+#### 78. [Алгоритм подсчёта вхождений элементов списка](Задачи/livecoding/task-livecoding-java-count-elements.md)
+
+---
+#### 79. [Code Review: Метод find в сервисе интернет-магазина](Задачи/livecoding/task-livecoding-java-find-products-review.md)
+
+---
+#### 80. [Code Review: Синхронизация критической секции в двух потоках](Задачи/livecoding/task-livecoding-java-sync-critical-section.md)
+
+---
+#### 81. [Code Review: In-memory UserService: код-ревью и правки](Задачи/livecoding/task-livecoding-java-inmemory-user-service-review.md)
+
+
