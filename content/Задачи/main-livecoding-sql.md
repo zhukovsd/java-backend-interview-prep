@@ -154,5 +154,18 @@
 ---
 #### 51. [Последняя запись по каждому col2](Задачи/livecoding/task-livecoding-sql-latest-by-foreign-key.md)
 
+---
+#### 52. [Минимальная и максимальная зарплата по отделам среди неуволенных](Задачи/livecoding/task-livecoding-sql-min-max-salary-by-unit_2.md)
 
+---
+#### 53. [Удаление дублей из таблицы emails](Задачи/livecoding/task-livecoding-sql-delete-duplicates-emails.md)
+
+---
+#### 54. [Оптимизация запроса с помощью индексов](Задачи/livecoding/task-livecoding-sql-add-index-for-slow-query.md)
+
+---
+#### 55. [Сотрудники, получающие зарплату выше своего руководителя](Задачи/livecoding/task-livecoding-sql-employees-higher-salary-than-chief.md)
+
+---
+#### 56. [Отделы, где число сотрудников не превышает трёх человек](Задачи/livecoding/task-livecoding-sql-departments-with-few-employees.md)
 

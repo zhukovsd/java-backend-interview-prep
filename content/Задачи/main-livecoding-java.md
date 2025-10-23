@@ -243,4 +243,20 @@
 ---
 #### 81. [Code Review: In-memory UserService: код-ревью и правки](Задачи/livecoding/task-livecoding-java-inmemory-user-service-review.md)
 
+---
+#### 82. [Младший пользователь для каждого имени](Задачи/livecoding/task-livecoding-java-youngest-user-by-name.md)
 
+---
+#### 83. [BFF: экран корзины с рекомендациями](Задачи/livecoding/task-livecoding-java-bff-cart-screen-dto.md)
+
+---
+#### 84. [Ускорение BFF: параллельные вызовы корзины и рекомендаций](Задачи/livecoding/task-livecoding-java-bff-parallel-cart-and-recommendations.md)
+
+---
+#### 85. [Code Review: @Transactional + внешний HTTP вызов](Задачи/livecoding/task-livecoding-java-code-review-transactional-http-call.md)
+
+---
+#### 86. [Являются ли строки перестановками друг друга](Задачи/livecoding/task-livecoding-java-permutations-of-strings.md)
+
+---
+#### 87. [Дженерик: получить первый элемент коллекции произвольного типа](Задачи/livecoding/task-livecoding-java-generic-first-element.md)
