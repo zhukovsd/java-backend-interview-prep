@@ -19,3 +19,6 @@
 ---
 #### 6. [Stream API — удвоенные нечётные числа](Задачи/livecoding/task-livecoding-stream-odd-doubled.md)
 
+---
+#### 7. [Уникальные значения на складах](Задачи/livecoding/task-livecoding-stream-unique-values-in-storages.md)
+

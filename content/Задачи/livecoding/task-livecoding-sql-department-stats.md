@@ -1,4 +1,4 @@
-#### 46. Статистика по отделам
+#### 43. Статистика по отделам
 
 **Условие задачи:**  
 📌 Есть таблицы `Employees(EmployeeID, Name, DepartmentID, Salary)` и `Departments(DepartmentID, DepartmentName)`.  

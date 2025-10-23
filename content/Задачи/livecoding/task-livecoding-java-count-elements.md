@@ -49,12 +49,9 @@ public Map<Integer, Integer> countElementItems(List<Integer> list) {
 Реализация через Stream API:
 
 ```java
-public Map<Integer, Long> countElementItems(List<Integer> list) {
+   public static Map<Integer, Integer> countElementItems(List<Integer> list) {
     return list.stream()
-               .collect(Collectors.groupingBy(
-                   Function.identity(),
-                   Collectors.counting()
-               ));
+            .collect(Collectors.groupingBy(i -> i, Collectors.summingInt(e -> 1)));
 }
 ```
 
