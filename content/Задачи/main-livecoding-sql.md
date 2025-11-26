@@ -160,3 +160,26 @@
 ---
 #### 53. [Отделы, где число сотрудников не превышает трёх человек](Задачи/livecoding/task-livecoding-sql-departments-with-few-employees.md)
 
+---
+#### 54. [Найти дубли email среди клиентов-мужчин](Задачи/livecoding/task-livecoding-sql-find-email-duplicates.md)
+
+---
+#### 55. [Пример синтаксиса запроса с HAVING](Задачи/livecoding/task-livecoding-sql-having-example.md)
+
+---
+#### 56. [Минимальная и максимальная зарплата по отделам среди неуволенных сотрудников](Задачи/livecoding/task-livecoding-sql-min-max-salary-active-employees.md)
+
+---
+#### 57. [Пример запроса с WHERE и HAVING](Задачи/livecoding/task-livecoding-sql-having-vs-where-example.md)
+
+---
+#### 58. [Количество сотрудников по отделам и отделы с >3 сотрудниками с ЗП > 100к](Задачи/livecoding/task-livecoding-sql-departments-employees-aggregation.md)
+
+---
+#### 59. [Схема БД для иерархического справочника организаций](Задачи/livecoding/task-livecoding-sql-org-directory-schema.md)
+
+---
+#### 60. [Проектирование базы изделий (ведомость состава / BOM)](Задачи/livecoding/task-livecoding-sql-bom-products-schema.md)
+
+---
+#### 61. [Найти пользователей, которые летали только экономом](Задачи/livecoding/task-livecoding-sql-users-only-economy.md)

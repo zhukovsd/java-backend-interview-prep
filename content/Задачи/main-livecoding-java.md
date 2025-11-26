@@ -260,3 +260,27 @@
 
 ---
 #### 87. [Дженерик: получить первый элемент коллекции произвольного типа](Задачи/livecoding/task-livecoding-java-generic-first-element.md)
+
+---
+#### 88. [Группировка анаграмм](Задачи/livecoding/task-livecoding-java-group-anagrams.md)
+
+---
+#### 89. [Реализация собственного MyArrayList по аналогии с ArrayList](Задачи/livecoding/task-livecoding-java-implement-myarraylist.md)
+
+---
+#### 90. [Как сделать класс immutable](Задачи/livecoding/task-livecoding-java-make-class-immutable.md)
+
+---
+#### 91. [Поиск отсутствующего числа в массиве от 0 до n](Задачи/livecoding/task-livecoding-java-missing-number.md)
+
+---
+#### 92. [Code review PaymentService: транзакции, DI и логические баги](Задачи/livecoding/task-livecoding-java-payment-service-code-review.md)
+
+---
+#### 93. [Code review системы расчёта зарплат + бизнес-вопросы](Задачи/livecoding/task-livecoding-java-payroll-system-review-and-fix.md)
+
+---
+#### 94. [REST эндпоинт: получить все записи из таблицы Demands](Задачи/livecoding/task-livecoding-java-rest-get-all-demands.md)
+
+---
+#### 95. [Code review ClientController и связанных классов](Задачи/livecoding/task-livecoding-java-client-controller-code-review.md)
