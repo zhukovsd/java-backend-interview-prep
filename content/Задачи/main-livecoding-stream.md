@@ -22,3 +22,6 @@
 ---
 #### 7. [Уникальные значения на складах](Задачи/livecoding/task-livecoding-stream-unique-values-in-storages.md)
 
+---
+#### 8. [Пройти по коллекции и вывести уникальные значения городов](Задачи/livecoding/task-livecoding-stream-unique-cities-streams.md)
+
