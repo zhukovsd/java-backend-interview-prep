@@ -25,3 +25,6 @@
 ---
 #### 8. [Пройти по коллекции и вывести уникальные значения городов](Задачи/livecoding/task-livecoding-stream-unique-cities-streams.md)
 
+---
+#### 9. [Поиск человека по имени (Stream API)](Задачи/livecoding/task-livecoding-stream-find-person-by-name.md)
+

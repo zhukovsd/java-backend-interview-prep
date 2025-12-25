@@ -183,3 +183,12 @@
 
 ---
 #### 61. [Найти пользователей, которые летали только экономом](Задачи/livecoding/task-livecoding-sql-users-only-economy.md)
+
+---
+#### 62. [Минимальная и максимальная зарплата по отделам среди неуволенных сотрудников](Задачи/livecoding/task-livecoding-sql-min-max-salary-by-unit-active.md)
+
+---
+#### 63. [Найти департаменты без сотрудников](Задачи/livecoding/task-livecoding-sql-departments-without-employees.md)
+
+---
+#### 64. [Отделы по алфавиту с количеством сотрудников, где средняя зарплата > 90](Задачи/livecoding/task-livecoding-sql-departments-avg-salary-gt-90.md)
