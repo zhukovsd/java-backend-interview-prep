@@ -284,3 +284,21 @@
 
 ---
 #### 95. [Code review ClientController и связанных классов](Задачи/livecoding/task-livecoding-java-client-controller-code-review.md)
+
+---
+#### 96. [Найти число, которое встречается один раз](Задачи/livecoding/task-livecoding-java-single-number.md)
+
+---
+#### 97. [Транзакции: сколько будет при вызове b() и как сделать a() транзакционным](Задачи/livecoding/task-livecoding-java-transactions-self-invocation.md)
+
+---
+#### 98. [Code review: DocumentService и DocumentReader](Задачи/livecoding/task-livecoding-java-document-service-code-review.md)
+
+---
+#### 99. [Code review сервиса подсчёта статистики по заказам клиента](Задачи/livecoding/task-livecoding-java-code-review-stat-service.md)
+
+---
+#### 100. [Потоки, синхронизация и реализация AtomicInteger](Задачи/livecoding/task-livecoding-java-atomic-integer-and-threads.md)
+
+---
+#### 101. [Уникальные слова по признаку анаграмм (оставить по одному представителю)](Задачи/livecoding/task-livecoding-java-unique-words-by-anagram-signature.md)
