@@ -1,0 +1,9 @@
+[[items]] 
+id = 1
+question = "Расскажите про иерархию исключений"
+answer = """
+![Иерархия исключений](../../exception_hierarchy.png)
+
+**Class Throwable** - общий предок для всех исключений
+"""
+popularity = 2

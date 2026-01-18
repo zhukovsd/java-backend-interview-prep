@@ -1,0 +1,15 @@
+{{ $section := .Page.File.Section }}
+{{ $filename := .Page.File.BaseFileName }}
+
+{{ $items := index .Site.Data $section $filename "items" }}
+
+{{ range $qa := $items }}
+
+    {{ $question := printf "%d. %s" .id .question }}
+    {{ $anchor := $question | anchorize }}
+
+    <h4 id="{{ $anchor }}">{{ $question }} <a href="#{{ $anchor }}" class="anchor">#</a></h4>
+    <p>{{ .answer | markdownify }}</p>
+    <hr>
+
+{{end}}
