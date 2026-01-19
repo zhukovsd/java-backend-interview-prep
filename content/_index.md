@@ -37,7 +37,7 @@ date: 2024-10-03T23:15:53+07:00
 3. Прийти в [чат](https://t.me/+8YGzqvJOndg1Yjky) сообщества для подготовки по теории и попросить мок собеседование по одной или нескольким темам.
 4. Пройдя все темы, попрактиковаться с [вопросами на подумать](https://zhukovsd.github.io/java-backend-interview-prep/tasks-to-think/) и [лайвкодингом](https://zhukovsd.github.io/java-backend-interview-prep/livecoding/).
 
-Для полноценного сопровождения поиска работы можете рассмотреть моё [менторство по трудоустройству](https://telegra.ph/Mentorstvo-po-trudoustrojstvu-10-26).
+Для полноценного сопровождения поиска работы можете рассмотреть моё [менторство по трудоустройству](https://zhukovsd.it/services/employment-mentorship/).
 
 ## Как поддержать
 
