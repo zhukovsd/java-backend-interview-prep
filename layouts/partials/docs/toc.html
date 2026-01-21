@@ -35,7 +35,7 @@
 <nav id="TableOfContents">
     <ul>
         {{ range $tocEntries }}
-        <li><a href="#{{ .id }}">{{ .text }}</a></li>
+        <li><a href="#{{ .id }}">{{ .text | plainify }}</a></li>
         {{ end }}
     </ul>
 </nav>
