@@ -20,7 +20,7 @@ jobs:
       LOG_LEVEL: DEBUG
       GOOGLE_APPLICATION_CREDENTIALS: /config/service-account-key.json
       GENERATOR_CONFIG_PATH: /config/config.toml
-      GITHUB_BOT_TOKEN: ${{secrets.HUB_BOT_TOKEN}}
+      GITHUB_BOT_TOKEN: ${{ secrets.HUB_BOT_TOKEN }}
       CREATE_PULL_REQUEST: true
     
     steps:
@@ -35,7 +35,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Pull docker image
-      run: docker pull ghcr.io/${{ inputs.data-generator-repo }}:${{inputs.data-generator-branch}}
+      run: docker pull ghcr.io/${{ github.actor }}/${{ inputs.data-generator-repo }}:${{ inputs.data-generator-branch }}
 
     - name: Create google service-account-key.json from github secret
       uses: jsdaniell/create-json@v1.2.3
@@ -58,4 +58,4 @@ jobs:
           -v "./data/:$DATA_DIR" \
           -v "./data-generator-config.toml:$GENERATOR_CONFIG_PATH" \
           -v "./service-account-key.json:$GOOGLE_APPLICATION_CREDENTIALS" \
-          ghcr.io/${{ inputs.data-generator-repo }}:${{inputs.data-generator-branch}}
+          ghcr.io/${{ github.actor }}/${{ inputs.data-generator-repo }}:${{ inputs.data-generator-branch }}
