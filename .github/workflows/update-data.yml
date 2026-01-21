@@ -1,0 +1,61 @@
+name: Update data files
+
+on:
+  workflow_dispatch:
+    inputs:
+      data-generator-repo:
+        required: true
+        type: string
+        default: "interview-prep-hugo-template-generator"
+      data-generator-branch:
+        required: true
+        type: string
+        default: "dev"
+     
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    env:
+      LOG_LEVEL: DEBUG
+      GOOGLE_APPLICATION_CREDENTIALS: /config/service-account-key.json
+      GENERATOR_CONFIG_PATH: /config/config.toml
+      GITHUB_BOT_TOKEN: ${{secrets.HUB_BOT_TOKEN}}
+      CREATE_PULL_REQUEST: true
+    
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Pull docker image
+      run: docker pull ghcr.io/${{ inputs.data-generator-repo }}:${{inputs.data-generator-branch}}
+
+    - name: Create google service-account-key.json from github secret
+      uses: jsdaniell/create-json@v1.2.3
+      with:
+        name: service-account-key.json
+        json: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+        dir: ./
+    
+    - name: Run
+      run: |
+        # Read data_dir property from config.toml file
+        DATA_DIR=$(grep -o "data_dir.*" data-generator-config.toml | cut -d'"' -f2)
+        
+        docker run \
+          -e "LOG_LEVEL=$LOG_LEVEL" \
+          -e "GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS" \
+          -e "GENERATOR_CONFIG_PATH=$GENERATOR_CONFIG_PATH" \
+          -e "GITHUB_BOT_TOKEN=$GITHUB_BOT_TOKEN" \
+          -e "CREATE_PULL_REQUEST=$CREATE_PULL_REQUEST" \
+          -v "./data/:$DATA_DIR" \
+          -v "./data-generator-config.toml:$GENERATOR_CONFIG_PATH" \
+          -v "./service-account-key.json:$GOOGLE_APPLICATION_CREDENTIALS" \
+          ghcr.io/${{ inputs.data-generator-repo }}:${{inputs.data-generator-branch}}
