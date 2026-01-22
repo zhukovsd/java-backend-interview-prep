@@ -1,10 +1,10 @@
-repo = "krios2146/java-backend-interview-prep"
+repo = "zhukovsd/java-backend-interview-prep"
 
 # absolute path inside docker container
 data_dir = "/java-backend-interview-prep/data"
 
 [spreadsheet]
-id = "13k_3bBM10MeLV2V2wQfzCHrKzBx5-oeOz4tP6jwYS7s"
+id = "1mcTcg9dR7Hv265h4ei5Ioyx9V94SnhCCYcG4zNo2bAk"
 
 [spreadsheet.main_sheet]
 title = "Сводный лист"
