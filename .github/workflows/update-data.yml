@@ -6,7 +6,7 @@ on:
       data-generator-repo:
         required: true
         type: string
-        default: "interview-prep-hugo-data-generator"
+        default: "zhukovsd/interview-prep-hugo-data-generator"
       data-generator-branch:
         required: true
         type: string
@@ -37,7 +37,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Pull docker image
-      run: docker pull ghcr.io/${{ github.actor }}/${{ inputs.data-generator-repo }}:${{ inputs.data-generator-branch }}
+      run: docker pull ghcr.io/${{ inputs.data-generator-repo }}:${{ inputs.data-generator-branch }}
 
     - name: Create google service-account-key.json from github secret
       uses: jsdaniell/create-json@v1.2.3
@@ -60,4 +60,4 @@ jobs:
           -v "./data/:$DATA_DIR" \
           -v "./data-generator-config.toml:$GENERATOR_CONFIG_PATH" \
           -v "./service-account-key.json:$GOOGLE_APPLICATION_CREDENTIALS" \
-          ghcr.io/${{ github.actor }}/${{ inputs.data-generator-repo }}:${{ inputs.data-generator-branch }}
+          ghcr.io/${{ inputs.data-generator-repo }}:${{ inputs.data-generator-branch }}
