@@ -1,0 +1,43 @@
+{{ partial "docs/inject/toc-before" . }}
+
+{{ $tocEntries := slice }}
+
+{{/* regexp explanation
+    <h[2-6] - headers 2-6 
+    [^>]* - anything that is not >
+    > - exactly >
+    .*? - all content inside header
+    </h[2-6]> - closing tag
+*/}}
+{{ $headers := findRE "<h[2-6][^>]*>.*?</h[2-6]>" .Content }}
+
+{{ range $headers }}
+    {{ $header := . }}
+
+    {{/* regexp explanation
+        .*id=" - anything before id and id itself 
+        ([^"]+) - capture group for anything that is not "
+        ".* - exactly " and anything else
+    */}}
+    {{ $id := replaceRE `.*id="([^"]+)".*` "$1" $header }}
+
+
+    {{/* regexp explanation
+        .*?> - everything before > 
+        (.*?) - lazy capture group of anything 
+        <a.* - exactly <a and anything after
+    */}}
+    {{ $text := replaceRE `.*?>(.*?)<a.*` "$1" $header }}
+
+    {{ $tocEntries = $tocEntries | append (dict "id" $id "text" $text) }}
+{{ end }}
+
+<nav id="TableOfContents">
+    <ul>
+        {{ range $tocEntries }}
+        <li><a href="#{{ .id }}">{{ .text | plainify }}</a></li>
+        {{ end }}
+    </ul>
+</nav>
+
+{{ partial "docs/inject/toc-after" . }}

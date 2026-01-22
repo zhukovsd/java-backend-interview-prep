@@ -1,0 +1,37 @@
+{{ $fileDataContainers := slice }}
+
+{{ range $hugoSection, $files := index .Site.Data }}
+    {{ range $filename, $data := $files }}
+        {{ $fileDataContainers = $fileDataContainers | append (dict 
+        "filename" $filename 
+        "data" $data
+        "hugoSection" $hugoSection
+        "sectionId" $data.section.id
+        ) }}
+    {{ end }}
+{{ end }}
+
+{{ $sortedFileDataContainers := sort $fileDataContainers "sectionId" "asc" }}
+
+{{ range $fileDataContainer := $sortedFileDataContainers }}
+    {{ $filename := $fileDataContainer.filename }}
+    {{ $data := $fileDataContainer.data }}
+    {{ $hugoSection := $fileDataContainer.hugoSection }}
+
+    {{ $sectionData := index $data "section" }}
+    {{ $sectionPath := print "/" ($hugoSection | anchorize) "/" ($filename | anchorize) }}
+    {{ $page := $.Site.GetPage $sectionPath }}
+    {{ $sectionLink := $page.RelPermalink }}
+
+    <h2><a href="{{$sectionLink}}">{{ $sectionData.title }}</a> [{{ $sectionData.popularity }}%]</h2>
+
+    {{ range $qa := index $data "items" }}
+
+        {{ $questionAnchor := printf "%d %s" .id .question | anchorize }}
+        {{ $questionLink := print $sectionLink "#" $questionAnchor }}
+
+        <h4>{{ .id }}. <a href="{{ $questionLink }}">{{ .question }}</a> [{{ .popularity }}%]</h4>
+
+    {{end}}
+
+{{end}}

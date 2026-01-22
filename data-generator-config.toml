@@ -1,0 +1,112 @@
+repo = "zhukovsd/java-backend-interview-prep"
+
+# absolute path inside docker container
+data_dir = "/java-backend-interview-prep/data"
+
+[spreadsheet]
+id = "1mcTcg9dR7Hv265h4ei5Ioyx9V94SnhCCYcG4zNo2bAk"
+
+[spreadsheet.main_sheet]
+title = "Сводный лист"
+range = "C4:D"
+question_col_index = 0 # for range C4:D this is column C
+popularity_col_index = 1 # for range C4:D this is column D
+
+[spreadsheet.answer_sheet]
+title_pattern = "Ответы - {}"
+title_pattern_placeholder = "{}"
+range = "A:B"
+question_col_index = 0 # for range A:B this is column A
+answer_col_index = 1 # for range A:B this is column B
+
+[[categories]]
+name = "Java Core"
+answers_filepath = "Основы Java/Java Core.md"
+
+[[categories]]
+name = "Коллекции"
+answers_filepath = "Основы Java/Collections.md"
+
+[[categories]]
+name = "Исключения"
+answers_filepath = "Основы Java/Exceptions.md"
+
+[[categories]]
+name = "Дженерики"
+answers_filepath = "Основы Java/Generics.md"
+
+[[categories]]
+name = "Функциональные интерфейсы"
+answers_filepath = "Основы Java/Functional Interface.md"
+
+[[categories]]
+name = "Stream API"
+answers_filepath = "Основы Java/Stream API.md"
+
+[[categories]]
+name = "Многопоточность"
+answers_filepath = "Основы Java/Multithreading.md"
+
+[[categories]]
+name = "Многопоточность"
+answers_filepath = "Основы Java/Multithreading.md"
+
+[[categories]]
+name = "ООП"
+answers_filepath = "Основы Java/OOP.md"
+
+[[categories]]
+name = "SOLID"
+answers_filepath = "Принципы и методы проектирования/SOLID.md"
+
+[[categories]]
+name = "Паттерны проектирования"
+answers_filepath = "Принципы и методы проектирования/Design Patterns.md"
+
+[[categories]]
+name = "Базы данных"
+answers_filepath = "Работа с базами данных/Database management system.md"
+
+[[categories]]
+name = "SQL"
+answers_filepath = "Работа с базами данных/SQL.md"
+
+[[categories]]
+name = "NoSQL"
+answers_filepath = "Работа с базами данных/NoSQL.md"
+
+[[categories]]
+name = "ORM"
+answers_filepath = "Работа с базами данных/ORM.md"
+
+[[categories]]
+name = "Миграции"
+answers_filepath = "Работа с базами данных/Migrations.md"
+
+[[categories]]
+name = "Микросервисы"
+answers_filepath = "Архитектура и разработка/Microservices.md"
+
+[[categories]]
+name = "Брокеры сообщений"
+answers_filepath = "Архитектура и разработка/Message broker.md"
+
+[[categories]]
+name = "Spring"
+answers_filepath = "Архитектура и разработка/Spring.md"
+
+[[categories]]
+name = "WEB"
+answers_filepath = "Архитектура и разработка/WEB.md"
+
+[[categories]]
+name = "Тестирование"
+answers_filepath = "Тестирование/Testing.md"
+
+[[categories]]
+name = "Деплой"
+answers_filepath = "Развертывание и инфраструктура/Deployment.md"
+
+[[categories]]
+name = "Другое"
+answers_filepath = "Прочее/Other.md"
