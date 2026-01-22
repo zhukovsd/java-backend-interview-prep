@@ -10,7 +10,7 @@ on:
       data-generator-branch:
         required: true
         type: string
-        default: "dev"
+        default: "master"
      
 jobs:
   update-data-files:
@@ -19,7 +19,7 @@ jobs:
       packages: read
 
     env:
-      LOG_LEVEL: DEBUG
+      LOG_LEVEL: INFO
       GOOGLE_APPLICATION_CREDENTIALS: /config/service-account-key.json
       GENERATOR_CONFIG_PATH: /config/config.toml
       GITHUB_BOT_TOKEN: ${{ secrets.HUB_BOT_TOKEN }}
