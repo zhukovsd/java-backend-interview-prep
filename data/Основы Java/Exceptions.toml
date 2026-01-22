@@ -6,7 +6,7 @@
 [[items]]
   id = 1
   question = "Расскажите про иерархию исключений"
-  answer = "{{< figure src=\"Exception.png\" title=\"Exceptions\" >}}\n\n**Class Throwable** - общий предок для всех исключений"
+  answer = "{{< figure src=\"exception_hierarchy.png\" title=\"Exceptions\" >}}\n\n**Class Throwable** - общий предок для всех исключений"
   popularity = 13.89
 
 [[items]]
