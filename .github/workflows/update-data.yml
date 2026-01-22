@@ -6,7 +6,7 @@ on:
       data-generator-repo:
         required: true
         type: string
-        default: "interview-prep-hugo-template-generator"
+        default: "interview-prep-hugo-data-generator"
       data-generator-branch:
         required: true
         type: string
