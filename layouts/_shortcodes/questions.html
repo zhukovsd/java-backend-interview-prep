@@ -1,22 +1,36 @@
+{{ $fileDataContainers := slice }}
+
 {{ range $hugoSection, $files := index .Site.Data }}
-
     {{ range $filename, $data := $files }}
+        {{ $fileDataContainers = $fileDataContainers | append (dict 
+        "filename" $filename 
+        "data" $data
+        "hugoSection" $hugoSection
+        "sectionId" $data.section.id
+        ) }}
+    {{ end }}
+{{ end }}
 
-        {{ $sectionData := index $data "section" }}
-        {{ $sectionPath := print "/" ($hugoSection | anchorize) "/" ($filename | anchorize) }}
-        {{ $page := $.Site.GetPage $sectionPath }}
-        {{ $sectionLink := $page.RelPermalink }}
+{{ $sortedFileDataContainers := sort $fileDataContainers "sectionId" "asc" }}
 
-        <h2><a href="{{$sectionLink}}">{{ $sectionData.title }}</a> [{{ $sectionData.popularity }}%]</h2>
+{{ range $fileDataContainer := $sortedFileDataContainers }}
+    {{ $filename := $fileDataContainer.filename }}
+    {{ $data := $fileDataContainer.data }}
+    {{ $hugoSection := $fileDataContainer.hugoSection }}
 
-        {{ range $qa := index $data "items" }}
+    {{ $sectionData := index $data "section" }}
+    {{ $sectionPath := print "/" ($hugoSection | anchorize) "/" ($filename | anchorize) }}
+    {{ $page := $.Site.GetPage $sectionPath }}
+    {{ $sectionLink := $page.RelPermalink }}
 
-            {{ $questionAnchor := printf "%d %s" .id .question | anchorize }}
-            {{ $questionLink := print $sectionLink "#" $questionAnchor }}
+    <h2><a href="{{$sectionLink}}">{{ $sectionData.title }}</a> [{{ $sectionData.popularity }}%]</h2>
 
-            <h4>{{ .id }}. <a href="{{ $questionLink }}">{{ .question }}</a> [{{ .popularity }}%]</h4>
+    {{ range $qa := index $data "items" }}
 
-        {{end}}
+        {{ $questionAnchor := printf "%d %s" .id .question | anchorize }}
+        {{ $questionLink := print $sectionLink "#" $questionAnchor }}
+
+        <h4>{{ .id }}. <a href="{{ $questionLink }}">{{ .question }}</a> [{{ .popularity }}%]</h4>
 
     {{end}}
 
