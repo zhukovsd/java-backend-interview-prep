@@ -96,7 +96,7 @@ name = "Spring"
 answers_filepath = "Архитектура и разработка/Spring.md"
 
 [[categories]]
-name = "Web"
+name = "WEB"
 answers_filepath = "Архитектура и разработка/WEB.md"
 
 [[categories]]
