@@ -102,7 +102,7 @@
 [[items]]
   id = 17
   question = "Какие бывают состояния у потока?"
-  answer = "{{< figure src=\"Life_Cycle_of_Thread.png\" title=\"Multithreading\">}}\n\n---"
+  answer = "{{< figure src=\"/java-backend-interview-prep/thread_life_cycle.png\" title=\"Multithreading\" >}}\n\n---"
   popularity = 1.19
 
 [[items]]
