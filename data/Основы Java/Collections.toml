@@ -6,7 +6,7 @@
 [[items]]
   id = 1
   question = "Расскажите как выглядит иерархия коллекций"
-  answer = "{{< figure src=\"Collections.png\" >}}\n\n**Collection** и **Map** - два интерфейса, которые находятся на вершине иерархии JCF. Интерфейс Collection расширяют интерфейсы:\n- List\n- Queue\n- Set\n\n---"
+  answer = "{{< figure src=\"/java-backend-interview-prep/collections_hierarchy.png\" title=\"Collections hierarchy\" >}}\n\n**Collection** и **Map** - два интерфейса, которые находятся на вершине иерархии JCF. Интерфейс Collection расширяют интерфейсы:\n- List\n- Queue\n- Set\n\n---"
   popularity = 22.22
 
 [[items]]
