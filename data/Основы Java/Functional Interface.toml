@@ -12,7 +12,7 @@
 [[items]]
   id = 2
   question = "Для чего нужна аннотация @FunctionalInterface"
-  answer = ""
+  answer = "Для гарантии того, что интерфейс является функциональным. Она не даст создать еще один абстрактный метод\n\n---"
   popularity = 1.19
 
 [[items]]
@@ -35,6 +35,6 @@
 
 [[items]]
   id = 6
-  question = "Что делает Интерфейс Function"
+  question = "Что делает Интерфейс Function?"
   answer = "`java.util.function.Function`  - это встроенный функциональный интерфейс, добавленный в Java SE 8.\n\nПринимает значение в качестве аргумента одного типа и возвращает другое значение. Часто используется для преобразования одного значения в другое:\n\n```java\n@FunctionalInterface\npublic interface Function<T, R> {\n    R apply(T t);\n}\n```"
   popularity = 0.4

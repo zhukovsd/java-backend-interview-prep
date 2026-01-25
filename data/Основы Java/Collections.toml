@@ -186,24 +186,24 @@
 [[items]]
   id = 31
   question = "Назовите главные реализации Queue"
-  answer = ""
+  answer = "1. LinkedList\n2. ArrayDeque\n\n---"
   popularity = 0.4
 
 [[items]]
   id = 32
-  question = "Что такое Dequeue?"
-  answer = ""
+  question = "Что такое Deque?"
+  answer = "Deque (Double-Ended Queue) — это интерфейс в Java, который представляет собой очередь с двумя концами. Это означает, что элементы могут быть добавлены или удалены как с начала, так и с конца очереди. Таким образом, Deque может работать как очередь (**FIFO**) и как стек (**LIFO**).\n\n---\n***Что значит двунаправленный?***\n\nДвунаправленный (или двухсторонний) в контексте Deque (Double-Ended Queue) означает, что элементы можно добавлять и удалять с обеих сторон очереди\n\n---"
   popularity = 0.4
 
 [[items]]
   id = 33
-  question = "Назовите главные реализации Dequeue"
-  answer = ""
+  question = "Назовите главные реализации Deque"
+  answer = "1. LinkedList\n2. ArrayDeque (Double ended queue)\n\n---"
   popularity = 0.0
 
 [[items]]
   id = 34
-  question = "Dequeue - сложность операций"
+  question = "Deque - сложность операций"
   answer = "**О(1)**\n\n---"
   popularity = 0.0
 
