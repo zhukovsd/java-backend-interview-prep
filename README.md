@@ -9,7 +9,7 @@ https://gohugo.io/installation/
 Склонировать проект
 
 ```bash
-git clone git@github.com:zhukovsd/java-backend-interview-prep.git
+git clone --recurse-submodules git@github.com:zhukovsd/java-backend-interview-prep.git
 ```
 
 Зайти в директорию проекта
