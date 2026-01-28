@@ -192,3 +192,6 @@
 
 ---
 #### 64. [Отделы по алфавиту с количеством сотрудников, где средняя зарплата > 90](Задачи/livecoding/task-livecoding-sql-departments-avg-salary-gt-90.md)
+
+---
+#### 65. [Департаменты с количеством сотрудников больше трёх](Задачи/livecoding/task-livecoding-sql-departments-more-than-three-users.md)
