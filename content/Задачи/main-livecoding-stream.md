@@ -28,3 +28,14 @@
 ---
 #### 9. [Поиск человека по имени (Stream API)](Задачи/livecoding/task-livecoding-stream-find-person-by-name.md)
 
+---
+#### 10. [Получить список наименований книг по каждому автору](Задачи/livecoding/task-livecoding-stream-books-by-author-streams.md)
+
+---
+#### 11. [Вывести строку в обратном порядке, каждую вторую букву](Задачи/livecoding/task-livecoding-stream-reverse-every-second-char.md)
+
+---
+#### 12. [Фильтрация и группировка имён](Задачи/livecoding/task-livecoding-stream-stream-group-names.md)
+
+---
+#### 13. [Получить список без первых и последних трёх элементов](Задачи/livecoding/task-livecoding-stream-skip-limit.md)

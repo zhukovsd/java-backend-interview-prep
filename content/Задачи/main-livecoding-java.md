@@ -307,16 +307,13 @@
 #### 102. [Code review doAction(): проблемы и рефакторинг](Задачи/livecoding/task-livecoding-java-doaction-code-review.md)
 
 ---
-#### 103. [](Задачи/livecoding/)
+#### 103. [Простейший метод, который приводит к StackOverflowError](Задачи/livecoding/task-livecoding-java-stackoverflow-error.md)
 
 ---
-#### 104. [](Задачи/livecoding/)
+#### 104. [Реализация стека с `push`, `pop`, `peekMax` за O(1)](Задачи/livecoding/task-livecoding-java-max-stack.md)
 
 ---
-#### 105. [](Задачи/livecoding/)
+#### 105. [Переименование файла (ФС + Postgres) в транзакции](Задачи/livecoding/task-livecoding-java-file-rename-code-review.md)
 
 ---
-#### 106. [](Задачи/livecoding/)
-
----
-#### 107. [](Задачи/livecoding/)
+#### 106. [Работа с Set: объект Ball, equals / hashCode](Задачи/livecoding/task-livecoding-java-set-ball.md)
