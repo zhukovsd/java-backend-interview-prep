@@ -302,3 +302,21 @@
 
 ---
 #### 101. [Уникальные слова по признаку анаграмм (оставить по одному представителю)](Задачи/livecoding/task-livecoding-java-unique-words-by-anagram-signature.md)
+
+---
+#### 102. [Code review doAction(): проблемы и рефакторинг](Задачи/livecoding/task-livecoding-java-doaction-code-review.md)
+
+---
+#### 103. [](Задачи/livecoding/)
+
+---
+#### 104. [](Задачи/livecoding/)
+
+---
+#### 105. [](Задачи/livecoding/)
+
+---
+#### 106. [](Задачи/livecoding/)
+
+---
+#### 107. [](Задачи/livecoding/)
