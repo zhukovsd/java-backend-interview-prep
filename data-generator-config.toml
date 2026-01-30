@@ -19,94 +19,114 @@ range = "A:B"
 question_col_index = 0 # for range A:B this is column A
 answer_col_index = 1 # for range A:B this is column B
 
-[[categories]]
+[spreadsheet.livecoding_sheet]
+title = "Лайвкодинг"
+range = "B:F"
+question_col_index = 0 # for range B:F this is column B
+filepath_col_index = 3 # for range B:F this is column E
+answer_col_index = 4 # for range B:F this is column F
+
+[[tech.categories]]
 name = "Java Core"
 answers_filepath = "Основы Java/Java Core.md"
 
-[[categories]]
+[[tech.categories]]
 name = "Коллекции"
 answers_filepath = "Основы Java/Collections.md"
 
-[[categories]]
+[[tech.categories]]
 name = "Исключения"
 answers_filepath = "Основы Java/Exceptions.md"
 
-[[categories]]
+[[tech.categories]]
 name = "Дженерики"
 answers_filepath = "Основы Java/Generics.md"
 
-[[categories]]
+[[tech.categories]]
 name = "Функциональные интерфейсы"
 answers_filepath = "Основы Java/Functional Interface.md"
 
-[[categories]]
+[[tech.categories]]
 name = "Stream API"
 answers_filepath = "Основы Java/Stream API.md"
 
-[[categories]]
+[[tech.categories]]
 name = "Многопоточность"
 answers_filepath = "Основы Java/Multithreading.md"
 
-[[categories]]
+[[tech.categories]]
 name = "Многопоточность"
 answers_filepath = "Основы Java/Multithreading.md"
 
-[[categories]]
+[[tech.categories]]
 name = "ООП"
 answers_filepath = "Основы Java/OOP.md"
 
-[[categories]]
+[[tech.categories]]
 name = "SOLID"
 answers_filepath = "Принципы и методы проектирования/SOLID.md"
 
-[[categories]]
+[[tech.categories]]
 name = "Паттерны проектирования"
 answers_filepath = "Принципы и методы проектирования/Design Patterns.md"
 
-[[categories]]
+[[tech.categories]]
 name = "Базы данных"
 answers_filepath = "Работа с базами данных/Database management system.md"
 
-[[categories]]
+[[tech.categories]]
 name = "SQL"
 answers_filepath = "Работа с базами данных/SQL.md"
 
-[[categories]]
+[[tech.categories]]
 name = "NoSQL"
 answers_filepath = "Работа с базами данных/NoSQL.md"
 
-[[categories]]
+[[tech.categories]]
 name = "ORM"
 answers_filepath = "Работа с базами данных/ORM.md"
 
-[[categories]]
+[[tech.categories]]
 name = "Миграции"
 answers_filepath = "Работа с базами данных/Migrations.md"
 
-[[categories]]
+[[tech.categories]]
 name = "Микросервисы"
 answers_filepath = "Архитектура и разработка/Microservices.md"
 
-[[categories]]
+[[tech.categories]]
 name = "Брокеры сообщений"
 answers_filepath = "Архитектура и разработка/Message broker.md"
 
-[[categories]]
+[[tech.categories]]
 name = "Spring"
 answers_filepath = "Архитектура и разработка/Spring.md"
 
-[[categories]]
+[[tech.categories]]
 name = "WEB"
 answers_filepath = "Архитектура и разработка/WEB.md"
 
-[[categories]]
+[[tech.categories]]
 name = "Тестирование"
 answers_filepath = "Тестирование/Testing.md"
 
-[[categories]]
+[[tech.categories]]
 name = "Деплой"
 answers_filepath = "Развертывание и инфраструктура/Deployment.md"
 
-[[categories]]
+[[tech.categories]]
 name = "Другое"
 answers_filepath = "Прочее/Other.md"
+
+[[livecoding.categories]]
+name = "Java Core"
+answers_filepath = "Задачи/main-livecoding-java.md"
+
+[[livecoding.categories]]
+name = "SQL"
+answers_filepath = "Задачи/main-livecoding-sql.md"
+
+[[livecoding.categories]]
+name = "Stream API"
+answers_filepath = "Задачи/main-livecoding-stream.md"
+
