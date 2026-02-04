@@ -1,4 +1,6 @@
-git config -f .gitmodules --remove-section submodule.themes/hugo-book   # java-backend-interview-prep
+# java-backend-interview-prep
+
+git config -f .gitmodules --remove-section submodule.themes/hugo-book   
 
 ## Локальный запуск
 
