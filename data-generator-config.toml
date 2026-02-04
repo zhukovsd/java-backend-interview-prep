@@ -1,7 +1,18 @@
 repo = "zhukovsd/java-backend-interview-prep"
 
 # absolute path inside docker container
-data_dir = "/java-backend-interview-prep/data"
+mount_dir = "/java-backend-interview-prep"
+data_dir = "/data"
+content_dir = "/content"
+
+[hugo.livecoding]
+task_content = '''
++++
+bookToC = false
++++
+
+{{< livecoding/answer >}}
+'''
 
 [spreadsheet]
 id = "1mcTcg9dR7Hv265h4ei5Ioyx9V94SnhCCYcG4zNo2bAk"
