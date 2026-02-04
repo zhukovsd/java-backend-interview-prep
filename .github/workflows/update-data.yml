@@ -49,7 +49,7 @@ jobs:
     - name: Run
       run: |
         # Read data_dir property from config.toml file
-        DATA_DIR=$(grep -o "data_dir.*" data-generator-config.toml | cut -d'"' -f2)
+        MOUNT_DIR=$(grep -o "mount_dir.*" data-generator-config.toml | cut -d'"' -f2)
         
         docker run \
           -e "LOG_LEVEL=$LOG_LEVEL" \
@@ -57,7 +57,7 @@ jobs:
           -e "GENERATOR_CONFIG_PATH=$GENERATOR_CONFIG_PATH" \
           -e "GITHUB_BOT_TOKEN=$GITHUB_BOT_TOKEN" \
           -e "CREATE_PULL_REQUEST=$CREATE_PULL_REQUEST" \
-          -v "./data/:$DATA_DIR" \
+          -v "./:$MOUNT_DIR" \
           -v "./data-generator-config.toml:$GENERATOR_CONFIG_PATH" \
           -v "./service-account-key.json:$GOOGLE_APPLICATION_CREDENTIALS" \
           ghcr.io/${{ inputs.data-generator-repo }}:${{ inputs.data-generator-branch }}
