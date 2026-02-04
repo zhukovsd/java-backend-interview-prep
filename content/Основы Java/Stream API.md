@@ -6,4 +6,4 @@ bookFlatSection = true
 
 ## Stream API
 
-{{< answers >}}
+{{< tech/answers >}}

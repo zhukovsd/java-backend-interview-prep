@@ -6,4 +6,4 @@ bookFlatSection = true
 
 ## Тестирование
 
-{{< answers >}}
+{{< tech/answers >}}

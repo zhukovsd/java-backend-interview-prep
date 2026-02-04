@@ -6,4 +6,4 @@ bookFlatSection = true
 
 ## SOLID
 
-{{< answers >}}
+{{< tech/answers >}}

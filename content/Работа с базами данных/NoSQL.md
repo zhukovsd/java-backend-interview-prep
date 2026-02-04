@@ -6,4 +6,4 @@ bookFlatSection = true
 
 ## NoSQL
 
-{{< answers >}}
+{{< tech/answers >}}

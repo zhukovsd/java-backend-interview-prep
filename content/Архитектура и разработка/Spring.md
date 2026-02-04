@@ -6,4 +6,4 @@ bookFlatSection = true
 
 ## Spring
 
-{{< answers >}}
+{{< tech/answers >}}

@@ -6,4 +6,4 @@ bookFlatSection = true
 
 ## Микросервисы
 
-{{< answers >}}
+{{< tech/answers >}}

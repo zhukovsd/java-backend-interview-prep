@@ -6,4 +6,4 @@ bookFlatSection = true
 
 ## Паттерны проектирования
 
-{{< answers >}}
+{{< tech/answers >}}

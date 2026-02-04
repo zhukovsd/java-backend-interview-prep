@@ -6,4 +6,4 @@ bookFlatSection = true
 
 ## Деплой
 
-{{< answers >}}
+{{< tech/answers >}}

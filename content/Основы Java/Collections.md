@@ -11,4 +11,4 @@ bookFlatSection = true
 > - LinkedList - https://habr.com/ru/articles/127864/
 > - HashMap - https://habr.com/ru/articles/128017/
 
-{{< answers >}}
+{{< tech/answers >}}

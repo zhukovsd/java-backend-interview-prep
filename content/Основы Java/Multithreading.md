@@ -6,4 +6,4 @@ bookFlatSection = true
 
 ## Многопоточность
 
-{{< answers >}}
+{{< tech/answers >}}
