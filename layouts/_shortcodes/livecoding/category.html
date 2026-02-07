@@ -12,8 +12,7 @@
 {{ range $task := $sortedTasks }}
     {{ $page := $.Site.GetPage .filepath }}
     {{ $questionLink := $page.RelPermalink }}
-    {{ $anchor := .question | anchorize }}
 
-    <h4 id="{{ $anchor }}">{{ .id }}. <a href="{{ $questionLink }}">{{ .question }}</a> <a href="#{{ $anchor }}" class="anchor">#</a></h4>
+    <h4>{{ .id }}. <a href="{{ $questionLink }}">{{ .question }}</a></h4>
     <hr>
 {{end}}
