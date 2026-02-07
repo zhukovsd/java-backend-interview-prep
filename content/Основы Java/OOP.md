@@ -6,4 +6,4 @@ bookFlatSection = true
 
 ## ООП
 
-{{< answers >}}
+{{< tech/answers >}}

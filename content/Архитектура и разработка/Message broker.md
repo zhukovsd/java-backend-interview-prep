@@ -6,4 +6,4 @@ bookFlatSection = true
 
 ## Брокеры сообщений
 
-{{< answers >}}
+{{< tech/answers >}}

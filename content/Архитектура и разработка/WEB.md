@@ -6,4 +6,4 @@ bookFlatSection = true
 
 ## Web
 
-{{< answers >}}
+{{< tech/answers >}}

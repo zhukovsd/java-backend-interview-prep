@@ -1,7 +1,18 @@
 repo = "zhukovsd/java-backend-interview-prep"
 
 # absolute path inside docker container
-data_dir = "/java-backend-interview-prep/data"
+mount_dir = "/java-backend-interview-prep"
+data_dir = "/data"
+content_dir = "/content"
+
+[hugo.livecoding]
+task_content = '''
++++
+bookToC = false
++++
+
+{{< livecoding/answer >}}
+'''
 
 [spreadsheet]
 id = "1mcTcg9dR7Hv265h4ei5Ioyx9V94SnhCCYcG4zNo2bAk"
@@ -12,101 +23,118 @@ range = "C4:D"
 question_col_index = 0 # for range C4:D this is column C
 popularity_col_index = 1 # for range C4:D this is column D
 
-[spreadsheet.answer_sheet]
+[spreadsheet.tech_answer_sheet]
 title_pattern = "Ответы - {}"
 title_pattern_placeholder = "{}"
 range = "A:B"
 question_col_index = 0 # for range A:B this is column A
 answer_col_index = 1 # for range A:B this is column B
 
-[[categories]]
+[spreadsheet.livecoding_sheet]
+title = "Лайвкодинг"
+range = "A:E"
+question_col_index = 0 # for range A:E this is column A
+link_col_index = 1 # for range A:E this is column B
+timestamp_col_index = 2 # for range A:E this is column C
+filepath_col_index = 3 # for range A:E this is column D
+answer_col_index = 4 # for range A:E this is column E
+
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "Java Core"
 answers_filepath = "Основы Java/Java Core.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "Коллекции"
 answers_filepath = "Основы Java/Collections.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "Исключения"
 answers_filepath = "Основы Java/Exceptions.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "Дженерики"
 answers_filepath = "Основы Java/Generics.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "Функциональные интерфейсы"
 answers_filepath = "Основы Java/Functional Interface.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "Stream API"
 answers_filepath = "Основы Java/Stream API.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "Многопоточность"
 answers_filepath = "Основы Java/Multithreading.md"
 
-[[categories]]
-name = "Многопоточность"
-answers_filepath = "Основы Java/Multithreading.md"
-
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "ООП"
 answers_filepath = "Основы Java/OOP.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "SOLID"
 answers_filepath = "Принципы и методы проектирования/SOLID.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "Паттерны проектирования"
 answers_filepath = "Принципы и методы проектирования/Design Patterns.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "Базы данных"
 answers_filepath = "Работа с базами данных/Database management system.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "SQL"
 answers_filepath = "Работа с базами данных/SQL.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "NoSQL"
 answers_filepath = "Работа с базами данных/NoSQL.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "ORM"
 answers_filepath = "Работа с базами данных/ORM.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "Миграции"
 answers_filepath = "Работа с базами данных/Migrations.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "Микросервисы"
 answers_filepath = "Архитектура и разработка/Microservices.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "Брокеры сообщений"
 answers_filepath = "Архитектура и разработка/Message broker.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "Spring"
 answers_filepath = "Архитектура и разработка/Spring.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "WEB"
 answers_filepath = "Архитектура и разработка/WEB.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "Тестирование"
 answers_filepath = "Тестирование/Testing.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "Деплой"
 answers_filepath = "Развертывание и инфраструктура/Deployment.md"
 
-[[categories]]
+[[spreadsheet.tech_answer_sheet.categories]]
 name = "Другое"
 answers_filepath = "Прочее/Other.md"
+
+[[spreadsheet.livecoding_sheet.categories]]
+name = "Java Core"
+answers_filepath = "Задачи/main-livecoding-java.md"
+
+[[spreadsheet.livecoding_sheet.categories]]
+name = "SQL"
+answers_filepath = "Задачи/main-livecoding-sql.md"
+
+[[spreadsheet.livecoding_sheet.categories]]
+name = "Stream API"
+answers_filepath = "Задачи/main-livecoding-stream.md"

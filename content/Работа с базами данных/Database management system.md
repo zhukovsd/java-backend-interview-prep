@@ -6,4 +6,4 @@ bookFlatSection = true
 
 ## Базы данных
 
-{{< answers >}}
+{{< tech/answers >}}

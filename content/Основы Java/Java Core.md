@@ -6,4 +6,4 @@ bookFlatSection = true
 
 ## Java Core
 
-{{< answers >}}
+{{< tech/answers >}}

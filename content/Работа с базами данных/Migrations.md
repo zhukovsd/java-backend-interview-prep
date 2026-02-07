@@ -6,4 +6,4 @@ bookFlatSection = true
 
 ## Миграции
 
-{{< answers >}}
+{{< tech/answers >}}

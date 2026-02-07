@@ -6,4 +6,4 @@ bookFlatSection = true
 
 ## Функциональные интерфейсы
 
-{{< answers >}}
+{{< tech/answers >}}

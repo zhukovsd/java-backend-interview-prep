@@ -6,4 +6,4 @@ bookFlatSection = true
 
 ## ORM
 
-{{< answers >}}
+{{< tech/answers >}}

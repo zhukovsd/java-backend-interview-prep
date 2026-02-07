@@ -6,4 +6,4 @@ bookFlatSection = true
 
 ## Дженерики
 
-{{< answers >}}
+{{< tech/answers >}}

@@ -25,9 +25,9 @@
     {{/* regexp explanation
         .*?> - everything before > 
         (.*?) - lazy capture group of anything 
-        <a.* - exactly <a and anything after
+        <a.*class="anchor".* - exactly <a and anything after
     */}}
-    {{ $text := replaceRE `.*?>(.*?)<a.*` "$1" $header }}
+    {{ $text := replaceRE `.*?>(.*?)<a.*class="anchor".*></a>` "$1" $header }}
 
     {{ $tocEntries = $tocEntries | append (dict "id" $id "text" $text) }}
 {{ end }}
@@ -35,7 +35,7 @@
 <nav id="TableOfContents">
     <ul>
         {{ range $tocEntries }}
-        <li><a href="#{{ .id }}">{{ .text | plainify }}</a></li>
+        <li><a href="#{{ .id }}">{{ .text | plainify | strings.TrimSuffix "#" | chomp | safeHTML }}</a></li>
         {{ end }}
     </ul>
 </nav>

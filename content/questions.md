@@ -9,4 +9,4 @@ bookToC = false
 
 ---
 
-{{< questions >}}
+{{< tech/questions >}}
