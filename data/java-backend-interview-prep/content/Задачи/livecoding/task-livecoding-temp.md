@@ -1,5 +1,0 @@
-+++
-bookToC = false
-+++
-
-{{< livecoding/answer >}}
