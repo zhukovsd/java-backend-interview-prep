@@ -2,6 +2,9 @@
 
 {{ range $hugoSection, $files := index .Site.Data }}
     {{ range $filename, $data := $files }}
+        {{ if not (reflect.IsMap $data) }}
+            {{ continue }}
+        {{ end }}
         {{ $fileDataContainers = $fileDataContainers | append (dict 
         "filename" $filename 
         "data" $data
@@ -19,10 +22,6 @@
     {{ $hugoSection := $fileDataContainer.hugoSection }}
 
     {{ $sectionData := index $data "section" }}
-
-    {{ if not (isset $data "section") }}
-        {{ continue }}
-    {{ end }}
 
     {{ $sectionPath := print "/" ($hugoSection | anchorize) "/" ($filename | anchorize) }}
     {{ $page := $.Site.GetPage $sectionPath }}
