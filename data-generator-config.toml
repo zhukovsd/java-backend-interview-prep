@@ -23,6 +23,9 @@ range = "C4:D"
 question_col_index = 0 # for range C4:D this is column C
 popularity_col_index = 1 # for range C4:D this is column D
 
+[spreadsheet.main_sheet.general_questions]
+filepath = "Work experience.md"
+
 [spreadsheet.tech_answer_sheet]
 title_pattern = "Ответы - {}"
 title_pattern_placeholder = "{}"
@@ -138,3 +141,9 @@ answers_filepath = "Задачи/main-livecoding-sql.md"
 [[spreadsheet.livecoding_sheet.categories]]
 name = "Stream API"
 answers_filepath = "Задачи/main-livecoding-stream.md"
+
+[[spreadsheet.main_sheet.general_questions.categories]]
+name = "Общие вопросы"
+
+[[spreadsheet.main_sheet.general_questions.categories]]
+name = "Опыт с технологиями"

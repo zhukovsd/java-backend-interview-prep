@@ -1,0 +1,11 @@
+{{ $caller := .Page.File.BaseFileName }}
+
+{{ range $data := index .Site.Data $caller }}
+    {{ range $section := $data }}
+        <h2>{{ .title }} [{{ .popularity }}%]</h2>
+        {{ range $question := index $section "questions" }}
+            <h4>{{ .id }}. {{ .question }} [{{ .popularity }}%]</h4>
+        {{ end }}
+        <hr>
+    {{ end }}
+{{ end }}
