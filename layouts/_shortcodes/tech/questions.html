@@ -23,6 +23,10 @@
 
     {{ $sectionData := index $data "section" }}
 
+    {{ if not (isset $data "section") }}
+        {{ continue }}
+    {{ end }}
+
     {{ $sectionPath := print "/" ($hugoSection | anchorize) "/" ($filename | anchorize) }}
     {{ $page := $.Site.GetPage $sectionPath }}
     {{ $sectionLink := $page.RelPermalink }}
