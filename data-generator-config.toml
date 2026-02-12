@@ -1,4 +1,4 @@
-repo = "zhukovsd/java-backend-interview-prep"
+repo = "krios2146/java-backend-interview-prep"
 
 # absolute path inside docker container
 mount_dir = "/java-backend-interview-prep"
@@ -15,7 +15,7 @@ bookToC = false
 '''
 
 [spreadsheet]
-id = "1mcTcg9dR7Hv265h4ei5Ioyx9V94SnhCCYcG4zNo2bAk"
+id = "1lJrB6bw_RN_G_OkocweD8hE0I6dfL0eqQGGa-AVpL0I"
 
 [spreadsheet.main_sheet]
 title = "Сводный лист"
