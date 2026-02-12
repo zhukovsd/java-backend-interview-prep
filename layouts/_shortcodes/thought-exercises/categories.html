@@ -1,0 +1,25 @@
+{{ $categoryDir := "thought-exercises" }}
+{{ $categories := slice }}
+
+{{ range $filename, $data := index .Site.Data $categoryDir }}
+    {{ $category := index $data "category" }}
+    {{ $exercises := index $data "exercises" }}
+
+    {{ $dict := (dict "id" $category.id "filename" $filename "title" $category.title) }}
+    {{ $categories = $categories | append $dict }}
+{{ end }}
+
+{{ $sortedCategories := sort $categories "id" "asc" }}
+
+{{ range $category := $sortedCategories }}
+    {{ $id := $category.id }}
+    {{ $filename := $category.filename }}
+    {{ $title := $category.title }}
+
+    {{ $filepath := path.Join $categoryDir $filename }}
+    {{ $page := $.Site.GetPage $filepath }}
+    {{ $link := $page.RelPermalink}}
+
+    <h3>{{ $id }}. <a href="{{ $link }}">{{ $title }}</a></h3>
+    <hr>
+{{end}}
