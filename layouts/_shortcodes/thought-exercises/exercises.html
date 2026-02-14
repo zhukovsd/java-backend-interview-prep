@@ -1,0 +1,11 @@
+{{ $categoryDir := "thought-exercises" }}
+{{ $caller := .Page.File.BaseFileName }}
+
+{{ $data := index .Site.Data $categoryDir $caller }}
+
+<h1>{{ $data.category.title }}</h1>
+<hr>
+
+{{ range $exercise := index $data "exercises" }}
+    <h3>{{ $exercise.id }}. {{ $exercise.exercise | markdownify }}</h3>
+{{end}}
