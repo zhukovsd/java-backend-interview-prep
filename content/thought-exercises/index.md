@@ -1,7 +1,6 @@
 +++
 title = 'Вопросы на подумать'
 weight = 3
-bookFlatSection = true
 bookToC = false
 +++
 
