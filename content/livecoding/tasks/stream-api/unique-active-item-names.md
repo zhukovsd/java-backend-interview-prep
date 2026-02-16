@@ -1,0 +1,6 @@
++++
+title = 'Создать уникальную коллекцию (типа String) активных (атрибут Item.active со значением true) имен (атрибут Item.name), используя в качестве входных данных список items'
+bookToC = false
++++
+
+{{< livecoding/answer >}}
