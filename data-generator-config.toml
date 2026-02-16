@@ -8,11 +8,13 @@ content_dir = "/content"
 [hugo.livecoding]
 task_content = '''
 +++
+title = '{}'
 bookToC = false
 +++
 
 {{< livecoding/answer >}}
 '''
+title_pattern_placeholder = "{}"
 
 [spreadsheet]
 id = "1mcTcg9dR7Hv265h4ei5Ioyx9V94SnhCCYcG4zNo2bAk"
@@ -23,8 +25,8 @@ range = "C4:D"
 question_col_index = 0 # for range C4:D this is column C
 popularity_col_index = 1 # for range C4:D this is column D
 
-[spreadsheet.main_sheet.general_questions]
-filepath = "Work experience.md"
+[spreadsheet.main_sheet.work_experience]
+filepath = "work-experience.md"
 
 [spreadsheet.tech_answer_sheet]
 title_pattern = "Ответы - {}"
@@ -36,10 +38,10 @@ answer_col_index = 1 # for range A:B this is column B
 [spreadsheet.livecoding_sheet]
 title = "Лайвкодинг"
 range = "A:E"
-question_col_index = 0 # for range A:E this is column A
+task_col_index = 0 # for range A:E this is column A
 link_col_index = 1 # for range A:E this is column B
 timestamp_col_index = 2 # for range A:E this is column C
-filepath_col_index = 3 # for range A:E this is column D
+filename_col_index = 3 # for range A:E this is column D
 answer_col_index = 4 # for range A:E this is column E
 
 [spreadsheet.thought_exercise_sheet]
@@ -51,146 +53,152 @@ timestamp_col_index = 2 # for range A:C this is column C
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "Java Core"
-answers_filepath = "Основы Java/Java Core.md"
+answers_filepath = "tech-questions/fundamentals/java-core.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "Коллекции"
-answers_filepath = "Основы Java/Collections.md"
+answers_filepath = "tech-questions/fundamentals/collections.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "Исключения"
-answers_filepath = "Основы Java/Exceptions.md"
+answers_filepath = "tech-questions/fundamentals/exceptions.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "Дженерики"
-answers_filepath = "Основы Java/Generics.md"
+answers_filepath = "tech-questions/fundamentals/generics.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "Функциональные интерфейсы"
-answers_filepath = "Основы Java/Functional Interface.md"
+answers_filepath = "tech-questions/fundamentals/functional-interfaces.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "Stream API"
-answers_filepath = "Основы Java/Stream API.md"
+answers_filepath = "tech-questions/fundamentals/stream-api.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "Многопоточность"
-answers_filepath = "Основы Java/Multithreading.md"
+answers_filepath = "tech-questions/fundamentals/multithreading.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "ООП"
-answers_filepath = "Основы Java/OOP.md"
+answers_filepath = "tech-questions/fundamentals/oop.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "SOLID"
-answers_filepath = "Принципы и методы проектирования/SOLID.md"
+answers_filepath = "tech-questions/design-principles-patterns/solid.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "Паттерны проектирования"
-answers_filepath = "Принципы и методы проектирования/Design Patterns.md"
+answers_filepath = "tech-questions/design-principles-patterns/design-patterns.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "Базы данных"
-answers_filepath = "Работа с базами данных/Database management system.md"
+answers_filepath = "tech-questions/data-management/databases.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "SQL"
-answers_filepath = "Работа с базами данных/SQL.md"
+answers_filepath = "tech-questions/data-management/sql.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "NoSQL"
-answers_filepath = "Работа с базами данных/NoSQL.md"
+answers_filepath = "tech-questions/data-management/no-sql.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "ORM"
-answers_filepath = "Работа с базами данных/ORM.md"
+answers_filepath = "tech-questions/data-management/orm.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "Миграции"
-answers_filepath = "Работа с базами данных/Migrations.md"
+answers_filepath = "tech-questions/data-management/migrations.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "Микросервисы"
-answers_filepath = "Архитектура и разработка/Microservices.md"
+answers_filepath = "tech-questions/architecture/microservices.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "Брокеры сообщений"
-answers_filepath = "Архитектура и разработка/Message broker.md"
+answers_filepath = "tech-questions/architecture/message-brokers.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "Spring"
-answers_filepath = "Архитектура и разработка/Spring.md"
+answers_filepath = "tech-questions/architecture/spring.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "WEB"
-answers_filepath = "Архитектура и разработка/WEB.md"
+answers_filepath = "tech-questions/architecture/web.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "Тестирование"
-answers_filepath = "Тестирование/Testing.md"
+answers_filepath = "tech-questions/tests/tests.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "Деплой"
-answers_filepath = "Развертывание и инфраструктура/Deployment.md"
+answers_filepath = "tech-questions/infrastructure-deployment/infrastructure-deployment.md"
 
 [[spreadsheet.tech_answer_sheet.categories]]
 name = "Другое"
-answers_filepath = "Прочее/Other.md"
+answers_filepath = "tech-questions/other/other.md"
+
 
 [[spreadsheet.livecoding_sheet.categories]]
 name = "Java Core"
-answers_filepath = "Задачи/main-livecoding-java.md"
+category_filepath = "livecoding/tasks/java/_index.md"
+task_path_prefix = "livecoding/tasks/java/"
 
 [[spreadsheet.livecoding_sheet.categories]]
 name = "SQL"
-answers_filepath = "Задачи/main-livecoding-sql.md"
+category_filepath = "livecoding/tasks/sql/_index.md"
+task_path_prefix = "livecoding/tasks/sql/"
 
 [[spreadsheet.livecoding_sheet.categories]]
 name = "Stream API"
-answers_filepath = "Задачи/main-livecoding-stream.md"
+category_filepath = "livecoding/tasks/stream-api/_index.md"
+task_path_prefix = "livecoding/tasks/stream-api/"
 
-[[spreadsheet.main_sheet.general_questions.categories]]
+
+[[spreadsheet.main_sheet.work_experience.categories]]
 name = "Общие вопросы"
 
-[[spreadsheet.main_sheet.general_questions.categories]]
+[[spreadsheet.main_sheet.work_experience.categories]]
 name = "Опыт с технологиями"
+
 
 [[spreadsheet.thought_exercise_sheet.categories]]
 name = "Основы Java, коллекции, OOP, лямбды, иммутабельность"
-answers_filepath = "thought-exercises/java-core.md"
+category_filepath = "thought-exercises/java-core.md"
 
 [[spreadsheet.thought_exercise_sheet.categories]]
 name = "Многопоточность"
-answers_filepath = "thought-exercises/multithreading.md"
+category_filepath = "thought-exercises/multithreading.md"
 
 [[spreadsheet.thought_exercise_sheet.categories]]
 name = "SQL, базы данных, индексы, ORM и миграции"
-answers_filepath = "thought-exercises/sql-databases.md"
+category_filepath = "thought-exercises/sql-databases.md"
 
 [[spreadsheet.thought_exercise_sheet.categories]]
 name = "Spring Framework"
-answers_filepath = "thought-exercises/spring-framework.md"
+category_filepath = "thought-exercises/spring-framework.md"
 
 [[spreadsheet.thought_exercise_sheet.categories]]
 name = "Kafka и брокеры сообщений"
-answers_filepath = "thought-exercises/kafka-message-brokers.md"
+category_filepath = "thought-exercises/kafka-message-brokers.md"
 
 [[spreadsheet.thought_exercise_sheet.categories]]
 name = "Микросервисы, REST, дизайн систем, деплой"
-answers_filepath = "thought-exercises/microservices-system-design.md"
+category_filepath = "thought-exercises/microservices-system-design.md"
 
 [[spreadsheet.thought_exercise_sheet.categories]]
 name = "Отладка и производительность"
-answers_filepath = "thought-exercises/debugging-performance.md"
+category_filepath = "thought-exercises/debugging-performance.md"
 
 [[spreadsheet.thought_exercise_sheet.categories]]
 name = "Чистый код, SOLID, паттерны и рефакторинг"
-answers_filepath = "thought-exercises/clean-code-design.md"
+category_filepath = "thought-exercises/clean-code-design.md"
 
 [[spreadsheet.thought_exercise_sheet.categories]]
 name = "Git и системы сборки"
-answers_filepath = "thought-exercises/git-build-systems.md"
+category_filepath = "thought-exercises/git-build-systems.md"
 
 [[spreadsheet.thought_exercise_sheet.categories]]
 name = "Командные процессы"
-answers_filepath = "thought-exercises/team-processes.md"
+category_filepath = "thought-exercises/team-processes.md"
