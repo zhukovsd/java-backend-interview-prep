@@ -1,9 +1,9 @@
 +++
-title = 'Web'
+title = 'WEB'
 weight = 4
 bookFlatSection = true
 +++
 
-## Web
+## WEB
 
 {{< tech/answers >}}
