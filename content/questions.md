@@ -9,4 +9,4 @@ bookToC = false
 
 ---
 
-{{< tech/questions >}}
+{{< include "tech-questions/_index.md" >}}

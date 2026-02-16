@@ -1,6 +1,6 @@
-{{ $dir := trim .Page.File.Dir "/" }}
+{{ $dataPath := path.Join .Page.File.Dir .Page.File.BaseFileName }}
 
-{{ $data := index .Site.Data $dir .Page.File.BaseFileName }}
+{{ $data := index .Site.Data (split $dataPath "/") }}
 {{ $tasks := slice }}
 
 {{ range $task := $data.tasks }}

@@ -1,15 +1,11 @@
-{{ $section := .Page.File.Section }}
-{{ $filename := .Page.File.BaseFileName }}
+{{ $dataPath := path.Join .Page.File.Dir .Page.File.BaseFileName }}
+{{ $category := index .Site.Data (split $dataPath "/") }}
 
-{{ $items := index .Site.Data $section $filename "items" }}
+{{ range $question := $category.questions }}
+    {{ $text := printf "%d. %s" .id .question }}
+    {{ $anchor := $text | anchorize }}
 
-{{ range $qa := $items }}
-
-    {{ $question := printf "%d. %s" .id .question }}
-    {{ $anchor := $question | anchorize }}
-
-    <h4 id="{{ $anchor }}">{{ $question }} <a href="#{{ $anchor }}" class="anchor">#</a></h4>
+    <h4 id="{{ $anchor }}">{{ $text }} <a href="#{{ $anchor }}" class="anchor">#</a></h4>
     <p>{{ .answer | markdownify }}</p>
     <hr>
-
 {{end}}
