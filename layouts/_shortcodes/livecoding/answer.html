@@ -1,18 +1,12 @@
-{{ $dir := "Задачи" }}
-{{ $caller := .Page.File.BaseFileName }}
+{{ $dataDir := path.Clean .Page.File.Dir }}
+{{ $taskName := .Page.File.BaseFileName }}
 
-{{ $mergedContent := slice }}
-
-{{ range $dataFile, $content := index .Site.Data $dir }}
-    {{ range $content }}
-        {{ $mergedContent = $mergedContent | append $content.tasks }}
-    {{ end }}
-{{ end }}
-
-{{ range $task := $mergedContent }}
-    {{ if (strings.Contains .filepath $caller) }}
-        <h4>{{ .id }}. {{ .question }}</h4>
-        {{ .answer | markdownify }}
-        {{ break }}
+{{ range $_, $data := index .Site.Data (split $dataDir "/") }}
+    {{ range $task := index $data "tasks" }}
+        {{ if (strings.Contains .filepath $taskName) }}
+            <h4>{{ .id }}. {{ .question }}</h4>
+            {{ .answer | markdownify }}
+            {{ break }}
+        {{ end }}
     {{ end }}
 {{ end }}

@@ -1,45 +1,31 @@
-{{ $fileDataContainers := slice }}
+{{ $dataDir := path.Clean .Page.File.Dir }}
 
-{{ range $hugoSection, $files := index .Site.Data }}
-    {{ range $filename, $data := $files }}
-        {{ if not (reflect.IsMap $data) }}
-            {{ continue }}
-        {{ end }}
-        {{ $fileDataContainers = $fileDataContainers | append (dict 
-        "filename" $filename 
-        "data" $data
-        "hugoSection" $hugoSection
-        "sectionId" $data.section.id
-        ) }}
+{{ $categories := slice }}
+
+{{ range $sectionDir, $categoriesData := index .Site.Data (split $dataDir "/") }}
+    {{ range $categoryFileName, $data := $categoriesData }}
+        {{ $id := index $data "category" "id" }}
+        {{ $path := path.Join $dataDir $sectionDir $categoryFileName }}
+
+        {{ $dict := dict "id" $id "path" $path "data" $data }}
+
+        {{ $categories = $categories | append $dict }}
     {{ end }}
 {{ end }}
 
-{{ $sortedFileDataContainers := sort $fileDataContainers "sectionId" "asc" }}
+{{ $categories = sort $categories "id" "asc" }}
 
-{{ range $fileDataContainer := $sortedFileDataContainers }}
-    {{ $filename := $fileDataContainer.filename }}
-    {{ $data := $fileDataContainer.data }}
-    {{ $hugoSection := $fileDataContainer.hugoSection }}
+{{ range $dict := $categories }}
+    {{ $category := $dict.data.category }}
+    {{ $categoryPage := $.Site.GetPage $dict.path}}
+    {{ $categoryLink := $categoryPage.RelPermalink }}
 
-    {{ $sectionData := index $data "section" }}
+    <h2><a href="{{ $categoryLink }}">{{ $category.title }}</a> [{{ $category.popularity }}%]</h2>
 
-    {{ if not (isset $data "section") }}
-        {{ continue }}
-    {{ end }}
-
-    {{ $sectionPath := print "/" ($hugoSection | anchorize) "/" ($filename | anchorize) }}
-    {{ $page := $.Site.GetPage $sectionPath }}
-    {{ $sectionLink := $page.RelPermalink }}
-
-    <h2><a href="{{$sectionLink}}">{{ $sectionData.title }}</a> [{{ $sectionData.popularity }}%]</h2>
-
-    {{ range $qa := index $data "items" }}
-
+    {{ range $question := $dict.data.questions }}
         {{ $questionAnchor := printf "%d %s" .id .question | anchorize }}
-        {{ $questionLink := print $sectionLink "#" $questionAnchor }}
+        {{ $questionLink := print $categoryLink "#" $questionAnchor }}
 
         <h4>{{ .id }}. <a href="{{ $questionLink }}">{{ .question }}</a> [{{ .popularity }}%]</h4>
-
-    {{end}}
-
-{{end}}
+    {{ end }}
+{{ end }}
