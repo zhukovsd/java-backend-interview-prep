@@ -16,3 +16,6 @@ bookToC = false
 ### 3. [Stream API](./tasks/stream-api/_index.md)
 
 ---
+### 4. [Refactoring](./tasks/refactoring/_index.md)
+
+---
