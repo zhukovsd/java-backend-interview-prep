@@ -155,6 +155,11 @@ name = "Stream API"
 category_filepath = "livecoding/tasks/stream-api/_index.md"
 task_path_prefix = "livecoding/tasks/stream-api/"
 
+[[spreadsheet.livecoding_sheet.categories]]
+name = "Рефакторинг"
+category_filepath = "livecoding/tasks/refactoring/_index.md"
+task_path_prefix = "livecoding/tasks/refactoring/"
+
 
 [[spreadsheet.main_sheet.work_experience.categories]]
 name = "Общие вопросы"
