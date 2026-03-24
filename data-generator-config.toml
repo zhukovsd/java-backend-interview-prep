@@ -146,6 +146,11 @@ category_filepath = "livecoding/tasks/java/_index.md"
 task_path_prefix = "livecoding/tasks/java/"
 
 [[spreadsheet.livecoding_sheet.categories]]
+name = "Spring"
+category_filepath = "livecoding/tasks/spring/_index.md"
+task_path_prefix = "livecoding/tasks/spring/"
+
+[[spreadsheet.livecoding_sheet.categories]]
 name = "SQL"
 category_filepath = "livecoding/tasks/sql/_index.md"
 task_path_prefix = "livecoding/tasks/sql/"
