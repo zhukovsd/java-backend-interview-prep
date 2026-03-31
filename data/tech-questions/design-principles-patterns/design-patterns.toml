@@ -1,13 +1,13 @@
 [category]
   id = 16
   title = "Паттерны проектирования"
-  popularity = 20.23
+  popularity = 19.85
 
 [[questions]]
   id = 1
   question = "GOF паттерны"
   answer = "*GOF паттерны* - это классические шаблоны проектирования, описанные в книге \"Design Patterns: Elements of Reusable Object-Oriented Software\", написанной четырьмя авторами (так называемой \"Бандой четырёх\"): Эричем Гаммой, Ричардом Хелмом, Ральфом Джонсоном и Джоном Влиссидесом. Эти паттерны решают распространённые проблемы проектирования в объектно-ориентированном программировании (ООП) и помогают создавать гибкую и поддерживаемую архитектуру.\n\n"
-  popularity = 11.45
+  popularity = 11.4
 
 [[questions]]
   id = 2
@@ -25,13 +25,13 @@
   id = 4
   question = "Какие существуют группы паттернов?"
   answer = "Паттерны подразделяются на три группы:\n- *Порождающие*: помогают создавать объекты.\n- *Структурные*: упрощают организацию классов.\n- *Поведенческие*: управляют взаимодействием между объектами.\n\n"
-  popularity = 3.05
+  popularity = 3.31
 
 [[questions]]
   id = 5
   question = "Какие паттерны в какую группу входят?"
   answer = "- *Порождающие*. Builder, Singleton, Prototype\n- *Структурные*. Адаптер. Этот паттерн помогает сделать два несовместимых класса совместимыми друг с другом, действуя как мост между ними\n- *Поведенческие*. Цепочка обязанностей, итератор\n\n"
-  popularity = 0.38
+  popularity = 0.37
 
 [[questions]]
   id = 6
@@ -43,40 +43,40 @@
   id = 7
   question = "Паттерн MVC"
   answer = "**MVC** (Model-View-Controller) — это архитектурный паттерн, который разделяет приложение на три компонента:\n- **Model** — отвечает за данные и логику приложения.\n- **View** — отображает данные пользователю (UI).\n- **Controller** — управляет взаимодействием пользователя с моделью и обновляет представление.\n\n"
-  popularity = 1.15
+  popularity = 1.1
 
 [[questions]]
   id = 8
   question = "Паттерн Command"
   answer = "**Команда (Command)** — это поведенческий паттерн проектирования, который превращает запросы в объекты, позволяя передавать их как аргументы при вызове методов, ставить запросы в очередь, логировать их, а также поддерживать отмену операций.\n\n"
-  popularity = 0.76
+  popularity = 0.74
 
 [[questions]]
   id = 9
   question = "Паттерн Chain of responsibility"
   answer = "**Цепочка обязанностей** — это поведенческий паттерн проектирования, который позволяет передавать запросы последовательно по цепочке обработчиков. Каждый последующий обработчик решает, может ли он обработать запрос сам и стоит ли передавать запрос дальше по цепи.\n\n"
-  popularity = 0.76
+  popularity = 0.74
 
 [[questions]]
   id = 10
   question = "Как реализуется паттер Abstract Factory?"
   answer = "**Abstract Factory** — это порождающий паттерн проектирования, который предоставляет интерфейс для создания семейств взаимосвязанных объектов без указания их конкретных классов. Он позволяет легко добавлять новые семейства объектов, сохраняя код гибким и расширяемым.\n\n **Пример реализации Abstract Factory**\n\n**Сценарий:** Предположим, мы создаем интерфейсы для двух семейств GUI-компонентов: Windows и MacOS. Каждое семейство включает кнопку (`Button`) и чекбокс (`Checkbox`).\n\n1. **Интерфейсы для продуктов:**\n    \n    ```java\n    public interface Button {\n        void render();\n    }\n    \n    public interface Checkbox {\n        void render();\n    }\n    ```\n    \n2. **Реализации продуктов для Windows:**\n    \n    ```java\n    public class WindowsButton implements Button {\n        @Override\n        public void render() {\n            System.out.println(\"Rendering Windows Button\");\n        }\n    }\n    \n    public class WindowsCheckbox implements Checkbox {\n        @Override\n        public void render() {\n            System.out.println(\"Rendering Windows Checkbox\");\n        }\n    }\n    ```\n    \n3. **Реализации продуктов для MacOS:**\n    \n    ```java\n    public class MacOSButton implements Button {\n        @Override\n        public void render() {\n            System.out.println(\"Rendering MacOS Button\");\n        }\n    }\n    \n    public class MacOSCheckbox implements Checkbox {\n        @Override\n        public void render() {\n            System.out.println(\"Rendering MacOS Checkbox\");\n        }\n    }\n    ```\n    \n4. **Интерфейс Abstract Factory:**\n    \n    ```java\n    public interface GUIFactory {\n        Button createButton();\n        Checkbox createCheckbox();\n    }\n    ```\n    \n5. **Реализации фабрик для Windows и MacOS:**\n    \n    ```java\n    public class WindowsFactory implements GUIFactory {\n        @Override\n        public Button createButton() {\n            return new WindowsButton();\n        }\n    \n        @Override\n        public Checkbox createCheckbox() {\n            return new WindowsCheckbox();\n        }\n    }\n    \n    public class MacOSFactory implements GUIFactory {\n        @Override\n        public Button createButton() {\n            return new MacOSButton();\n        }\n    \n        @Override\n        public Checkbox createCheckbox() {\n            return new MacOSCheckbox();\n        }\n    }\n    ```\n    \n6. **Клиентский код:** Клиент работает с фабрикой через интерфейс, что позволяет легко переключаться между семействами.\n    \n    ```java\n    public class Application {\n        private Button button;\n        private Checkbox checkbox;\n    \n        public Application(GUIFactory factory) {\n            button = factory.createButton();\n            checkbox = factory.createCheckbox();\n        }\n    \n        public void render() {\n            button.render();\n            checkbox.render();\n        }\n    }\n    \n    public class Main {\n        public static void main(String[] args) {\n            GUIFactory factory;\n            String os = \"Windows\"; // Можно заменить на \"MacOS\" для другого семейства\n    \n            if (os.equals(\"Windows\")) {\n                factory = new WindowsFactory();\n            } else {\n                factory = new MacOSFactory();\n            }\n    \n            Application app = new Application(factory);\n            app.render();\n        }\n    }\n    ```\n\n"
-  popularity = 1.91
+  popularity = 1.84
 
 [[questions]]
   id = 11
   question = "Какие паттерны проектирования используются в Spring"
   answer = "|Паттерн|Описание|Применение в Spring|\n|---|---|---|\n|**Factory**|Создает объекты через фабричный метод.|BeanFactory и ApplicationContext для создания и управления бинами.|\n|**Singleton**|Гарантирует, что существует только один экземпляр класса.|Бины Spring по умолчанию создаются как Singleton.|\n|**Prototype**|Создает новый экземпляр объекта при каждом запросе.|Используется для бинов с областью видимости Prototype.|\n|**Proxy**|Управляет доступом к объекту через подставной объект.|Реализуется в AOP для аспектов, транзакций, кэширования и других прокси-настроек.|\n|**Dependency Injection**|Внедрение зависимостей для уменьшения связности классов.|Основной принцип Spring Framework для управления зависимостями.|\n|**Template Method**|Определяет основу алгоритма и позволяет подклассам переопределять определенные шаги.|JdbcTemplate, RestTemplate и другие \"шаблоны\".|\n|**Observer**|Оповещает подписчиков о событиях.|Spring Event Handling для работы с событиями (например, ApplicationEvent).|\n|**Adapter**|Преобразует интерфейс класса в другой, ожидаемый клиентом.|HandlerAdapter в Spring MVC.|\n|**Decorator**|Добавляет дополнительное поведение объекту динамически.|В Spring AOP для добавления аспектов к методам или классам.|\n|**Strategy**|Определяет набор алгоритмов, которые можно заменять друг другом в зависимости от ситуации.|Интерфейсы, такие как `PlatformTransactionManager`, с разными реализациями.|\n|**Builder**|Упрощает создание сложных объектов, разделяя их построение на шаги.|`UriComponentsBuilder` для построения URI в Spring Web.|\n\n **Подробности реализации некоторых паттернов в Spring**\n\n1. **Factory:**\n    \n    - `BeanFactory` — реализация фабричного паттерна для управления созданием и инициализацией бинов.\n    - Пример:\n        \n        ```java\n        ApplicationContext context = new ClassPathXmlApplicationContext(\"beans.xml\");\n        MyBean myBean = context.getBean(MyBean.class);\n        ```\n        \n2. **Proxy:**\n    \n    - Используется для аспектов (AOP), например, для логгирования, транзакций или кэширования.\n    - Прокси-классы создаются динамически с помощью JDK Proxy или CGLIB.\n3. **Observer:**\n    \n    - События, такие как `ContextRefreshedEvent`, используются для уведомления бинов о состоянии контекста.\n    - Пример:\n        \n        ```java\n        @Component\n        public class MyEventListener implements ApplicationListener<ContextRefreshedEvent> {\n            @Override\n            public void onApplicationEvent(ContextRefreshedEvent event) {\n                System.out.println(\"Context Refreshed!\");\n            }\n        }\n        ```\n        \n4. **Strategy:**\n    \n    - Разные реализации интерфейсов используются в зависимости от ситуации.\n    - Например, `PlatformTransactionManager` имеет реализации для JPA, JDBC и Hibernate:\n        \n        ```java\n        @Bean\n        public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {\n            return new JpaTransactionManager(emf);\n        }\n        ```\n\n"
-  popularity = 2.67
+  popularity = 2.57
 
 [[questions]]
   id = 12
   question = "Плюсы и минусы паттерна Singleton?"
   answer = "**Singleton** — это паттерн, который гарантирует, что у класса есть **только один экземпляр** и предоставляет к нему **глобальную точку доступа**.\n\n **📌 1. Реализация Singleton**\n\n ✅ **Простой (ленивый) Singleton (Lazy Initialization)**\n\n```java\npublic class Singleton {\n    private static Singleton instance;\n\n    private Singleton() {}\n\n    public static Singleton getInstance() {\n        if (instance == null) {\n            instance = new Singleton();\n        }\n        return instance;\n    }\n}\n```\n\n📌 **Проблема** – не потокобезопасен!\n\n ✅ **Потокобезопасный Singleton (Double-Checked Locking)**\n\n```java\npublic class Singleton {\n    private static volatile Singleton instance;\n\n    private Singleton() {}\n\n    public static Singleton getInstance() {\n        if (instance == null) {\n            synchronized (Singleton.class) {\n                if (instance == null) {\n                    instance = new Singleton();\n                }\n            }\n        }\n        return instance;\n    }\n}\n```\n\n📌 **Использует `volatile` и `synchronized`, чтобы избежать проблем в многопоточности.**\n\n ✅ **Singleton через `enum` (Рекомендуемый способ)**\n\n```java\npublic enum Singleton {\n    INSTANCE;\n\n    public void doSomething() {\n        System.out.println(\"Singleton через enum\");\n    }\n}\n```\n\n📌 **Преимущество** – защищен от сериализации и рефлексии!\n\n **🔹 2. Плюсы и минусы Singleton**\n \n **✅ Плюсы**\n\n✔ **Глобальный доступ** – один объект доступен во всей программе.  \n✔ **Экономия ресурсов** – объект создается только **один раз**.  \n✔ **Ленивая инициализация** (если используется `getInstance()`).  \n✔ **Подходит для логирования, кеша, конфигураций, пулов соединений**.  \n✔ **При `enum` защита от рефлексии и сериализации**.\n\n **❌ Минусы**\n\n❌ **Нарушает принцип SOLID (Single Responsibility Principle)** – класс отвечает и за бизнес-логику, и за контроль экземпляра.  \n❌ **Сложность в тестировании** – из-за глобального состояния сложно **мокировать (mock)** объект.  \n❌ **Может вызывать утечки памяти** – если объект долго живет и содержит ресурсы.  \n❌ **Проблемы с многопоточностью** – если реализация не потокобезопасна.  \n❌ **Может скрывать зависимости** – если используется в `getInstance()` внутри классов.\n\n **🔹 3. Когда использовать Singleton?**\n\n✅ Если нужен **единый объект для всего приложения**:\n\n- Логирование (`Logger`)\n- Кеширование (`CacheManager`)\n- Пулы соединений (`ConnectionPool`)\n- Конфигурации (`AppConfig`)\n\n❌ **Когда НЕ стоит использовать:**\n\n- Если объект содержит **разное состояние** для разных частей программы.\n- Когда проще передавать зависимость через **DI (Dependency Injection)**.\n\n **🔹 4. Итог**\n\n✅ Singleton удобен, но **его лучше заменять DI (в Spring это `@Component` + `@Scope(\"singleton\")`)**.  \n✅ Безопаснее всего **реализация через `enum`**.  \n✅ Осторожно с многопоточностью и тестированием!\n\n"
-  popularity = 5.34
+  popularity = 5.15
 
 [[questions]]
   id = 13
   question = "Паттерн Builder"
   answer = "**Builder (Строитель)** — это порождающий паттерн проектирования, который позволяет **пошагово и удобно создавать сложные объекты**, скрывая детали их построения.\n\n**📌 Когда нужен?**\n\n- у объекта **много параметров**, часть которых **необязательная**\n- нужно избежать «телескопического конструктора»\n    ```java\n    new User(\"Alex\", 30, null, null, true, null);\n    ```\n- важна **читаемость** и **гибкость** конфигурации объекта\n\n**📌 Преимущества**\n\n- ✓ Уменьшает количество конструкторов\n- ✓ Код становится читаемым\n- ✓ Позволяет создавать **immutable** объекты\n- ✓ Позволяет валидировать данные при сборке\n\n\n**📌 Пример кода (классический Builder)**\n\n```java\npublic class User {\n    private final String name;\n    private final int age;\n    private final String email;\n\n    private User(Builder builder) {\n        this.name = builder.name;\n        this.age = builder.age;\n        this.email = builder.email;\n    }\n\n    public static class Builder {\n        private String name;\n        private int age;\n        private String email;\n\n        public Builder name(String name) {\n            this.name = name;\n            return this;\n        }\n\n        public Builder age(int age) {\n            this.age = age;\n            return this;\n        }\n\n        public Builder email(String email) {\n            this.email = email;\n            return this;\n        }\n\n        public User build() {\n            return new User(this);\n        }\n    }\n}\n```\n\nИспользование:\n\n```java\nUser user = new User.Builder()\n        .name(\"Alex\")\n        .age(30)\n        .email(\"test@gmail.com\")\n        .build();\n```"
-  popularity = 2.29
+  popularity = 2.21

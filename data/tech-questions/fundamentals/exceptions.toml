@@ -1,88 +1,88 @@
 [category]
   id = 5
   title = "Исключения"
-  popularity = 30.92
+  popularity = 30.88
 
 [[questions]]
   id = 1
   question = "Расскажите про иерархию исключений"
   answer = "{{< figure src=\"/java-backend-interview-prep/exception_hierarchy.png\" title=\"Exceptions\" >}}\n\n**Class Throwable** - общий предок для всех исключений"
-  popularity = 13.36
+  popularity = 13.24
 
 [[questions]]
   id = 2
   question = "Что такое Error и Exception?"
   answer = "**Error** - Связаны с проблемами уровня JVM\n\n**Exception** - Являются результатом проблем в программе"
-  popularity = 5.34
+  popularity = 5.51
 
 [[questions]]
   id = 3
   question = "Расскажите про обрабатываемые и необрабатываемые исключения"
   answer = "**Checked** - Exception. Должны обрабатываться блоком catch, или описываться в сигнатуре метода (IOException)\n\n**Unchecked** - Ошибки Error, а так же исключения времени выполнения (RuntimeException) и его наследниками. Могут не обрабатываться блоком catch и не быть описаны в сигнатуре метода"
-  popularity = 13.36
+  popularity = 13.24
 
 [[questions]]
   id = 4
   question = "О чем говорит ключевое слово throws?"
   answer = "Метод потенциально может выбросить исключение с указанным типом (элемент контракта метода). Передаёт обработку исключения вышестоящему методу."
-  popularity = 1.53
+  popularity = 1.47
 
 [[questions]]
   id = 5
   question = "Как создать собственное («пользовательское») исключение?"
   answer = "Необходимо унаследоваться от базового класса требуемого типа исключений (например, от Exception или RuntimeException) и переопределить методы."
-  popularity = 4.2
+  popularity = 4.04
 
 [[questions]]
   id = 6
   question = "Расскажите про механизм обработки исключений в java (Try-catch-finally)"
   answer = "- **Try** - блок в котором может возникнуть исключение\n- **Catch** - блок в котором мы ловим исключение и пишем логику его обработки\n- **Finally** - блок, который обязательно отработает"
-  popularity = 7.63
+  popularity = 7.35
 
 [[questions]]
   id = 7
   question = "Возможно ли использование блока try-finally (без catch)?"
   answer = "Да, в таком случае после try выполнится finally"
-  popularity = 0.38
+  popularity = 0.37
 
 [[questions]]
   id = 8
   question = "Может ли один блок catch отлавливать сразу несколько исключений?"
   answer = "Да"
-  popularity = 0.76
+  popularity = 0.74
 
 [[questions]]
   id = 9
   question = "Всегда ли выполняется блок finally? Существуют ли ситуации, когда блок finally не будет выполнен?"
   answer = "Да, кроме случаев завершения программы или JVM. \nFinally может не выполниться в случае если в блоке try вызывает System.exit(0)"
-  popularity = 3.82
+  popularity = 4.04
 
 [[questions]]
   id = 10
   question = "В каком порядке следует обрабатывать исключения в catch блоках?"
   answer = "От наследника к родителю. Иначе мы не дойдем до наследника"
-  popularity = 1.91
+  popularity = 1.84
 
 [[questions]]
   id = 11
   question = "Что такое механизм try-with-resources?"
   answer = "Это механизм, который автоматически закрывает ресурс. В качестве ресурса можно использовать любой объект, класс которого реализует интерфейс AutoClosable или Closable (Scanner, например)"
-  popularity = 4.96
+  popularity = 5.15
 
 [[questions]]
   id = 12
   question = "Ошибка OutOfMemoryError. Поймать утечку памяти и пофиксить"
   answer = "Ошибка `OutOfMemoryError` возникает, когда JVM не может выделить достаточно памяти для выполнения программы. Это может быть связано с утечками памяти, неправильной конфигурацией или большим объемом данных. Вот пошаговый процесс, как выявить и устранить причину:\n\n1. Соберите дамп памяти.\n2. Найдите источники утечки.\n3. Исправьте типичные проблемы:\n   - Неосвобожденные ресурсы.\n   - Переполненные коллекции.\n   - Статические ссылки.\n   - Неотписавшиеся слушатели.\n4. Убедитесь, что память используется корректно."
-  popularity = 8.4
+  popularity = 8.46
 
 [[questions]]
   id = 13
   question = "@SneakyThrows в Lombok"
   answer = "`@SneakyThrows` — это аннотация Lombok, которая позволяет автоматически обрабатывать исключения, не требуя явного указания `try-catch` или объявления `throws` в методе. Lombok оборачивает вызов в блок, который выбрасывает исключение как `RuntimeException`.\n\n```java\n@SneakyThrows\npublic void riskyMethod() {\n    throw new IOException(\"Exception example\"); // Не нужно объявлять throws IOException\n}\n\n```"
-  popularity = 0.76
+  popularity = 0.74
 
 [[questions]]
   id = 14
   question = "StackOverflowError vs OutOfMemoryError"
   answer = "Оба исключения (`StackOverflowError` и `OutOfMemoryError`) относятся к **ошибкам времени выполнения (`Error`)**, которые указывают на критические проблемы, связанные с памятью в JVM. Однако у них разные причины и способы возникновения.\n\n**StackOverflowError**  \n`StackOverflowError` возникает, когда **переполняется стек вызовов** (stack memory). Обычно это происходит из-за **глубокой или бесконечной рекурсии**, когда метод вызывает сам себя, но нет условия выхода.\n\n🔹 **Причины:**\n\n- Бесконечная рекурсия.\n- Слишком глубокий уровень рекурсивных вызовов.\n- Очень большие локальные переменные (занимают много места в стеке).\n\n\n\n🔹 **Как избежать?**\n\n- Добавлять **условие выхода** из рекурсии.\n- Ограничивать глубину рекурсивных вызовов.\n- Использовать **итерацию** вместо рекурсии, если возможно.\n- Увеличить размер стека с помощью `-Xss` (не рекомендуется без необходимости).\n\n---\n\n**OutOfMemoryError**  \n`OutOfMemoryError` возникает, когда **JVM не может выделить достаточно памяти в куче (Heap)** для создания нового объекта.\n\n🔹 **Возможные причины:**\n\n- Создание **очень большого массива** или объекта.\n- **Утечки памяти** (неочищенные ссылки на объекты).\n- **Чрезмерное создание объектов** без их удаления.\n- **Ограничение памяти JVM** (по умолчанию) — например, `-Xmx256m`.\n\n\n\n🔹 **Как избежать?**\n\n- Оптимизировать **управление памятью** (использовать `WeakReference`, `SoftReference`).\n- Удалять ненужные объекты (`list.clear()`, `null`-ссылки).\n- Использовать **профилировщики памяти** (`VisualVM`, `MAT`).\n- Увеличить `Heap Size` (`-Xmx1024m`).\n\n---\n\n **📌 Итоги**\n\n| Ошибка               | Причина                                            | Как вызвать?                                              | Как исправить?                                                            |\n| -------------------- | -------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------- |\n| `StackOverflowError` | Переполнение стека вызовов (бесконечная рекурсия). | Метод вызывает сам себя бесконечно.                       | Добавить **условие выхода** в рекурсию, увеличить стек (`-Xss`).          |\n| `OutOfMemoryError`   | Недостаток памяти в Heap (слишком много объектов). | Создать огромный массив или бесконечно добавлять объекты. | Использовать **профилировщики**, оптимизировать память, увеличить `-Xmx`. |\n\n\n---\n***Как вызвать `StackOverflowError`?***   \nПростой пример бесконечной рекурсии:\n\n```java\npublic class StackOverflowExample {\n    public static void recursiveMethod() {\n        recursiveMethod(); // Метод вызывает сам себя бесконечно\n    }\n    \n    public static void main(String[] args) {\n        recursiveMethod();\n    }\n}\n```\n\n**Результат:**\n\n```\nException in thread \"main\" java.lang.StackOverflowError\n```\n\n---\n***Как вызвать `OutOfMemoryError`?***  \nПример создания слишком большого массива:\n\n```java\npublic class OOMExample {\n    public static void main(String[] args) {\n        int[] bigArray = new int[Integer.MAX_VALUE]; // Запрос огромного массива\n    }\n}\n```\n\n**Результат:**\n\n```\nException in thread \"main\" java.lang.OutOfMemoryError: Requested array size exceeds VM limit\n```\n\nПример утечки памяти:\n\n```java\nimport java.util.ArrayList;\nimport java.util.List;\n\npublic class MemoryLeakExample {\n    public static void main(String[] args) {\n        List<int[]> list = new ArrayList<>();\n        while (true) {\n            list.add(new int[1000000]); // Создаем массивы без их удаления\n        }\n    }\n}\n```"
-  popularity = 1.91
+  popularity = 1.84
