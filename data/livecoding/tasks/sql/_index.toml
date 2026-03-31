@@ -389,3 +389,15 @@ category = "SQL"
   question = "Департаменты с количеством сотрудников больше трёх"
   answer = "**Условие задачи:**  \n📌 Есть таблицы `department` и `users`.  \nНужно вывести **департаменты**, в которых **количество сотрудников больше 3**.\n\n**Схема данных:**\n\n```sql\nCREATE TABLE department (\n    department_id BIGINT PRIMARY KEY,\n    department_name VARCHAR(255)\n);\n\nCREATE TABLE users (\n    user_id BIGINT PRIMARY KEY,\n    full_name VARCHAR(255),\n    department_id BIGINT,\n    CONSTRAINT fk_department\n        FOREIGN KEY (department_id)\n        REFERENCES department(department_id)\n);\n```\n\n---\n\n{{< hint warning >}}  \n**Спойлеры к решению**  \n{{< /hint >}}\n\n{{< details \"Подсказки\" close >}}  \n💡 Нужно посчитать количество сотрудников по каждому департаменту.  \n💡 Используем `GROUP BY department_id`.  \n💡 Фильтрация по количеству выполняется через `HAVING`, а не `WHERE`.  \n💡 Чтобы вывести название департамента — делаем `JOIN`.  \n{{< /details >}}\n\n---\n\n{{< details \"Решение\" close >}}\n\n```sql\nSELECT\n    d.department_id,\n    d.department_name,\n    COUNT(u.user_id) AS user_count\nFROM department d\nJOIN users u\n  ON u.department_id = d.department_id\nGROUP BY d.department_id, d.department_name\nHAVING COUNT(u.user_id) > 3;\n```\n\n{{< /details >}}"
   filepath = "departments-more-than-three-users"
+
+[[tasks]]
+  id = 66
+  question = "Напишите sql запрос, выбирающий профили, у которых больше 10 постов"
+  answer = "Напишите sql запрос, выбирающий профили, у которых больше 10 постов\n\nСREATE TABLE profile (\n        id          BIGSERIAL PRIMARY KEY,\n        nickname    VARCHAR,\n        register_at TIMESTAMP\n);\n\nСREATE TABLE post (\n        id          BIGSERIAL PRIMARY KEY,\n        owner_id    BIGINT REFERENCES profile(id),\n        body        TEXT,\n        inserted_at TIMESTAMP,\n        likes_count INT -- кол-во лайков\n);\n\nСREATE TABLE subscription_count (\n        profile_id          BIGINT REFERENCES profile(id) UNIQUE,\n        followers_count     INT, -- кол-во подписчиков\n        following_count     INT -- кол-во подписок\n);"
+  filepath = "profiles-with-more-than-10-posts"
+
+[[tasks]]
+  id = 67
+  question = "1.Необходимо написать запрос, чтобы выбрать всех сотрудников вместе с их зарплатными начислениями. 2.Выбрать сотрудников у которых сумма начислений > 15."
+  answer = "1.Необходимо написать запрос, чтобы выбрать всех сотрудников вместе с их зарплатными начислениями. 2.Выбрать сотрудников у которых сумма начислений > 15.\n\nДаны две таблицы :\nPersons со списком работников\n\nid    name\n1    Petya\n2    Vasya\n3    Kolya\n\nPayments с зарплатными начислениями ежемесячно.\n\nid    person_id    Value\n1         1                10\n2         1                20\n3         3                15\n\nСвязь между таблицами один ко многим, причем у сотрудника может быть несколько выплат либо не быть ни одной выплаты, если он только пришел в компанию"
+  filepath = "sql-employees-payments-sum"
