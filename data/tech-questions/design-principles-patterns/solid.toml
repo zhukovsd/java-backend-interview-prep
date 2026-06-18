@@ -12,7 +12,7 @@
 [[questions]]
   id = 2
   question = "Какие принципы можешь назвать?"
-  answer = "1. **DRY** / Don't Repeat Yourself — Не повторяйся!\n2. **KISS** / Keep It Simple Stupid — Делай это проще\n3. **OR** / Occam's Razor — Бритва Оккама"
+  answer = "- DRY (Don't Repeat Yourself) - не повторяйся\n- KISS (Keep It Super Simple / Keep It Simple Stupid) - не усложняй без необходимости, делай проще\n- Occam's Razor - бритва Оккама: не нужно плодить сущности до их реального востребования\n- EPO (Escape Premature Optimization) - \"Преждевременная оптимизация - корень всех зол\", \"Make it Work, Make it Right, Make it Fast\""
   popularity = 1.05
 
 [[questions]]
