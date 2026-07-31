@@ -1,88 +1,88 @@
 [category]
   id = 8
   title = "Stream API"
-  popularity = 27.87
+  popularity = 27.15
 
 [[questions]]
   id = 1
   question = "Что такое Stream API и для чего нужны Stream?"
   answer = "Stream представляет из себя некоторый набор или “поток” данных\nStream API - это способ лаконичной обработки потоков данных (фильтрации, сортировки, преобразования типов) в декларативном стиле, появились в Java 8.\n\n**С какими типами данных может работать?**\n- **Объектами** - `Stream<T>`, где `T` - любой ссылочный тип (например, `String`, `Integer`, пользовательские классы)\n- **Примитивами** — существуют специализированные стримы:\n    - **IntStream** для работы с `int`\n    - **LongStream** для работы с `long`\n    - **DoubleStream** для работы с `double`\n    Для других примитивов стримы не предусмотрены, их нужно упаковывать в объекты-обёртки (например, `Byte` для `byte`)\n\n**Проблема с примитивами в стримах?**\nРабота с примитивами через `Stream<T>` приводит к **автоупаковке и распаковке**. Это приводит к следующим проблемам:\n1. **Снижение производительности** - упаковка/распаковка добавляют накладные расходы.\n2. **Увеличение памяти** - вместо примитивов создаются объекты (например, `Integer`, `Double`)\nСпециализированные стримы (**IntStream, LongStream, DoubleStream**) решают эти проблемы, обеспечивая работу непосредственно с примитивами без автоупаковки\n"
-  popularity = 11.5
+  popularity = 11.26
 
 [[questions]]
   id = 2
   question = "Почему Stream называют ленивым?"
   answer = "Потому что обработка не начнётся до вызова терминального метода"
-  popularity = 2.44
+  popularity = 2.32
 
 [[questions]]
   id = 3
   question = "Какие существуют способы создания Stream?"
   answer = "- Из коллекции (интерфейс Collection) - `collection.stream()`\n- Пустой стрим - `Stream.empty()`\n- Из массива - `Arrays.stream(array)`\n- Из указанных элементов напрямую - `Stream.of(1, 2, 3)`\n- Из строки - `“some_string”.chars()`\n- Конкатенацией двух стримов"
-  popularity = 0.35
+  popularity = 0.33
 
 [[questions]]
   id = 4
   question = "Типы методов в Stream API"
   answer = "Промежуточные и терминальные\n- Промежуточный метод - метод, который НЕ запускает выполнение и возвращает объект типа Stream\n- Терминальный метод - метод, который запускает выполнение цепочки и возвращает объект отличного от Stream типа. Может быть только один и обязательно последним в цепочке. После его вызова работать с цепочкой более нельзя\n\n**Можно ли переиспользовать Stream после терминального метода?**\nНет. После выполнения терминального метода стрим закрывается, и любая последующая попытка вызова методов вызовет `IllegalStateException`\n\n**Использование Stream без терминального метода?**\nЕсли стрим не завершается терминальным методом, никакие операции с ним не будут выполнены. Причина в концепции **“ленивых” (отложенных) вычислений** (lazy evaluation): промежуточные методы не выполняются до вызова терминального метода\n"
-  popularity = 11.15
+  popularity = 10.6
 
 [[questions]]
   id = 5
   question = "Что такое промежуточные методы? Какие промежуточные методы в стримах вы знаете?"
   answer = "*Промежуточный метод* - метод, который возвращает Stream. Существуют:\n\n**Метод peek()**\nМетод `peek(Consumer<T> action)` используется для промежуточной обработки элементов стрима. Он позволяет выполнить действие над каждым элементом стрима без изменения самих элементов. Основное применение — это отладка или логирование данных перед выполнением конечной операции.\n_Важно:_ метод `peek()` не изменяет поток и чаще всего используется для побочных эффектов (например, вывода информации о каждом элементе).\n```java\nList<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);\nList<Integer> result = numbers.stream()\n    .peek(n -> System.out.println(\"Processing: \" + n))\n    ...\n    .collect(Collectors.toList());\n```\n\n**Метод map()**\nМетод `map(Function<T, R> mapper)` применяется для преобразования каждого элемента стрима с помощью функции. Он берет входной элемент и возвращает новый элемент, который соответствует результату примененной функции\n```java\nList<Integer> numbers = Arrays.asList(1, 2, 3);\nList<Integer> squares = numbers.stream()\n    .map(n -> n * n)\n    .collect(Collectors.toList());\nSystem.out.println(squares); // [1, 4, 9]\n```\n\n**Метод flatMap()**\nМетод `flatMap(Function<T, Stream<R>> mapper)` используется для преобразования каждого элемента стрима в другой стрим, а затем “выравнивания” полученных стримов в один плоский стрим. Это особенно полезно для работы с коллекциями внутри коллекций\n```java\nList<List<Integer>> numbers = Arrays.asList(\n    Arrays.asList(1, 2),\n    Arrays.asList(3, 4),\n    Arrays.asList(5)\n);\nList<Integer> flatNumbers = numbers.stream()\n    .flatMap(List::stream)\n    .collect(Collectors.toList());\nSystem.out.println(flatNumbers); // [1, 2, 3, 4, 5]\n```\n\n**Метод filter()**\nМетод `filter(Predicate<T> predicate)` используется для фильтрации элементов стрима на основе условия (предиката). Он пропускает элементы, которые не удовлетворяют условию\n```java\nList<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);\nList<Integer> evenNumbers = numbers.stream()\n    .filter(n -> n % 2 == 0)\n    .collect(Collectors.toList());\nSystem.out.println(evenNumbers); // [2, 4]\n```\n\n**Метод limit()**\nМетод `limit(long maxSize)` возвращает стрим, состоящий не более чем из указанного количества элементов. Это полезно для ограничения размера стрима\n```java\nList<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);\nList<Integer> limited = numbers.stream()\n    .limit(3)\n    .collect(Collectors.toList());\nSystem.out.println(limited); // [1, 2, 3]\n```\n\n**Метод skip()**\nМетод `skip(long n)` пропускает указанное количество элементов и возвращает стрим из оставшихся элементов\n```java\nList<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);\nList<Integer> skipped = numbers.stream()\n    .skip(2)\n    .collect(Collectors.toList());\nSystem.out.println(skipped); // [3, 4, 5]\n```\n\n**Метод concat()**\nМетод `concat(Stream<T> a, Stream<T> b)` объединяет два потока в один\n```java\nList<String> listOne = List.of(\"Apple\", \"Banana\", \"Cherry\");\nList<String> listTwo = List.of(\"Orange\", \"Peach\", \"Plum\");\nStream<String> combinedStream = Stream.concat(listOne.stream(), listTwo.stream());\n        combinedStream.forEach(System.out::println);\n```\n\n**Метод sorted()**\nМетод `sorted()` | `sorted(Comparator<T> comparator)` сортирует элементы стрима. По умолчанию элементы сортируются в естественном порядке, но можно задать компаратор для пользовательской сортировки\n```java\nList<String> names = Arrays.asList(\"John\", \"Anna\", \"Tom\");\nList<String> sortedNames = names.stream()\n    .sorted()\n    .collect(Collectors.toList());\nSystem.out.println(sortedNames); // [Anna, John, Tom]\n```\n\n**Метод distinct()**\nМетод `distinct()` возвращает стрим, который содержит только уникальные элементы (без дубликатов)\n```java\nList<Integer> numbers = Arrays.asList(1, 2, 2, 3);\nList<Integer> uniqueNumbers = numbers.stream()\n    .distinct()\n    .collect(Collectors.toList());\nSystem.out.println(uniqueNumbers); // [1, 2, 3]\n```\n\nЕсли стрим отсортирован и имеет соответствующую характеристику (её добавляет `sorted()`, например, сам стрим о сортированности данных узнать не может) то при вызове `distinct()` используется более эффективный алгоритм: он уже не будет собирать HashSet и смотреть наличие повторяющихся объектов, а просто сравнивает каждый следующий с предыдущим. Т.е. `sorted().distinct()` теоретически может ускорить выполнение метода, если входные данные уже отсортированы. _Прим._: `sorted()` для сортированных данных работает очень быстро, это дешёвая операция\n"
-  popularity = 4.53
+  popularity = 4.3
 
 [[questions]]
   id = 6
   question = "Что такое терминальные методы? Какие терминальные методы в стримах вы знаете?"
   answer = "*Терминальные методы* завершают работу с потоком, после их вызова дальнейшие операции невозможны. Основные терминальные методы:\n\n**Метод collect()**\nМетод `collect(Collector<T, A, R> collector)` используется для преобразования стрима в коллекцию или другой тип данных. Чаще всего используется для сбора элементов в список, множество или строку\n```java\nList<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);\nList<Integer> collectedList = numbers.stream()\n    .collect(Collectors.toList());\nSystem.out.println(collectedList); // [1, 2, 3, 4, 5]\n```\n\n**Метод forEach()**\nМетод `forEach(Consumer<T> action)` выполняет действие над каждым элементом потока\n```java\nList<String> words = List.of(\"hi\", \"hi\", \"goodbye\", \"ok\", \"dog\", \"cat\", \"dog\");\nwords.stream()\n\t\t\t\t.forEach(System.out::println);\n```\n\n**Метод reduce()**\nМетод `reduce(BinaryOperator<T> accumulator)` сводит (агрегирует) элементы стрима к одному значению с помощью функции аккумулятора. Например, для вычисления суммы или произведения всех элементов\n```java\nList<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);\nint sum = numbers.stream()\n    .reduce(0, Integer::sum); // 0 — начальное значение\nSystem.out.println(sum); // 15\n```\n\n**Метод count()**\nМетод `count()` Возвращает количество элементов в потоке\n```java\nList<Integer> numbers = List.of(1, 2, 3, 4, 10, 1298, 27);\nlong counted = numbers.stream()\n        .filter(n -> n % 2 == 0)\n        .count(); // Посчитали четные числа\n```\n\n**Метод min()**\nМетод `min(Comparator<T> comparator)` возвращает минимальный элемент потока по заданному компаратору (Optional)\n```java\nList<Integer> numbers = List.of(1, 2, 3, 4, 10, 1298, 27);\nOptional<Integer> min = numbers.stream()\n\t\t\t\t.min(Integer::compareTo);\n```\n\n**Метод max()**\nМетод `max(Comparator<T> comparator)` Возвращает максимальный элемент потока по заданному компаратору (Optional)\n\n```java\nList<Integer> numbers = List.of(1, 2, 3, 4, 10, 1298, 27);\nOptional<Integer> max = numbers.stream()\n        .max(Integer::compareTo);\n```\n\n**Метод findFirst()**\nМетод `findFirst()` возвращает первый элемент потока (Optional)\n```java\nList<Integer> numbers = List.of(1,2,3,4,5,6,10,120,130);\nOptional<Integer> first = numbers.stream()\n        .filter(n -> n > 10)\n        .findFirst();\n```\n\n**Метод findAny()**\nМетод `findAny()` возвращает любой элемент потока (Optional), полезно в параллельных потоках\n```java\nList<String> names = List.of(\"hello java\", \"goodBye\");\nOptional<String> name = names.stream()\n        .filter(s -> s.contains(\"java\"))\n        .findAny();\n```\n\n**Метод anyMatch()**\nМетод `anyMatch(Predicate<T> predicate)` возвращает true, если хотя бы один элемент соответствует условию\n```java\nList<Integer> nums = List.of(1,2,3,4,5,6);\nboolean is = nums.stream()\n        .anyMatch(n -> n % 2 == 0); //Вернет true\n```\n\n**Метод allMatch()**\nМетод `allMatch(Predicate<T> predicate)` возвращает true, если все элементы соответствуют условию\n```java\nList<Integer> nums = List.of(-1,2,3,4,5,6);\nboolean is = nums.stream()\n        .allMatch(n -> n > 0); //Вернет false\n```\n\n**Метод noneMatch()**\nМетод `noneMatch(Predicate<T> predicate)` возвращает true, если ни один элемент не соответствует условию\n```java\nList<Integer> nums = List.of(1,3,3,5,5,7);\nboolean is = nums.stream()\n        .noneMatch(n -> n % 2 == 0); //Вернет true \n```\n"
-  popularity = 6.62
+  popularity = 6.29
 
 [[questions]]
   id = 7
   question = "Методы в Stream API"
   answer = "См. промежуточные и терминальные методы"
-  popularity = 0.7
+  popularity = 0.66
 
 [[questions]]
   id = 8
   question = "Чем отличаются методы map() и flatMap()?"
   answer = "- `map()` применяет функцию к каждому элементу потока и возвращает новый стрим с результатами\n- `flatMap()` применяет функцию к вложенным структурам (когда элемент стрима коллекция или другой стрим) и объединяет все полученные стримы в один (уплощает)"
-  popularity = 9.41
+  popularity = 9.27
 
 [[questions]]
   id = 9
   question = "Расскажите про класс Collectors и его методы"
   answer = "Класс Collectors предоставляет ряд статических методов для создания коллекций, таких как списки, множества, мапы и другие, из элементов потока (Stream). Эти методы широко используются для агрегации данных в потоках. Основные методы:\n- `toList()` - собирает элементы потока в список\n- `toSet()` - собирает элементы потока в множество (Set)\n- `toMap()` - собирает элементы потока в карту (Map), используя ключи и значения, которые задаются функциями\n- `joining()` - объединяет элементы потока в одну строку, используя заданный разделитель и префикс/суффикс\n- `counting()` - считает количество элементов в потоке\n- `summarizingInt()` - собирает статистику по числовым значениям (например, сумма, среднее, максимальное и минимальное значение)\n- `averagingInt()` - вычисляет среднее значение по числовым элементам\n- `partitioningBy()` - разделяет элементы потока на две группы по заданному предикату\n- `groupingBy()` - группирует элементы потока по заданному классификатору\n- `reducing()` - выполняет редукцию элементов потока с использованием заданного бинарного оператора\n- `toCollection(Supplier<C>)` - преобразует поток в коллекцию\n\n**Для группировки элементов в Map какой Collector будешь использовать?**\n- `toMap()` — собирает элементы потока в карту (Map), используя ключи и значения, которые задаются функциями, например\n```java\nList<String> strings = Arrays.asList(\"cat\", \"dog\", \"fish\", \"ant\", \"elephant\");\nMap<String, Integer> mappedByLength = strings.stream()\n\t\t\t\t.collect(Collectors.toMap(s -> s, String::length));\n\t\t\t\t\n// mappedByLength = {ant=3, cat=3, fish=4, dog=3, elephant=8}\n```\n\n- `groupingBy()` — группирует элементы потока по заданному классификатору, например\n  ```java\n  List<String> strings = Arrays.asList(\"cat\", \"dog\", \"fish\", \"ant\", \"elephant\");\n  Map<Integer, List<String>> groupedByLength = strings.stream()\n        .collect(Collectors.groupingBy(String::length));\n       \n// groupedByLength = {3=[cat, dog, ant], 4=[fish], 8=[elephant]}\n  ```\n"
-  popularity = 0.35
+  popularity = 0.33
 
 [[questions]]
   id = 10
   question = "Что такое IntStream и DoubleStream?"
   answer = "IntStream, LongStream и DoubleStream — это специальные стримы в Java для работы с примитивами int, long и double. Поддерживают дополнительные терминальные методы:\n- `sum()`\n- `average()`\n- `mapToObj()`\n"
-  popularity = 0.35
+  popularity = 0.33
 
 [[questions]]
   id = 11
   question = "В чём разница между parallel и parallelStream?"
   answer = "Оба метода дают один и тот же результат, но разница в способе вызова:\n- `list.stream().parallel()` полезно, если сначала требуется настроить стрим (например, добавить фильтрацию), а затем переключить его в параллельный режим\n- `list.parallelStream()` используется, если сразу нужен параллельный стрим\n\n| Метод                 | Описание                                          |\n| --------------------- | ------------------------------------------------- |\n| `stream().parallel()` | Преобразует уже существующий стрим в параллельный |\n| `parallelStream()`    | Cразу создаёт параллельный стрим из коллекции     |"
-  popularity = 0.35
+  popularity = 0.33
 
 [[questions]]
   id = 12
   question = "Для чего нужны операции Consumer, Function, Supplier?"
   answer = "В Java 8 появились **функциональные интерфейсы** из пакета `java.util.function`, которые используются в **лямбда-выражениях** и **Stream API**. Среди них важны:\n\n|Функциональный интерфейс|Входные данные|Возвращаемое значение|Применение|\n|---|---|---|---|\n|`Consumer<T>`|Принимает `T`|Ничего не возвращает (`void`)|Используется, когда нужно выполнить действие, но не вернуть результат.|\n|`Function<T, R>`|Принимает `T`|Возвращает `R`|Преобразует один тип данных в другой.|\n|`Supplier<T>`|Не принимает аргументов|Возвращает `T`|Используется для генерации значений.|\n\n**`Consumer<T>` — потребитель**  \n\n`Consumer<T>` используется, когда нужно выполнить операцию над объектом, но **ничего не возвращать**.\n\n**Пример: печать списка элементов**\n\n```java\nimport java.util.Arrays;\nimport java.util.List;\nimport java.util.function.Consumer;\n\npublic class ConsumerExample {\n    public static void main(String[] args) {\n        List<String> names = Arrays.asList(\"Alice\", \"Bob\", \"Charlie\");\n\n        Consumer<String> printName = name -> System.out.println(\"Hello, \" + name);\n        names.forEach(printName);\n    }\n}\n```\n\n**Вывод:**\n\n```\nHello, Alice\nHello, Bob\nHello, Charlie\n```\n\n💡 **Где используется?**\n\n- В `forEach()` коллекций\n- Логирование (`Logger::info`)\n- Работа с файлами (`Files.lines().forEach(...)`)\n\n**`Function<T, R>` — преобразователь**\n\n`Function<T, R>` принимает объект типа `T` и возвращает объект типа `R`.\n\n**Пример: преобразование строки в ее длину**\n\n```java\nimport java.util.function.Function;\n\npublic class FunctionExample {\n    public static void main(String[] args) {\n        Function<String, Integer> lengthFunction = str -> str.length();\n\n        System.out.println(lengthFunction.apply(\"Java\")); // 4\n        System.out.println(lengthFunction.apply(\"Functional Interfaces\")); // 21\n    }\n}\n```\n\n💡 **Где используется?**\n\n- Преобразование данных в `Stream API`\n- Маппинг объектов (`List<String>` → `List<Integer>`)\n- Фильтрация и сортировка\n\n**`Supplier<T>` — поставщик**  \n\n`Supplier<T>` ничего не принимает, но **генерирует результат**.\n\n**Пример: генерация случайного числа**\n\n```java\nimport java.util.function.Supplier;\nimport java.util.Random;\n\npublic class SupplierExample {\n    public static void main(String[] args) {\n        Supplier<Integer> randomSupplier = () -> new Random().nextInt(100);\n\n        System.out.println(randomSupplier.get()); // Например, 42\n        System.out.println(randomSupplier.get()); // Например, 87\n    }\n}\n```\n\n💡 **Где используется?**\n\n- Ленивая инициализация\n- Генерация случайных данных\n- Фабричные методы\n\n"
-  popularity = 1.05
+  popularity = 0.99
 
 [[questions]]
   id = 13
   question = "Что такое параллельные стримы?"
   answer = "Параллельные стримы позволяют разделить обработку данных на несколько потоков, используя `ForkJoinPool`. Это ускоряет обработку больших объемов данных. Потоки забираются из пула `ForkJoinPool.commonPool`\n\n**Когда использовать параллельные стримы?**\n- данных очень много (миллионы записей)\n- операции CPU-интенсивные (например, сложные вычисления)\n- нет зависимостей между элементами (например, суммирование чисел)\n\n**Когда НЕ использовать?**  \n- коллекция маленькая (параллельность создаст накладные расходы).  \n- порядок важен (параллельные стримы могут изменить порядок).  \n- есть побочные эффекты (`forEach()` в `parallelStream` может работать непредсказуемо).\n"
-  popularity = 4.18
+  popularity = 3.97
 
 [[questions]]
   id = 14
   question = "Разница между findAny() и findFirst()"
   answer = "| Критерий               | `findAny()`                                         | `findFirst()`                                                  |\n| ---------------------- | --------------------------------------------------- | -------------------------------------------------------------- |\n| **Что возвращает**     | Любой элемент потока (если есть)                    | Первый элемент потока (если есть)                              |\n| **Порядок**            | Не гарантирует порядок                              | Гарантирует, что вернёт именно первый элемент в порядке стрима |\n| **Параллельный стрим** | Может работать быстрее (не нужно соблюдать порядок) | Может работать медленнее (должен сохранять порядок)            |\n| **Когда использовать** | Если неважно, какой элемент получить                | Если нужно получить именно первый элемент в порядке            |\n| **Пример**             | `stream.parallel().findAny()`                       | `stream.parallel().findFirst()`                                |\n"
-  popularity = 1.74
+  popularity = 1.66
