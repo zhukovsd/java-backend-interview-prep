@@ -1,13 +1,13 @@
 [category]
   id = 13
   title = "Миграции"
-  popularity = 4.3
+  popularity = 4.29
 
 [[questions]]
   id = 1
   question = "Liquibase. Что это и для чего?"
   answer = "Liqubase - это инструмент управления миграциями базы данных. Позволяет версионировать изменения в базе данных, отслеживать их и автоматически применять при обновлениях"
-  popularity = 2.98
+  popularity = 2.97
 
 [[questions]]
   id = 2

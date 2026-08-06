@@ -1,25 +1,25 @@
 [category]
   id = 14
   title = "ORM"
-  popularity = 41.72
+  popularity = 41.91
 
 [[questions]]
   id = 1
   question = "Что такое Hibernate, JPA, JDBC, ORM?"
   answer = " **ORM (Object-Relational Mapping)** - концепция преобразования сущностей реляционной базы данных в объекты и обратно (применительно к объектно-ориентированным языкам программирования)\n  **JPA (Java Persistence API)** - спецификация, описывающая концепцию ORM для Java\n  **Hibernate** - одна из реализаций JPA\n  **JDBC (Java DataBase Connectivity)** - стандарт взаимодействия Java-приложения и базы данных\n"
-  popularity = 5.63
+  popularity = 5.61
 
 [[questions]]
   id = 2
   question = "Плюсы и минусы ORM"
   answer = "**Плюсы:**\n- **Ускорение разработки приложения**\n- **Удобство разработки:**\n    - позволяет бизнес методам обращаться не к БД, а к Java классам\n    - cущности основаны на бизнес-задачах, а не на структуре БД\n- **Переносимость** - ORM может работать с различными СУДБ, что делает его более переносимым, чем SQL\n- **Управление транзакциями**\n\n**Минусы:**\n- **Сложность в освоении** - парадигма ORM нетривиальна и может быть контринтуитивна для новых разработчиков, имеющих опыт с SQL\n- **Потенциальная потеря производительности** - автоматическая генерация SQL-запросов может быть менее оптимальной, чем ручное написание запросов\n- **Плохо справляется со сложными запросы** - ORM плохо справляется с очень сложными SQL-запросами, такими как сложные агрегатные функции или многоуровневые JOIN’ы\n"
-  popularity = 3.31
+  popularity = 3.3
 
 [[questions]]
   id = 3
   question = "Как создать Entity и что это такое?"
   answer = "Entity - это класс, отражающий собой таблицу в реляционной БД. Для его создания необходимо выполнение условий\n- Класс не является вложенным, интерфейсом, `enum`, или `final`\n- Аннотация `@Entity` над классом\n- Конструктор без параметров\n- Хотя бы одно поле с аннотацией `@Id`\n- Класс должен быть POJO (все поля private + getter-ы и setter-ы к ним)\n*Примечание: несколько аннотаций @Id в Entity может быть только в случае использования составного первичного ключа*\n"
-  popularity = 2.32
+  popularity = 2.31
 
 [[questions]]
   id = 4
@@ -43,25 +43,25 @@
   id = 7
   question = "Что такое Proxy и для чего используется?"
   answer = "**Hibernate Proxy** - это объект-заместитель, наследующийся от целевого класса и использующийся для ленивой загрузки сущностей. Это значит, что Hibernate создает прокси-объект вместо настоящего объекта из базы данных, и реальные данные загружаются только при первом доступе к ним. Это помогает оптимизировать производительность, загружая данные только тогда, когда они действительно нужны\n\n**Механизм**\nHibernate создаёт наследника запрашиваемого класса или реализацию интерфейса, который переопределяет методы, обеспечивая загрузку данных только при их вызове.\n```java\nSession session = sessionFactory.openSession();\nUser user = session.get(User.class, 1); // Полный объект\nUser lazyUser = session.load(User.class, 2); // Proxy-объект\n```\n- В случае `session.get()` объект загружается сразу.\n- При использовании `session.load()` объект заменяется Proxy до момента фактического обращения к данным.\n"
-  popularity = 8.94
+  popularity = 8.91
 
 [[questions]]
   id = 8
   question = "FetchType"
   answer = "`LAZY` - вместо таких полей будут вставляться прокси, а сами они будут подгружаться при первом доступе к ним\n`EAGER` (жадный) - связанные сущности загружаются сразу вместе с основной сущностью\n\n`@OneToMany` `@ManyToMany` по-умолчанию применяется `FetchType.LAZY`\n`@ManyToOne` `@OneToOne` по-умолчанию применяется `FetchType.EAGER`\n"
-  popularity = 2.32
+  popularity = 2.31
 
 [[questions]]
   id = 9
   question = "Жизненный цикл сущности"
   answer = "В Hibernate сущность может находиться в одном из четырех состояний:\n- Transient\n- Persistent\n- Detached\n- Removed\n\n{{< figure src=\"/java-backend-interview-prep/hibernate_entity_life_cycle.png\" title=\"\" >}}\n\n**Transient (Переходное состояние) (new)**\nСущность только что создана с помощью оператора new, но еще не сохранена в базе данных\n```java\nUser user = new User(); // объект пока не связан с БД\nuser.setName(\"John\");\n```\n\n**Persistent/managed (Постоянное состояние) (save, persist, update, get)**\nКогда объект сохранён в базе данных через EntityManager или Session, он становится постоянным. В этом состоянии Hibernate следит за объектом. Любые изменения в объекте автоматически синхронизируются с базой данных\n```java\nSession session = sessionFactory.openSession();\nsession.beginTransaction();\nsession.save(user); // объект теперь в состоянии persistent\n```\n\n**Detached (Отсоединённое состояние) (session closed)**\nКогда сессия закрыта, объект переходит в состояние detached. Он по-прежнему связан с данными в базе, но больше не синхронизируются с ней\n```java\nsession.close(); //  объект можно использовать, но изменения не будут сохранены в бд\n```\n\n**Removed (Удалённое состояние) (delete(obj))**\nКогда сущность удалена из базы данных она переходит в состояние removed. В этом состоянии объект по-прежнему существует в памяти, но уже удален из базы данных\n```java\nsession.delete();\n```\n\n"
-  popularity = 4.64
+  popularity = 4.95
 
 [[questions]]
   id = 10
   question = "Кэширование"
   answer = "**Кэш 1-го уровня**\n- Этот кэш всегда включен и работает на уровне `Session` (у каждой сессии свой кэш и нельзя получить доступ к нему из другой сессии)\n- В кэше хранятся только сущности, у которых состояние `persistent`\n- Отслеживаемые сущности (`persistent`) хранятся в мапе, где ключ - ID сущности, а значение - сами объекты-сущности\n- При повторных запросах Hibernate использует кэшированные данные вместо выполнения нового запроса к базе данных\n- При закрытии сессии кэш удаляется\n\n**Кэш 2-го уровня**\n- Это дополнительный кэш, который надо включать вручную\n- Работает на уровне `SessionFactory`\n- Используется для кэширования данных между сессиями, что позволяет повторно использовать данные, уже загруженные из базы данных\n- После закрытия `SessionFactory` весь кэш, связанный с ним, удаляется\n\n**Кэш 3-го уровня**\n- Кэширует результаты запросов на уровне SQL-запросов (кэширует результаты выборки)\n"
-  popularity = 6.62
+  popularity = 6.6
 
 [[questions]]
   id = 11
@@ -73,37 +73,37 @@
   id = 12
   question = "EntityManager + EntityManagerFactory / SessionFactory + session"
   answer = "**EntityManager** - менеджер сущностей, определяется спецификацией JPA, **Session** от Hibernate - вариант его реализации\n**EntityManagerFactory** - фабрика менеджеров JPA, **SessionFactory** - реализация от Hibernate\n"
-  popularity = 1.66
+  popularity = 1.98
 
 [[questions]]
   id = 13
   question = "Проблема N + 1. Способы решения проблемы"
   answer = "Это проблема, которая возникает при ленивой загрузке сущности из БД, когда вместо одного запроса, включающего основную сущность и все зависимые, происходит один запрос для основной сущности и N запросов для зависимых сущностей\n\n**Пример:**\nЕсть две связанные сущности: User (пользователь) и Order (заказ). Каждый пользователь может иметь много заказов\n\nДопустим, нужно получить список всех пользователей и их заказов. Проблема N+1 возникает, когда вместо одного запроса к базе данных для получения всех пользователей и их заказов приложение сначала делает 1 запрос, чтобы получить всех пользователей, а затем делает N дополнительных запросов - по одному для каждого пользователя, чтобы получить его заказы\n```java\n@Entity\npublic class User {\n    @Id\n    private Long id;\n    private String name;\n    @OneToMany(mappedBy = \"user\", fetch = FetchType.LAZY)\n    private List<Order> orders;\n}\n\n@Entity\npublic class Order {\n    @Id\n    private Long id;\n    private String item;\n    @ManyToOne\n    @JoinColumn(name = \"user_id\")\n    private User user;\n}\n```\n\n---\n **Как избежать проблемы N + 1**\n- JOIN FETCH. Это способ сказать Hibernate загрузить связанные данные вместе с основными (типа обычного JOIN-а). Нюансы:\n    - Необходимо использовать `DISTINCT`, чтобы избежать дубликатов (из-за JOIN с коллекцией будет происходить декартово произведение - для каждой связанной сущности будет добавлена главная сущность)\n    - Не работает с пагинацией (`setFirstResult`, `setMaxResults`), если используется `JOIN FETCH` с коллекцией\n```java\n@Query(\"SELECT DISTINCT u FROM User u JOIN FETCH u.orders\")\nList<User> findAllUsersWithOrders();\n```\n\n- Использовать EntityGraph. Указываем, какие данные загружать в конкретных запросах, не изменяя сущности (как в случае с жадной загрузкой)\n```java\n@EntityGraph(attributePaths = {\"orders\"})\nList<User> findAll();\n```\n\n- Использовать **`FetchType.SUBSELECT`** - загружает все коллекции одним подзапросом при первом обращении\n    ```java\n\t@OneToMany(mappedBy = \"user\", fetch = FetchType.LAZY)\n\t@Fetch(FetchMode.SUBSELECT)\n\tprivate List<Order> orders;\n    ```\n\tТранслируется в\n```sql\nSELECT * FROM order WHERE user_id IN (SELECT id FROM user) \n```\n\n- Использовать пакетную загрузку - `@BatchSize` позволяет загружать связанные сущности пачками\n\t```java\n    private List<Book> books;\n    @OneToMany(mappedBy = \"user\", fetch = FetchType.LAZY)\n    @BatchSize(size = 50)\n    private List<Order> orders;\n    ```\n    Для 100 заказов Hibernate выполнит 2 запроса:\n```\n    SELECT * FROM order WHERE user_id IN (?, ?, ..., ?) // 50 ID\n    SELECT * FROM order WHERE user_id IN (?, ?, ..., ?) // Оставшиеся 50 ID\n```\n\n- Использовать `FetchType.EAGER` вместо `FetchType.LAZY`\n"
-  popularity = 20.86
+  popularity = 20.79
 
 [[questions]]
   id = 14
   question = "Что такое Entity Graph?"
   answer = "Entity Graph - это механизм в JPA, который позволяет управлять стратегией загрузки данных, определяя, какие связанные сущности должны быть загружены сразу (eager), а какие отложенно (lazy). Это дает гибкость в выборе полей для загрузки в зависимости от запроса\n\n**Как создать?**\nСоздается аннотацией `@NamedEntityGraph` на уровне сущности или динамически через API\n\n**Что под капотом?**\nEntity Graph-ы работают на уровне SQL-запросов, добавляя нужные JOIN-ы и выбирая необходимые поля\n\n**Использование имени графа**\n```java\nEntityManager entityManager = ...;\n\nMap<String, Object> properties = new HashMap<>();\nproperties.put(\"javax.persistence.loadgraph\", entityManager.getEntityGraph(\"User.withRoles\"));\n\nUser user = entityManager.find(User.class, 1L, properties);\n```\n\n**Использование динамического графа**\n```java\nEntityManager entityManager = ...;\n\nEntityGraph<User> entityGraph = entityManager.createEntityGraph(User.class);\nentityGraph.addAttributeNodes(\"roles\");\n\nMap<String, Object> properties = new HashMap<>();\nproperties.put(\"javax.persistence.loadgraph\", entityGraph);\n\nUser user = entityManager.find(User.class, 1L, properties);\n```\n\n**Использование в Spring Data JPA**\n```java\n@Repository\npublic interface UserRepository extends JpaRepository<User, Long> {\n\n    @EntityGraph(attributePaths = {\"roles\"})\n    User findByName(String name);\n}\n```"
-  popularity = 3.64
+  popularity = 3.63
 
 [[questions]]
   id = 15
   question = "Statement, Prepared statement, Callable statement"
   answer = "- Statement - объект, который используется для формирования простых SQL запросов. Уязвим к SQL-инъекциям\n- PreparedStatement - расширяет Statement, добавляет:\n    - защиту от SQL-инъекций\n    - возможность динамической вставки параметров\n    - кэширование, что ускоряет запросы\n- CallableStatement - расширяет PreparedStatement, нужен для вызова хранимых процедур\n"
-  popularity = 2.32
+  popularity = 2.31
 
 [[questions]]
   id = 16
   question = "Связи между таблицами в ORM"
   answer = "1. OneToOne - один экземпляр сущности может быть связан не больше чем с одним экземпляром другой сущности\n2. OneToMany - одна сущность может ссылаться ко многим сущностям\n3. ManyToOne - несколько сущностей может ссылаться к одной сущности\n4. ManyToMany - много сущностей могут относится ко многим сущностям. \n   - **Bidirectional** (с использованием MappedBy) - ссылка на связь устанавливается у всех сущностей, т.е. в сущности 1 будет ссылка на сущность 2 и наоборот. Сущность 1 будет владельцем этой связи (важно при каскадном удалении) \n   - **Unidirectional** - ссылка на связь устанавливается только у одной стороны\n\n**Как реализована связь OneToMany?**\nОдному объекту одной сущности соответствует множество объектов другой сущности\n```java\n@Entity\npublic class Department {\n    @Id @GeneratedValue\n    private Long id;\n\n    @OneToMany(mappedBy = \"department\", cascade = CascadeType.ALL)\n    private List<Employee> employees;\n}\n\n@Entity\npublic class Employee {\n    @Id @GeneratedValue\n    private Long id;\n\n    @ManyToOne\n    private Department department;\n}\n```\n\n**Как реализована связь ManyToOne?**\nМножеству объектов одной сущности соответствует один объект другой сущности\n```java\n@Entity\npublic class Employee {\n    @Id @GeneratedValue\n    private Long id;\n\n    @ManyToOne\n    @JoinColumn(name = \"department_id\")\n    private Department department;\n}\n\n@Entity\npublic class Department {\n    @Id @GeneratedValue\n    private Long id;\n}\n```\n\n**Как реализована связь ManyToMany?**\nДля реализации такого вида связи создается промежуточная таблица для хранения идентификаторов обеих сущностей\n\n**Пример**: учителя могут преподавать несколько предметов, каждый предмет может преподаваться несколькими преподавателями\n```java\n@Entity\npublic class Student {\n    @Id @GeneratedValue\n    private Long id;\n\n    @ManyToMany\n    @JoinTable(\n        name = \"student_course\",\n        joinColumns = @JoinColumn(name = \"student_id\"),\n        inverseJoinColumns = @JoinColumn(name = \"course_id\")\n    )\n    private List<Course> courses;\n}\n\n@Entity\npublic class Course {\n    @Id @GeneratedValue\n    private Long id;\n\n    @ManyToMany(mappedBy = \"courses\")\n    private List<Student> students;\n}\n```\n\n|**Тип связи**|**Суть**|**Пример отношений**|**Особенности**|**Реализация в базе данных**|\n|---|---|---|---|---|\n|OneToOne|Один к одному|Паспорт и владелец|Каждая сущность связана с одной другой сущностью|Один из объектов содержит внешний ключ|\n|OneToMany|Один ко многим|Департамент и сотрудники|Один объект связан с несколькими объектами другой сущности|Один внешний ключ на стороне “многих”|\n|ManyToOne|Многие к одному|Сотрудники и департамент|Обратное отношение к `OneToMany`|Внешний ключ на стороне “многих”|\n|ManyToMany|Многие ко многим|Студенты и курсы|Множеству объектов одной сущности соответствует множество другой|Промежуточная таблица|\n\n**OneToMany: разница между List и Set**\n\n|**Характеристика**|`List`|`Set`|\n|---|---|---|\n|Уникальность|Допускает дубликаты|Гарантирует уникальность элементов|\n|Порядок|Сохраняет порядок добавления|Не гарантирует порядок|\n|Производительность|Медленнее при проверке наличия|Быстрее при проверке наличия|\n|Используемая реализация|`ArrayList` или `LinkedList`|Обычно `HashSet` или `TreeSet`|\n\n**Что такое `Cascade`?**\n`Cascade` в JPA определяет, что делать с зависимыми объектами при изменении основного объекта.\n\n**Пример:**\n```java\n@Entity\nclass Parent {\n    @Id @GeneratedValue\n    private Long id;\n\n    @OneToMany(mappedBy = \"parent\", cascade = CascadeType.ALL)\n    private List<Child> children;\n}\n\n@Entity\nclass Child {\n    @Id @GeneratedValue\n    private Long id;\n\n    @ManyToOne\n    @JoinColumn(name = \"parent_id\")\n    private Parent parent;\n}\n```\nЕсли удалить `Parent`, то все `Child` объекты тоже удалятся.\n\n|**Тип**|**Описание**|\n|---|---|\n|`ALL`|Применяет все виды каскада (`PERSIST`, `REMOVE`, `MERGE`, `REFRESH`, `DETACH`)|\n|`PERSIST`|Автоматически сохраняет зависимые сущности|\n|`REMOVE`|Удаляет зависимые сущности|\n|`MERGE`|Обновляет зависимые сущности|\n|`REFRESH`|Перезаписывает зависимые сущности из БД|\n|`DETACH`|Удаляет зависимые сущности из контекста (но не из БД)|\n\n**Плюсы:**\n- Упрощает работу с зависимыми объектами\n- Автоматизирует `save()` и `delete()`\n- Уменьшает количество `EntityManager` вызовов\n\n**Минусы:**\n- Может неожиданно удалить важные данные (`REMOVE` без проверки)\n- `ALL` может привести к непредвиденным каскадным операциям\n- Может нагружать базу данных, если слишком много зависимостей\n"
-  popularity = 2.98
+  popularity = 2.97
 
 [[questions]]
   id = 17
   question = "LazyInitializationException"
   answer = "Это происходит, когда объект был загружен с ленивой загрузкой, но его данные пытаются быть использованы после закрытия сессии\n\n```java\npublic void printAuthorBooks(Long authorId) {\n    Session session = sessionFactory.openSession();\n    Author author = session.get(Author.class, authorId);\n    session.close();\n\n    // Попытка доступа к ленивой коллекции после закрытия сессии\n    System.out.println(author.getBooks());  // Может вызвать LazyInitializationException\n}\n```\n\nКак решить?\n- JOIN FETCH. Это способ сказать Hibernate загрузить связанные данные вместе с основными (типа обычного JOIN-а)\n- Использовать EntityGraph. Указываем, какие данные загружать в конкретных запросах, не изменяя сущности (как в случае с жадной загрузкой)\n"
-  popularity = 4.3
+  popularity = 4.29
 
 [[questions]]
   id = 18
@@ -127,7 +127,7 @@
   id = 21
   question = "Аннотация @Query, что это такое?"
   answer = "Аннотация `@Query` - аннотация из Spring Data JPA, устанавливающаяся над методом репозитория (JpaRepository), - позволяет писать JPQL или SQL запрос.\n\n**JPQL-запросы** (Java Persistence Query Language)\n```java\npublic interface UserRepository extends JpaRepository<User, Long> {\n\n    // Использование JPQL для выборки данных\n    @Query(\"SELECT u FROM User u WHERE u.name = :name\")\n    List<User> findByName(@Param(\"name\") String name);\n}\n```\n\n**Native SQL-запросы**\n```java\npublic interface UserRepository extends JpaRepository<User, Long> {\n\n    // Использование SQL-запроса\n    @Query(value = \"SELECT * FROM users WHERE name = :name\", nativeQuery = true)\n    List<User> findByNameNative(@Param(\"name\") String name);\n}\n```\n\n**Параметры в запросах**\n```java\n@Query(\"SELECT u FROM User u WHERE u.name = :name\")\nList<User> findByName(@Param(\"name\") String name);\n```\n"
-  popularity = 1.66
+  popularity = 1.65
 
 [[questions]]
   id = 22
@@ -139,7 +139,7 @@
   id = 23
   question = "Hibernate. Что хранится в Persistence Context? Сколько времени объект хранится в Persistence Context?"
   answer = "**Persistence Context** (контекст персистентности) - это механизм Hibernate, который управляет состоянием сущностей (entities) в рамках сессии (Session). Он отслеживает изменения в сущностях и синхронизирует их с базой данных. Persistence Context можно рассматривать как кэш первого уровня, который существует на протяжении жизни сессии.\n\nВ Persistence Context хранятся:\n1. **Управляемые сущности (Managed Entities)**:\n    - это объекты, которые были загружены в текущую сессию (например, с помощью `session.get()`, `session.load()`, или через запросы `HQL`, `Criteria API`)\n    - Hibernate отслеживает изменения в этих объектах и автоматически синхронизирует их с базой данных при коммите транзакции\n2. **Сущности, добавленные для сохранения**:\n    - объекты, которые были добавлены в Persistence Context с помощью `session.save()`, `session.persist()`, или `session.update()`\n3. **Сущности, помеченные на удаление**:\n    - объекты, которые были помечены на удаление с помощью `session.delete()`\n4. **Снимки состояния (Snapshots)**:\n    - Hibernate сохраняет снимки состояния сущностей на момент их загрузки. Эти снимки используются для определения изменений в объектах и генерации соответствующих SQL-запросов при синхронизации с базой данных\n5. **Идентификаторы сущностей**:\n    - Persistence Context хранит идентификаторы (ID) всех управляемых сущностей, чтобы быстро находить их в кэше\n\n**Сколько времени объект хранится в Psersistence Context?**\n- До окончания сессии\n- До явного удаления (`evict` или `clear`)\n- До того, как объект переходит в состояние `detached`\n"
-  popularity = 2.32
+  popularity = 2.31
 
 [[questions]]
   id = 24
@@ -157,4 +157,4 @@
   id = 26
   question = "Стратегии наследования в Hibernate"
   answer = "**`SINGLE_TABLE` (Одна таблица на иерархию)**\nОдна таблица на всю иерархию. Все сущности со всеми наследниками записываются в одну таблицу, где определяется дополнительная колонка для идентификации типа сущности. Главный минус - в таблице будут созданы все поля, которые для некоторых сущностей уникальны, а для других - пустые\n\n```java\n@Entity\n@Inheritance(strategy = InheritanceType.SINGLE_TABLE)\n@DiscriminatorColumn(name = \"dtype\", discriminatorType = DiscriminatorType.STRING)\npublic abstract class Vehicle {\n    @Id @GeneratedValue\n    private Long id;\n    private String manufacturer;\n    // getters/setters...\n}\n\n@Entity\n@DiscriminatorValue(\"CAR\")\npublic class Car extends Vehicle {\n    private int seatingCapacity;\n    // getters/setters...\n}\n\n@Entity\n@DiscriminatorValue(\"TRUCK\")\npublic class Truck extends Vehicle {\n    private double payloadCapacity;\n    // getters/setters...\n}\n```\n\n**Плюсы**: \n- единая таблица, простой запрос (без `JOIN`)\n- высокая производительность чтения\n**Минусы**: \n- много nullable‑колонок (для полей всех подклассов)\n- таблица растёт “шириной”\n\n**`TABLE_PER_CLASS` (Отдельная таблица для каждого класса)**\nКаждый класс-сущность сохраняет данные в свою таблицу, но только уникальные поля и первичный ключ, а все унаследованные поля записываются в таблицы класса-предка. \n\n```java\n@Entity\n@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)\npublic abstract class Vehicle {\n    @Id @GeneratedValue\n    private Long id;\n    private String manufacturer;\n}\n\n@Entity\npublic class Car extends Vehicle {\n    private int seatingCapacity;\n}\n\n@Entity\npublic class Truck extends Vehicle {\n    private double payloadCapacity;\n}\n```\n\n**Плюсы**: \n- нет лишних nullable‑полей, модель “чистой” объектно‑реляционной композиции\n**Минусы**: \n- `UNION`‑запросы при выборке всех `Vehicle`\n- сложнее поддержка авто‑инкрементов (не во всех СУБД)\n\n\n**`JOINED` (По‑таблицам с `JOIN`)**\nКорневой класс хранится в одной таблице, каждый подкласс - в своей, причём таблица подкласса содержит поле‑FK на корневую\n```java\n@Entity\n@Inheritance(strategy = InheritanceType.JOINED)\npublic abstract class Vehicle {\n    @Id @GeneratedValue\n    private Long id;\n    private String manufacturer;\n}\n\n@Entity\n@Table(name = \"car\")\npublic class Car extends Vehicle {\n    private int seatingCapacity;\n}\n\n@Entity\n@Table(name = \"truck\")\npublic class Truck extends Vehicle {\n    private double payloadCapacity;\n}\n```\n\n**Плюсы**: \n- нет nullable‑полей, структура реляционно “чистая”, легко расширять и модифицировать.\n**Минусы**: \n- плохая поддержка полиморфизма\n- `JOIN`‑ы при загрузке подклассов \n- чуть более низкая производительность выборки\n\n\n4. **`@MappedSuperclass` (Не таблица‑суперкласс)**\nАннотированный суперкласс не является сущностью и не получает своей таблицы; его поля унаследуют таблицы подклассов. Используется, когда общие поля и методы нужно “раздать” нескольким сущностям, но сама иерархия не хранится.\n```java\n@MappedSuperclass\npublic abstract class BaseEntity {\n    @Id @GeneratedValue\n    private Long id;\n    private LocalDateTime createdAt;\n}\n\n@Entity\npublic class User extends BaseEntity {\n    private String username;\n    private String email;\n}\n\n@Entity\npublic class Product extends BaseEntity {\n    private String name;\n    private BigDecimal price;\n}\n```\n\nКогда выбирать какую стратегию\n\n| Стратегия           | Подходит для…                                       | Основные преимущества                      |\n| ------------------- | --------------------------------------------------- | ------------------------------------------ |\n| `SINGLE_TABLE`      | Быстрых операций чтения, небольшой иерархии         | Нет `JOIN`, простота запросов              |\n| `TABLE_PER_CLASS`   | Много разных подклассов с уникальными полями        | Чистая ORM модель, нет `null`              |\n| `JOINED`            | Чёткая нормализация данных, частые обновления схемы | Нет лишних колонок, гибкость               |\n| `@MappedSuperclass` | Общие поля для разных сущностей без таблицы‑супер   | Переиспользование кода без влияния на СУБД |\n"
-  popularity = 2.98
+  popularity = 2.97
