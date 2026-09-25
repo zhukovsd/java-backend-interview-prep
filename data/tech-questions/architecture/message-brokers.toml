@@ -18,13 +18,13 @@
 [[questions]]
   id = 3
   question = "Что такое топик в Kafka?"
-  answer = "Топик в Kafka - это логический канал передачи сообщений. Состоит из разделов (партиций), которые представляют из себя FIFO-структуру. Разделение топика на разделы позволяет распределять нагрузку между брокерами, и обрабатывать их параллельно, обеспечивая масштабируемость и отказоустойчивость\n"
+  answer = "Топик в Kafka - Topic — именованный поток записей, логически разделённый на partitions. Каждая partition представляет собой упорядоченный append-only log"
   popularity = 5.77
 
 [[questions]]
   id = 4
   question = "Что такое Producer и что такое Consumer?"
-  answer = "Producer (производитель) - отправитель сообщений\nConsumer (потребитель) - получатель сообщений\n\n**Что даст увеличение количества консьюмеров?**\nУвеличение числа консьюмеров в группе (consumer group) позволяет ускорить обработку данных, т.к. каждый консьюмер будет обрабатывать свою партицию одновременно с остальными консьюмерами. Также это позволяет распределить ответственность между разными компонентами.\n\nЕсли консьюмеров меньше, чем партиций - они будут распределены через Round-Robin (или кастомный метод). Если консьюмеров больше, чем партиций - какие-то из консьюмеров будут простаивать\n\n**Пример**\nТопик с 4 партициями\n- Если в группе 2 потребителя, то каждый будет обрабатывать 2 партиции\n- Если в группе 3 потребителя, то (по дефолту) один из них будет обрабатывать 2 партиции\n- Если в группе 4 потребителя, каждый получит по 1 партиции\n- Если в группе 5 потребителей, один из них останется без работы\n"
+  answer = "**Producer** — клиент, который публикует records в Kafka topics.\n\n**Consumer** — клиент, который читает records из Kafka topics.\n\n**Что даст увеличение количества consumers?**\nЕсли consumers находятся в одной Consumer Group, partitions распределяются между ними. Это позволяет обрабатывать разные partitions параллельно.\n\nВ рамках обычной Consumer Group одна partition одновременно назначается не более чем одному consumer.\n\nНапример, topic содержит 4 partitions:\n- 1 consumer → читает 4 partitions\n- 2 consumers → примерно по 2 partitions\n- 4 consumers → каждому по 1 partition\n- 5 consumers → один consumer останется без partition и будет простаивать\n\nPartitions распределяются согласно выбранной стратегии assignment, например `RangeAssignor`, `RoundRobinAssignor`, `StickyAssignor` или `CooperativeStickyAssignor`.\n\n**Round Robin не является универсальной стратегией по умолчанию.**"
   popularity = 1.6
 
 [[questions]]
@@ -120,7 +120,7 @@
 [[questions]]
   id = 20
   question = "Повторное чтение данных из Kafka"
-  answer = "Kafka позволяет читать данные повторно, так как сообщения не удаляются сразу после прочтения\n\n**Как прочитать данные повторно?**\n1. **Сбросить offset у консьюмера** - Kafka хранит offset (позицию в топике) каждого консьюмера, можно сбросить offset назад и прочитать сообщения повторно\n    ```bash\n    kafka-consumer-groups --bootstrap-server localhost:9092 --group my-group \n    --reset-offsets --to-earliest --execute\n    ```\n2. **Использовать** `enable.auto.commit=false` - если offset не фиксируется автоматически, консьюмер будет читать данные заново при перезапуске\n\t```yaml\n\t    spring:\n\t\t    kafka:\n\t\t\t    consumer:  \n\t\t\t\t  enable-auto-commit: true\n\t```\n3. **Читать из с конкретного offset** \n\t```java\n\t\tconsumer.seek(\n\t\t    new TopicPartition(\"test-topic\", 0),\n\t\t    42\n\t\t);\n\t```\n"
+  answer = "1. **Сбросить offset Consumer Group** — можно сбросить offset назад и прочитать сообщения повторно.\n    \n\n```bash\nkafka-consumer-groups --bootstrap-server localhost:9092 \\\n--group my-group \\\n--topic my-topic \\\n--reset-offsets --to-earliest --execute\n```\n\n2. **Использовать новую Consumer Group** — у новой группы нет сохранённого offset, поэтому можно начать чтение с начала с помощью:\n    \n\n```yaml\nspring:\n  kafka:\n    consumer:\n      group-id: new-group\n      auto-offset-reset: earliest\n```\n\n3. **Читать с конкретного offset**\n    \n\n```java\nconsumer.seek(\n    new TopicPartition(\"test-topic\", 0),\n    42\n);\n```\n\nВажно: `enable.auto.commit=false` только отключает автоматическое сохранение offset и само по себе не означает повторное чтение сообщений.\n"
   popularity = 0.64
 
 [[questions]]
