@@ -6,7 +6,7 @@
 [[questions]]
   id = 1
   question = "Расскажите как выглядит иерархия коллекций"
-  answer = "{{< figure src=\"/java-backend-interview-prep/collections_hierarchy.png\" title=\"Collections hierarchy\" >}}\n\n**Collection** и **Map** — два интерфейса, которые находятся на вершине иерархии JCF. Интерфейс Collection расширяют интерфейсы:\n- List\n- Queue\n- Set\n\nМетоды интерфейса Iterable:\n- iterator\n- forEach\n- splitIterator\n\nДоп. методы интерфейса Collection:\n- size, isEmpty, contains\n- equals, hashCode\n- add, remove, clear, toArray, stream и др.\n\nМетоды интерфейса Map:\n- size, isEmpty, containsKey, containsValue\n- equals, hashCode\n- put, get, remove, clear\n- keySet, values, entrySet, forEach и др.\n"
+  answer = "{{< figure src=\"/java-backend-interview-prep/collections_hierarchy.png\" title=\"\" >}}\n\n**Collection** и **Map** — два интерфейса, которые находятся на вершине иерархии JCF. Интерфейс Collection расширяют интерфейсы:\n- List\n- Queue\n- Set\n\nМетоды интерфейса Iterable:\n- iterator\n- forEach\n- splitIterator\n\nДоп. методы интерфейса Collection:\n- size, isEmpty, contains\n- equals, hashCode\n- add, remove, clear, toArray, stream и др.\n\nМетоды интерфейса Map:\n- size, isEmpty, containsKey, containsValue\n- equals, hashCode\n- put, get, remove, clear\n- keySet, values, entrySet, forEach и др.\n"
   popularity = 22.59
 
 [[questions]]
