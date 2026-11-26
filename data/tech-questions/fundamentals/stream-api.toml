@@ -42,7 +42,7 @@
 [[questions]]
   id = 7
   question = "Методы в Stream API"
-  answer = "См. промежуточные и терминальные методы"
+  answer = "В Stream API есть **промежуточные операции** (`filter`, `map`, `sorted`). Они возвращают новый этап потока и обычно выполняются лениво. **Терминальные операции** (`count`, `collect`, `reduce`, `forEach`) запускают обработку и завершают конвейер. После терминальной операции тот же объект `Stream` повторно использовать нельзя.\n\nНапример, в `names.stream().filter(n -> !n.isBlank()).count()` `filter` задаёт условие, а `count` запускает подсчёт.\n"
   popularity = 0.6
 
 [[questions]]
@@ -60,25 +60,25 @@
 [[questions]]
   id = 10
   question = "Что такое IntStream и DoubleStream?"
-  answer = "IntStream, LongStream и DoubleStream — это специальные стримы в Java для работы с примитивами int, long и double. Поддерживают дополнительные терминальные методы:\n- `sum()`\n- `average()`\n- `mapToObj()`\n"
+  answer = "`IntStream`, `LongStream` и `DoubleStream` работают с примитивами без обязательной упаковки каждого элемента. Терминальные операции включают `sum()`, `average()` и `summaryStatistics()`. `mapToObj()` и `boxed()` — промежуточные операции, возвращающие объектный `Stream`."
   popularity = 0.3
 
 [[questions]]
   id = 11
   question = "В чём разница между parallel и parallelStream?"
-  answer = "Оба метода дают один и тот же результат, но разница в способе вызова:\n- `list.stream().parallel()` полезно, если сначала требуется настроить стрим (например, добавить фильтрацию), а затем переключить его в параллельный режим\n- `list.parallelStream()` используется, если сразу нужен параллельный стрим\n\n| Метод                 | Описание                                          |\n| --------------------- | ------------------------------------------------- |\n| `stream().parallel()` | Преобразует уже существующий стрим в параллельный |\n| `parallelStream()`    | Cразу создаёт параллельный стрим из коллекции     |"
+  answer = "`collection.parallelStream()` создаёт поток из коллекции с запрошенным параллельным режимом. `stream.parallel()` переключает существующий конвейер в параллельный режим, а `stream.sequential()` — в последовательный.\n\nРежим применяется ко всему конвейеру при терминальной операции. В `list.stream().filter(p).parallel().count()` этап `filter` также выполняется в параллельном конвейере. Если перед `count()` вызвать `sequential()`, весь конвейер выполнится последовательно.\n"
   popularity = 0.3
 
 [[questions]]
   id = 12
   question = "Для чего нужны операции Consumer, Function, Supplier?"
-  answer = "В Java 8 появились **функциональные интерфейсы** из пакета `java.util.function`, которые используются в **лямбда-выражениях** и **Stream API**. Среди них важны:\n\n|Функциональный интерфейс|Входные данные|Возвращаемое значение|Применение|\n|---|---|---|---|\n|`Consumer<T>`|Принимает `T`|Ничего не возвращает (`void`)|Используется, когда нужно выполнить действие, но не вернуть результат.|\n|`Function<T, R>`|Принимает `T`|Возвращает `R`|Преобразует один тип данных в другой.|\n|`Supplier<T>`|Не принимает аргументов|Возвращает `T`|Используется для генерации значений.|\n\n**`Consumer<T>` — потребитель**  \n\n`Consumer<T>` используется, когда нужно выполнить операцию над объектом, но **ничего не возвращать**.\n\n**Пример: печать списка элементов**\n\n```java\nimport java.util.Arrays;\nimport java.util.List;\nimport java.util.function.Consumer;\n\npublic class ConsumerExample {\n    public static void main(String[] args) {\n        List<String> names = Arrays.asList(\"Alice\", \"Bob\", \"Charlie\");\n\n        Consumer<String> printName = name -> System.out.println(\"Hello, \" + name);\n        names.forEach(printName);\n    }\n}\n```\n\n**Вывод:**\n\n```\nHello, Alice\nHello, Bob\nHello, Charlie\n```\n\n💡 **Где используется?**\n\n- В `forEach()` коллекций\n- Логирование (`Logger::info`)\n- Работа с файлами (`Files.lines().forEach(...)`)\n\n**`Function<T, R>` — преобразователь**\n\n`Function<T, R>` принимает объект типа `T` и возвращает объект типа `R`.\n\n**Пример: преобразование строки в ее длину**\n\n```java\nimport java.util.function.Function;\n\npublic class FunctionExample {\n    public static void main(String[] args) {\n        Function<String, Integer> lengthFunction = str -> str.length();\n\n        System.out.println(lengthFunction.apply(\"Java\")); // 4\n        System.out.println(lengthFunction.apply(\"Functional Interfaces\")); // 21\n    }\n}\n```\n\n💡 **Где используется?**\n\n- Преобразование данных в `Stream API`\n- Маппинг объектов (`List<String>` → `List<Integer>`)\n- Фильтрация и сортировка\n\n**`Supplier<T>` — поставщик**  \n\n`Supplier<T>` ничего не принимает, но **генерирует результат**.\n\n**Пример: генерация случайного числа**\n\n```java\nimport java.util.function.Supplier;\nimport java.util.Random;\n\npublic class SupplierExample {\n    public static void main(String[] args) {\n        Supplier<Integer> randomSupplier = () -> new Random().nextInt(100);\n\n        System.out.println(randomSupplier.get()); // Например, 42\n        System.out.println(randomSupplier.get()); // Например, 87\n    }\n}\n```\n\n💡 **Где используется?**\n\n- Ленивая инициализация\n- Генерация случайных данных\n- Фабричные методы\n\n"
+  answer = "`Consumer`, `Function` и `Supplier` — функциональные интерфейсы из `java.util.function`.\n\n| Интерфейс | Метод | Пример применения |\n|---|---|---|\n| `Consumer<T>` | `void accept(T value)` | Выполнить действие для каждого элемента через `forEach` |\n| `Function<T, R>` | `R apply(T value)` | Преобразовать элементы через `map`, например строки в длины |\n| `Supplier<T>` | `T get()` | Создать значение по запросу, например через `Stream.generate` |\n\n```java\nConsumer<String> print = System.out::println;\nFunction<String, Integer> length = String::length;\nSupplier<Integer> next = () -> ThreadLocalRandom.current().nextInt(100);\n```\n\n`filter` принимает `Predicate`, а `sorted` с явным порядком — `Comparator`. `Function` может извлечь ключ для компаратора, например `Comparator.comparing(User::getName)`."
   popularity = 0.9
 
 [[questions]]
   id = 13
   question = "Что такое параллельные стримы?"
-  answer = "Параллельные стримы позволяют разделить обработку данных на несколько потоков, используя `ForkJoinPool`. Это ускоряет обработку больших объемов данных. Потоки забираются из пула `ForkJoinPool.commonPool`\n\n**Когда использовать параллельные стримы?**\n- данных очень много (миллионы записей)\n- операции CPU-интенсивные (например, сложные вычисления)\n- нет зависимостей между элементами (например, суммирование чисел)\n\n**Когда НЕ использовать?**  \n- коллекция маленькая (параллельность создаст накладные расходы).  \n- порядок важен (параллельные стримы могут изменить порядок).  \n- есть побочные эффекты (`forEach()` в `parallelStream` может работать непредсказуемо).\n"
+  answer = "Параллельный Stream разбивает вход на части, обрабатывает их и объединяет результаты. В OpenJDK обычно используется общий `ForkJoinPool`.\n\n---\n**Когда использовать параллельные стримы?**\n\nКогда источник хорошо делится на части, а на каждом элементе выполняется достаточно много независимой вычислительной работы. Выигрыш можно проверить замером.\n\n---\n**Когда не использовать?**\n\nКогда данных мало, обработка блокирует потоки в ожидании ввода-вывода или операции меняют общее состояние. Операции, требующие соблюдения порядка, могут уменьшить выигрыш от параллельности.\n\n---\n**Что с порядком?**\n\n`forEach()` может выполнять действия без порядка встречи. `forEachOrdered()` его сохраняет, если источник упорядочен. Корректная параллельная редукция требует ассоциативной операции."
   popularity = 3.61
 
 [[questions]]
